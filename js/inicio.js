@@ -11,7 +11,8 @@ function renderInicio(){
   const siguiente=WORLDS.findIndex((_,w)=>avance(w)<WORLDS[w].retos.length),destino=siguiente<0?0:siguiente;
   const cta=$('continuar');
   cta.href=`guia.html#mundo${destino+1}`;
-  cta.textContent=x===0?'Empezar la misión':(siguiente<0?'Repasar la guía':`Seguir en ${WORLDS[destino].name}`);
+  cta.textContent=x===0?'Ver todos los mundos':(siguiente<0?'Repasar la guía':`Seguir en ${WORLDS[destino].name}`);
+  $('chispas').textContent=S.chispas||0;
   cta.onclick=()=>ir(destino);
   $('mundos').replaceChildren(...WORLDS.map((w,i)=>{
     const d=avance(i),n=w.retos.length,t=temasDe(i).length;
@@ -32,7 +33,7 @@ function renderCofres(){
 function renderReset(){
   const r=$('reset');
   r.replaceChildren(h('button',{cls:'btn plain',onclick:()=>{
-    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},fallas:{},tem:{},examenes:{},fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
+    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},sesPts:{},ganadas:{},fallas:{},tem:{},examenes:{},exActual:{},sesiones:{},chispas:0,ultimaSesion:null,ultimaFueRepaso:false,fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
   }},'Empezar de cero'));
 }
 renderCofres();renderInicio();renderReset();

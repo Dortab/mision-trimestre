@@ -1,8 +1,8 @@
-const score=(ok,n,end)=>end(ok/n>=.7,`Acertaste ${ok} de ${n} al primer intento.${ok===n?'Puntaje perfecto.':ok/n>=.7?'Repasa las que fallaste.':`Necesitas al menos ${Math.ceil(n*.7)}. Lee otra vez el repaso.`}`);
+const score=(ok,n,end)=>end(ok/n>=.7,`Acertaste ${ok} de ${n}. ${ok===n?'Puntaje perfecto.':ok/n>=.7?'Repasa las que fallaste.':`Necesitas al menos ${Math.ceil(n*.7)}. Lee otra vez el repaso.`}`);
 function fbk(el,good,head,why){el.className='fb '+(good?'y':'n');el.replaceChildren(head,h('span',{html:why}))}
 
 function quiz(r,box,end){
-  let i=0,ok=0;
+  let i=0,ok=0,puntos=0;
   const next=()=>{
     if(i>=r.q.length)return score(ok,r.q.length,end);
     const q=r.q[i],fb=h('div',{cls:'fb','aria-live':'polite'}),nav=h('div',{cls:'row'});
@@ -17,8 +17,9 @@ function quiz(r,box,end){
       i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
     const pick=(o,b)=>{
       if(o.good){
-        if(!errores){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length);marcarFalla(r,q,false);fbk(fb,true,'Correcto.',q.y)}
-        else{fbk(fb,true,'Ahora sí. Al segundo intento no suma XP.',q.y)}
+        ok++;puntos+=errores?.5:1;cuenta.textContent=etiqueta();acierto(r,puntos,r.q.length,q,errores?.5:1);
+        if(!errores){marcarFalla(r,q,false);fbk(fb,true,'Correcto.',q.y)}
+        else fbk(fb,true,'Ahora sí. Al segundo intento suma la mitad de los puntos.',q.y);
         return cerrar();
       }
       b.classList.add('bad');b.disabled=true;
@@ -39,8 +40,8 @@ function quiz(r,box,end){
   next();
 }
 function tf(r,box,end){
-  const c=h('input',{id:'noclock',type:'checkbox',onchange:e=>{S.noClock=e.target.checked;save()}});c.checked=S.noClock;
-  box.replaceChildren(h('p',{cls:'intro'},'Tienes 5 segundos por frase. Responde rápido.'),h('label',{cls:'check',for:'noclock'},c,'Jugar sin reloj'),h('div',{cls:'row'},h('button',{cls:'btn main',onclick:run},'Empezar')));
+  const c=h('input',{id:'conreloj',type:'checkbox',onchange:e=>{S.conReloj=e.target.checked;save()}});c.checked=S.conReloj;
+  box.replaceChildren(h('p',{cls:'intro'},'Lee cada frase con calma y decide si es verdadera o falsa.'),h('label',{cls:'check',for:'conreloj'},c,'Quiero un reto extra: 5 segundos por frase'),h('div',{cls:'row'},h('button',{cls:'btn main',onclick:run},'Empezar')));
   function run(){
     let i=0,ok=0;
     const next=()=>{
@@ -54,10 +55,10 @@ function tf(r,box,end){
         if(!good)ligaTema(fb,q);
         i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
       const bv=h('button',{cls:'opt',onclick:()=>ans(true)},'Verdadero'),bf=h('button',{cls:'opt',onclick:()=>ans(false)},'Falso');
-      const bar=S.noClock?null:h('div',{cls:'clock'},h('i'));
+      const bar=S.conReloj?h('div',{cls:'clock'},h('i')):null;
       const etiqueta=()=>`Frase ${i+1} de ${r.q.length} · Aciertos: ${ok}`,cuenta=h('p',{cls:'count'},etiqueta());
       box.replaceChildren(cuenta,h('p',{cls:'stem'},q.s),bar,h('div',{cls:'opts'},bv,bf),fb,nav);
-      if(!S.noClock){t=setTimeout(()=>ans(null),5000);stop=()=>clearTimeout(t)}
+      if(S.conReloj){t=setTimeout(()=>ans(null),5000);stop=()=>clearTimeout(t)}
     };
     next();
   }
@@ -148,16 +149,17 @@ function home(r,box,end){
 
 /* Pomodoro */
 (function(){
-  let left=1500,t=null;
+  let left=600,t=null;
   const out=$('pomo-t'),go=$('pomo-go');
+  if(!go)return;
   const paint=()=>out.textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');
   const halt=()=>{clearInterval(t);t=null};
   go.onclick=()=>{
     if(t){halt();go.textContent='Continuar';return}
-    if(left===0)left=1500;
+    if(left===0)left=600;
     go.textContent='Pausar';
-    t=setInterval(()=>{left--;paint();if(left<=0){halt();go.textContent='Iniciar pomodoro';toast('Tiempo. Descansa 5 minutos.')}},1000);
+    t=setInterval(()=>{left--;paint();if(left<=0){halt();go.textContent='Iniciar 10 minutos';toast('Tiempo. Descansa 5 minutos.')}},1000);
   };
-  $('pomo-re').onclick=()=>{halt();left=1500;paint();go.textContent='Iniciar pomodoro'};
+  $('pomo-re').onclick=()=>{halt();left=600;paint();go.textContent='Iniciar 10 minutos'};
 })();
 

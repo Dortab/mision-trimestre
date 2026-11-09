@@ -11,11 +11,17 @@
 </head>
 <body>
 <header class="hero wrap">
-  <div>
-    <p class="eyebrow">6.º de primaria · 1.er trimestre</p>
-    <h1>Misión Trimestre</h1>
-    <p class="rules">Jacob, tu misión es dominar los 44 temas de la evaluación. Aprende cada tema, supera los retos y abre los cofres.</p>
-    <a class="cta" id="continuar" href="guia.html">Empezar la misión</a>
+  <div class="saludo">
+    <img class="spark-foto" src="imagenes/spark_saludo.jpeg" alt="SPARK, un robot blanco y naranja, saluda con la mano" width="320" height="320">
+    <div>
+      <p class="eyebrow">6.º de primaria · 1.er trimestre</p>
+      <h1>Misión Trimestre</h1>
+      <p class="rules">Hola, Jacob. Soy <b>SPARK</b>. Hoy solo necesitas 10 minutos: un tema, unas tarjetas y 5 preguntas.</p>
+      <div class="row acciones">
+        <a class="cta" href="mision.html">Mi misión de hoy</a>
+        <a class="cta-sec" id="continuar" href="guia.html">Ver todos los mundos</a>
+      </div>
+    </div>
   </div>
   <section class="hud" aria-label="Tu progreso">
     <div class="xp-row">
@@ -25,6 +31,7 @@
     <div class="stats">
       <div><b id="temas">0</b><span>temas dominados</span></div>
       <div><b id="retos-n">0</b><span>retos superados</span></div>
+      <div><b id="chispas">0</b><span>chispas de SPARK</span></div>
     </div>
   </section>
 </header>
@@ -38,9 +45,9 @@
   <section class="seccion">
     <h2>Cómo se juega</h2>
     <ol class="pasos">
-      <li><strong>Aprende</strong><p>Abre cada tema, lee la explicación y el ejemplo, y márcalo cuando puedas explicarlo.</p></li>
-      <li><strong>Juega</strong><p>Cada respuesta correcta suma XP en el contador. Al superar un reto completas sus 100 XP.</p></li>
-      <li><strong>Presenta el examen</strong><p>Cada mundo tiene un examen de práctica con calificación del 0 al 10 y revisión de errores.</p></li>
+      <li><strong>Mi misión de hoy</strong><p>SPARK te propone un tema: tarjetas cortas y 5 preguntas en unos 10 minutos.</p></li>
+      <li><strong>Juega</strong><p>Cada respuesta correcta suma XP. Si te equivocas, tienes una pista y otro intento por la mitad de los puntos.</p></li>
+      <li><strong>Presenta el examen</strong><p>Cada mundo tiene un examen de 20 preguntas en bloques de 5, con descansos y calificación del 0 al 10.</p></li>
       <li><strong>Abre cofres</strong><p>Cada 500 XP se abre un cofre con la recompensa que acordaron.</p></li>
     </ol>
   </section>
@@ -48,7 +55,7 @@
   <section class="seccion">
     <h2>Cofres</h2>
     <div class="chests" id="chests"></div>
-    <p class="adultos"><b>Para los adultos:</b> escriban juntos las recompensas en los cofres. Se recomienda estudiar una materia por sesión de 25 minutos con el temporizador de la guía. Algunos retos se hacen en casa y necesitan su revisión.</p>
+    <p class="adultos"><b>Para los adultos:</b> escriban juntos las recompensas en los cofres. Se recomienda una misión de 10 minutos por sesión y acompañar las primeras veces. Algunos retos se hacen en casa y necesitan su revisión.</p>
   </section>
 </main>
 

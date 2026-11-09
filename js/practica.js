@@ -156,5 +156,7 @@ agregar('h3',[
 {t:5,p:'Tenían que cuidar los cultivos.',s:'¿Por qué se volvieron sedentarios en el Neolítico?',o:['Por la agricultura','Por los coches','Por el mal clima de hoy'],y:'Sembrar exige quedarse.'}]);
 
 
+agregar('l9',[{t:9,p:'Sin él, nadie sabría de qué trata.',s:'¿Para qué sirve el título de una tabla o gráfica?',o:['Para saber de qué trata','Para adornar la hoja','Para ocupar más espacio'],y:'Un título claro dice qué datos se muestran.'}]);
+
 /* Cada lección enlaza todos los retos que tienen preguntas de su tema. */
 WORLDS.forEach((w,i)=>w.retos.forEach(r=>(r.q||[]).forEach(q=>{const l=TEMAS[i][q.t].r;if(!l.includes(r.id))l.push(r.id)})));
