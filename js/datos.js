@@ -195,3 +195,90 @@ WORLDS[4].retos.push(
 {s:'¿Quién encabezó la resistencia en el sur?',o:['Vicente Guerrero','Ignacio Allende','Benito Juárez'],y:'Después acordó la unión con Iturbide.'},
 {s:'¿Qué documento unió a Iturbide y Guerrero en 1821?',o:['El Plan de Iguala','La Constitución de 1917','Las Leyes de Reforma'],y:'Estableció las tres garantías.'},
 {s:'¿Cuáles eran las tres garantías?',o:['Religión, independencia y unión','Paz, pan y trabajo','Libertad, igualdad y fraternidad'],y:'De ahí el nombre Ejército Trigarante.'}]});
+
+/* Preguntas adicionales de los retos. */
+const agregar=(id,qs)=>WORLDS.flatMap(w=>w.retos).find(r=>r.id===id).q.push(...qs);
+agregar('c1',[
+{s:'¿Cuál es la primera barrera contra los microbios?',o:['La piel','Los huesos','El cabello'],y:'La piel funciona como la muralla del castillo.'},
+{s:'¿Por qué es difícil que te vuelva a dar varicela?',o:['Tu cuerpo guarda memoria del virus','El virus desaparece del planeta','Tu piel se vuelve más gruesa'],y:'Tus defensas recuerdan a ese enemigo.'},
+{s:'¿Cuántas horas se recomienda dormir a tu edad?',o:['Entre 9 y 11','Entre 4 y 5','Entre 14 y 16'],y:'Mientras duermes, tu cuerpo fabrica defensas.'}]);
+agregar('c2',[
+{s:'La diabetes se contagia al saludar a alguien.',v:false,y:'La diabetes no es una enfermedad contagiosa.'},
+{s:'La fiebre puede ser parte de la defensa del cuerpo.',v:true,y:'A los microbios les cuesta multiplicarse con más temperatura.'},
+{s:'El agua estancada ayuda a que nazcan mosquitos.',v:true,y:'Por eso conviene vaciar cubetas y llantas.'},
+{s:'Una vacuna busca enfermarte gravemente.',v:false,y:'Solo entrena a tus defensas.'}]);
+agregar('c4',[
+{s:'¿Qué sistema debilita el VIH?',o:['El sistema inmunitario','El sistema óseo','El sistema digestivo'],y:'Por eso el cuerpo tiene menos defensas.'},
+{s:'¿Qué es una adicción?',o:['Sentir que no puedes dejar de consumir algo','Tener mucha energía para jugar','Practicar seguido un deporte'],y:'Es una dependencia que daña la salud.'},
+{s:'¿Qué es la desnutrición?',o:['La falta de nutrientes en el cuerpo','El exceso de agua en el cuerpo','El exceso de ejercicio diario'],y:'Afecta el crecimiento y las defensas.'}]);
+agregar('l2',[
+{s:'En «Mi perro duerme afuera», ¿qué indica <b>afuera</b>?',o:['Lugar','Tiempo','Cantidad'],y:'Responde a la pregunta ¿dónde?'},
+{s:'En «Comí poco», ¿qué indica <b>poco</b>?',o:['Cantidad','Modo','Lugar'],y:'Responde a la pregunta ¿cuánto?'},
+{s:'Elige el nexo para cerrar: «___, debemos cuidar a las abejas.»',o:['En conclusión','Pero','Además'],y:'En conclusión introduce la idea final.'}]);
+agregar('l4',[
+{s:'El paquete tiene 300 g y la porción es de 30 g. ¿Cuántas porciones trae?',o:['10','30','3'],y:'300 ÷ 30 = 10.'},
+{s:'¿Cuánto sodio consumes en 2 porciones?',o:['360 mg','180 mg','90 mg'],y:'180 mg × 2 = 360 mg.'},
+{s:'¿Cuántas kilocalorías tienen 3 porciones?',o:['354 kcal','118 kcal','236 kcal'],y:'118 × 3 = 354.'}]);
+agregar('l5',[
+{s:'«Cuando se talan árboles, hay menos sombra y sube el calor.» Este argumento es de:',o:['Causa y efecto','Autoridad','Experiencia personal'],y:'Explica qué provoca una acción.'},
+{s:'¿Qué es un argumento?',o:['Una razón que apoya una idea','Un personaje de una historia','Una palabra que rima'],y:'Sirve para sostener lo que piensas.'},
+{s:'¿Cuál información se puede comprobar?',o:['En el grupo, 20 de 30 personas usan lentes.','El azul es el color más bonito.','La pizza es la comida más rica.'],y:'Se puede contar y verificar.'}]);
+agregar('l6',[
+{s:'«Tres días cambiaron mi vida.» ¿Qué forma de narrar anuncia esta frase?',o:['Por momentos importantes','Un reglamento','Una receta'],y:'Elige solo los sucesos clave.'},
+{s:'¿Qué indica la palabra <b>luego</b>?',o:['Que algo ocurrió después','Que algo ocurrió antes','Un lugar de la casa'],y:'Marca un suceso posterior.'},
+{s:'¿Cuál frase está en primera persona?',o:['Yo aprendí a nadar en Veracruz.','Ella aprendió a nadar en Veracruz.','Aprende a nadar en Veracruz.'],y:'Quien narra dice «yo».'}]);
+agregar('l7',[
+{s:'¿Cuál es el propósito de un texto explicativo?',o:['Informar cómo o por qué ocurre algo','Convencerte de comprar algo','Contar un chiste'],y:'Da información sin intentar convencer.'},
+{s:'¿Qué expresión introduce una causa?',o:['Debido a','Finalmente','Sin embargo'],y:'Debido a indica por qué pasó algo.'},
+{s:'¿Cómo conviene organizar tus notas de exposición?',o:['En tarjetas, una por idea','En un solo párrafo largo','Copiando todo el libro'],y:'Las tarjetas te ayudan a seguir el orden.'}]);
+agregar('l8',[
+{s:'¿Qué es una postura?',o:['El lado que eliges en un tema','El título de un texto','La letra de un autor'],y:'Puede ser a favor, en contra o neutral.'},
+{s:'¿Cuál frase se contradice?',o:['Hay que cuidar los árboles, así que talemos más.','Hay que cuidar los árboles porque dan sombra.','Plantar árboles ayuda al ambiente.'],y:'La segunda parte va contra la idea principal.'},
+{s:'¿Qué te ayuda a identificar la postura de un texto?',o:['Preguntarte qué defiende quien escribe','Contar sus palabras','Ver el tamaño de la letra'],y:'Busca qué idea quiere sostener.'}]);
+agregar('l10',[
+{s:'¿Qué debes evitar en una reseña?',o:['Revelar el final','Dar tu opinión','Decir el título'],y:'Así no le arruinas la historia a nadie.'},
+{s:'«No correr en los pasillos.» ¿En qué forma está el verbo?',o:['Infinitivo','Futuro','Pasado'],y:'Correr termina en -er y no indica tiempo.'},
+{s:'En un reglamento, ¿qué es una sanción?',o:['La consecuencia de no cumplir una norma','El título del documento','Un derecho de cada persona'],y:'Indica qué pasa si alguien no cumple.'}]);
+agregar('m1',[
+{s:'¿Cuántas cifras tiene 9,460,000,000,000?',o:['13','12','10'],y:'Cuatro grupos de tres y un 9 al inicio.'},
+{s:'¿Cómo se separa correctamente 1234567890?',o:['1,234,567,890','123,456,789,0','1234,567,890'],y:'De tres en tres desde la derecha.'},
+{s:'En 5,608,000,000,000, ¿cuánto vale el 5?',o:['5 billones','5 millones','5 mil millones'],y:'Está en el lugar de los billones.'}]);
+agregar('m2',[
+{s:'¿Qué número es XIV?',o:['14','16','6'],y:'X = 10 y IV = 4.'},
+{s:'¿Qué número es CM?',o:['900','1100','150'],y:'C va antes de M, así que 1000 − 100.'},
+{s:`¿Qué número es ${G('𓆼𓍢𓎆𓏺')}?`,o:['1,111','1,101','4'],y:'1000 + 100 + 10 + 1.'}]);
+agregar('m4',[
+{s:'Convierte 0.6 a fracción simplificada.',o:[F(3,5),F(6,100),F(1,6)],y:`${F(6,10)} se simplifica a ${F(3,5)}.`},
+{s:`Convierte ${F(3,8)} a decimal.`,o:['0.375','3.8','0.83'],y:'3 ÷ 8 = 0.375.'},
+{s:'¿Cómo se llama 0.0001?',o:['Un diezmilésimo','Un milésimo','Un centésimo'],y:'Tiene cuatro cifras decimales.'}]);
+agregar('m7',[
+{s:'¿Cuántos gramos son 0.250 kg?',o:['250 g','25 g','2,500 g'],y:'Cada milésimo de kilo es un gramo.'},
+{s:'Pagas con $5.00 algo de $1.75. ¿Cuánto te regresan?',o:['$3.25','$4.25','$3.75'],y:'5.00 − 1.75 = 3.25.'},
+{s:'¿Qué número es igual a 0.5?',o:['0.500','0.05','0.005'],y:'Los ceros al final no cambian el valor.'}]);
+agregar('m8',[
+{s:`¿Cuánto es ${F(1,2)} + ${F(1,3)}?`,o:[F(5,6),F(2,5),F(1,6)],y:`${F(3,6)} + ${F(2,6)} = ${F(5,6)}.`},
+{s:`¿Cuánto es ${F(3,5)} de 20?`,o:['12','4','15'],y:'20 ÷ 5 = 4 y 4 × 3 = 12.'},
+{s:`Había ${F(7,8)} de litro y se usaron ${F(3,8)}. ¿Cuánto queda?`,o:[F(1,2),F(10,8),F(3,4)],y:`${F(4,8)} se simplifica a ${F(1,2)}.`}]);
+agregar('m9',[
+{s:'Continúa: 1,000,000 · 3,000,000 · 5,000,000 · ___',o:['7,000,000','6,000,000','9,000,000'],y:'La regla es sumar 2,000,000.'},
+{s:'Continúa: 100,000,000 · 90,000,000 · 80,000,000 · ___',o:['70,000,000','60,000,000','79,000,000'],y:'La regla es restar 10,000,000.'},
+{s:'Continúa: 4 billones · 8 billones · 12 billones · ___',o:['16 billones','14 billones','24 billones'],y:'La regla es sumar 4 billones.'}]);
+agregar('g1',[
+{s:'¿Qué es un ecosistema?',o:['Un lugar con seres vivos que se relacionan','Un tipo de roca volcánica','Una ciudad muy grande'],y:'Incluye a los seres vivos y su ambiente.'},
+{s:'Llevar tu propia botella en lugar de comprar una nueva es:',o:['Reducir','Reciclar','Contaminar'],y:'Usas menos plástico.'},
+{s:'¿Qué significa que el agua sea asequible?',o:['Que su costo esté al alcance de la gente','Que sea de color azul','Que venga de otro país'],y:'Nadie debería quedarse sin agua por su costo.'}]);
+agregar('g3',[
+{s:'¿Qué es una especie invasora?',o:['Una que llega a un lugar y afecta a las que ahí viven','Una que solo vive en México','Una especie extinta hace siglos'],y:'Compite con las especies del lugar.'},
+{s:'¿Qué ocurre cuando se tala un bosque?',o:['Los animales pierden casa y comida','Aumentan las especies del lugar','Llueve siempre más'],y:'Se destruye el hábitat.'},
+{s:'¿Dónde está la mayor parte del agua del planeta?',o:['En los océanos, y es salada','En los ríos, y es dulce','En las nubes'],y:'Muy poca agua es dulce y fácil de usar.'}]);
+agregar('h3',[
+{s:'¿Quiénes estudian los restos del pasado?',o:['Las y los arqueólogos','Las y los astrónomos','Las y los dentistas'],y:'Analizan herramientas, huesos y construcciones.'},
+{s:'¿Cómo eran las herramientas del Paleolítico?',o:['De piedra tallada','De acero','De plástico'],y:'Golpeaban una piedra con otra.'},
+{s:'¿En qué continente surgieron los primeros seres humanos?',o:['África','Europa','América'],y:'Desde ahí se dispersaron por el mundo.'}]);
+agregar('h4',[
+{c:['Mi nombre quiere decir «tierra entre ríos».','Estoy entre el Tigris y el Éufrates.','Usé escritura cuneiforme.'],o:['Mesopotamia','Egipto','Roma'],y:'Hoy ahí se encuentra Irak.'},
+{c:['Luché después de Hidalgo.','Organicé el movimiento.','Escribí los Sentimientos de la Nación.'],o:['José María Morelos','Vicente Guerrero','Agustín de Iturbide'],y:'Los presentó en 1813.'}]);
+agregar('h6',[
+{s:'¿Qué día inició la lucha de Independencia?',o:['16 de septiembre de 1810','27 de septiembre de 1821','5 de mayo de 1862'],y:'Fue con el llamado de Hidalgo en Dolores.'},
+{s:'¿Qué significa Trigarante?',o:['Tres garantías','Tres ejércitos','Tres ríos'],y:'Religión, independencia y unión.'},
+{s:'¿Cuántos años duró la guerra de Independencia?',o:['11','21','5'],y:'De 1810 a 1821.'}]);

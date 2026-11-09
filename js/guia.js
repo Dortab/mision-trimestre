@@ -31,7 +31,7 @@ function renderHud(){
 }
 const lecciones=()=>TEMAS[S.world].map((t,i)=>({...t,id:temaId(S.world,i)}));
 function inicioMundo(){
-  paso='aprende';openId=null;
+  paso='aprende';openId=null;ex=null;
   temaActual=Math.max(0,lecciones().findIndex(t=>!S.tem[t.id]));
 }
 function renderWorld(){
@@ -44,9 +44,10 @@ function renderWorld(){
 }
 function renderPaso(){
   stop();
-  $('etapas').replaceChildren(...[['aprende','1. Explicación'],['preguntas','2. Preguntas']].map(([k,l])=>
+  $('etapas').replaceChildren(...[['aprende','1. Explicación'],['preguntas','2. Preguntas'],['examen','3. Examen']].map(([k,l])=>
     h('button',{cls:'etapa','aria-current':paso===k?'true':'false',onclick:()=>{cambiarPaso(k)}},l)));
   if(paso==='aprende')renderLeccion();
+  else if(paso==='examen')renderExamen();
   else{$('contenido').replaceChildren(h('div',{cls:'col',id:'retos'}));renderRetos()}
 }
 function cambiarPaso(k){
@@ -92,6 +93,7 @@ function renderRetos(){
     list.append(card);
     if(openId===r.id){card.append(body);play(r,body,w)}
   });
+  list.append(h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>cambiarPaso('examen')},'Ya practiqué: ir al examen')));
 }
 function play(r,box,w){
   stop();stop=()=>{};

@@ -1,7 +1,7 @@
 /* Estado y utilidades que comparten la página de inicio y la guía. */
 const KEY='mision-trimestre-v1';
 const CHESTS=['Tiempo extra de juego','Elegir la cena','Armar un set','Plan especial en familia','Noche de película','Elegir el postre','Premio mayor'];
-let S={done:{},pts:{},tem:{},rewards:CHESTS.slice(),fields:{},world:0,noClock:false};
+let S={done:{},pts:{},tem:{},examenes:{},rewards:CHESTS.slice(),fields:{},world:0,noClock:false};
 try{const raw=localStorage.getItem(KEY);if(raw)S={...S,...JSON.parse(raw)}}catch(e){}
 while(S.rewards.length<CHESTS.length)S.rewards.push(CHESTS[S.rewards.length]);
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
