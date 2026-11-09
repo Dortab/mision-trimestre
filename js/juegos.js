@@ -12,9 +12,10 @@ function quiz(r,box,end,done){
     else stems.push(h('p',{cls:'stem',html:q.s}));
     const btns=shuffle(q.o.map((t,n)=>({t,good:n===0}))).map(o=>{const b=h('button',{cls:'opt',html:o.t,onclick:()=>pick(o,b)});b._g=o.good;return b});
     const pick=(o,b)=>{btns.forEach(x=>{x.disabled=true;if(x._g)x.classList.add('good')});if(q._more)q._more.remove();
-      if(o.good)ok++;else b.classList.add('bad');fbk(fb,o.good,o.good?'Correcto.':'Esa no era.',q.y);
+      if(o.good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else b.classList.add('bad');fbk(fb,o.good,o.good?'Correcto.':'Esa no era.',q.y);
       i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
-    box.replaceChildren(...(r.intro&&!done?[h('div',{cls:'intro',html:r.intro})]:[]),h('p',{cls:'count'},`Pregunta ${i+1} de ${r.q.length}`),...stems,h('div',{cls:'opts'},btns),fb,nav);
+    const etiqueta=()=>`Pregunta ${i+1} de ${r.q.length} · Aciertos: ${ok}`,cuenta=h('p',{cls:'count'},etiqueta());
+    box.replaceChildren(...(r.intro&&!done?[h('div',{cls:'intro',html:r.intro})]:[]),cuenta,...stems,h('div',{cls:'opts'},btns),fb,nav);
   };
   next();
 }
@@ -28,12 +29,13 @@ function tf(r,box,end){
       const q=r.q[i],fb=h('div',{cls:'fb','aria-live':'polite'}),nav=h('div',{cls:'row'});
       let t;
       const ans=v=>{clearTimeout(t);stop=()=>{};bar&&bar.remove();[bv,bf].forEach(b=>{b.disabled=true});(q.v?bv:bf).classList.add('good');
-        const good=v===q.v;if(good)ok++;else if(v!==null)(v?bv:bf).classList.add('bad');
+        const good=v===q.v;if(good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else if(v!==null)(v?bv:bf).classList.add('bad');
         fbk(fb,good,good?'Correcto.':(v===null?'Se acabó el tiempo.':'Esa no era.'),`${q.v?'Es verdadero.':'Es falso.'} ${q.y}`);
         i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
       const bv=h('button',{cls:'opt',onclick:()=>ans(true)},'Verdadero'),bf=h('button',{cls:'opt',onclick:()=>ans(false)},'Falso');
       const bar=S.noClock?null:h('div',{cls:'clock'},h('i'));
-      box.replaceChildren(h('p',{cls:'count'},`Frase ${i+1} de ${r.q.length}`),h('p',{cls:'stem'},q.s),bar,h('div',{cls:'opts'},bv,bf),fb,nav);
+      const etiqueta=()=>`Frase ${i+1} de ${r.q.length} · Aciertos: ${ok}`,cuenta=h('p',{cls:'count'},etiqueta());
+      box.replaceChildren(cuenta,h('p',{cls:'stem'},q.s),bar,h('div',{cls:'opts'},bv,bf),fb,nav);
       if(!S.noClock){t=setTimeout(()=>ans(null),5000);stop=()=>clearTimeout(t)}
     };
     next();
@@ -46,7 +48,8 @@ function match(r,box,end){
   const R=shuffle(r.p).map(p=>{const b=h('button',{cls:'tag',onclick:()=>{
     if(!sel){fb.className='fb n';fb.textContent='Primero toca un tema.';return}
     if(sel._k===p[1]){sel.classList.remove('sel');sel.classList.add('good');b.classList.add('good');sel.disabled=b.disabled=true;sel=null;fb.className='fb y';fb.textContent='Correcto.';
-      if(--left===0)end(true,miss?`Lo completaste con ${miss} ${miss===1?'error':'errores'}.`:'Lo completaste sin errores.')}
+      left--;acierto(r,r.p.length-left,r.p.length);
+      if(left===0)end(true,miss?`Lo completaste con ${miss} ${miss===1?'error':'errores'}.`:'Lo completaste sin errores.')}
     else{miss++;b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),500);fb.className='fb n';fb.textContent='Esa pareja no va. Intenta otra.'}}},p[1]);return b});
   box.replaceChildren(h('p',{cls:'intro'},r.intro),h('div',{cls:'match'},h('div',{},L),h('div',{},R)),fb);
 }
@@ -63,7 +66,7 @@ function order(r,box,end){
       act.replaceChildren(h('button',{cls:'btn main',onclick:check,...(picks.length<right.length?{disabled:''}:{})},'Revisar'),h('button',{cls:'btn',onclick:()=>{picks=[];fb.textContent='';draw()}},'Borrar'));
     };
     function check(){
-      if(picks.every((x,i)=>x===right[i])){round++;start();return}
+      if(picks.every((x,i)=>x===right[i])){round++;acierto(r,round,r.rounds.length);start();return}
       miss++;draw(true);fb.className='fb n';fb.textContent='Las rojas están fuera de lugar. Tócalas para quitarlas y vuelve a intentarlo.';
     }
     draw();
@@ -94,7 +97,7 @@ function maya(r,box,end){
     box.replaceChildren(h('p',{cls:'count'},`Número ${i+1} de ${r.targets.length}`),h('p',{cls:'stem'},`Escribe el ${t} con números mayas.`),h('p',{cls:'intro'},'Cinco puntos se convierten en una raya.'),wrap,fb,
       h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>{
         const val=v[0]*20+v[1];
-        if(val===t){i++;fb.className='fb y';fb.textContent='Correcto.';setTimeout(next,700)}
+        if(val===t){i++;acierto(r,i,r.targets.length);fb.className='fb y';fb.textContent='Correcto.';setTimeout(next,700)}
         else{fb.className='fb n';fb.textContent=`Tu número vale (${v[0]} × 20) + ${v[1]} = ${val}. Debe dar ${t}.`}
       }},'Revisar')));
   };

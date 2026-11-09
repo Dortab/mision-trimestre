@@ -7,7 +7,7 @@ function renderInicio(){
   $('xp').textContent=x;$('xp-total').textContent=TOTAL_XP;
   $('bar').style.width=(x/TOTAL_XP*100)+'%';
   $('temas').textContent=`${dominados} de ${TOTAL_TEMAS}`;
-  $('retos-n').textContent=`${x/100} de ${retos}`;
+  $('retos-n').textContent=`${Object.keys(S.done).length} de ${retos}`;
   const siguiente=WORLDS.findIndex((_,w)=>avance(w)<WORLDS[w].retos.length),destino=siguiente<0?0:siguiente;
   const cta=$('continuar');
   cta.href=`guia.html#mundo${destino+1}`;
@@ -32,7 +32,7 @@ function renderCofres(){
 function renderReset(){
   const r=$('reset');
   r.replaceChildren(h('button',{cls:'btn plain',onclick:()=>{
-    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},tem:{},fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
+    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},tem:{},fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
   }},'Empezar de cero'));
 }
 renderCofres();renderInicio();renderReset();
