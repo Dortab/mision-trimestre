@@ -1,21 +1,40 @@
-const score=(ok,n,end)=>end(ok/n>=.7,`Acertaste ${ok} de ${n}. ${ok===n?'Puntaje perfecto.':ok/n>=.7?'Repasa las que fallaste.':`Necesitas al menos ${Math.ceil(n*.7)}. Lee otra vez el repaso.`}`);
+const score=(ok,n,end)=>end(ok/n>=.7,`Acertaste ${ok} de ${n} al primer intento.${ok===n?'Puntaje perfecto.':ok/n>=.7?'Repasa las que fallaste.':`Necesitas al menos ${Math.ceil(n*.7)}. Lee otra vez el repaso.`}`);
 function fbk(el,good,head,why){el.className='fb '+(good?'y':'n');el.replaceChildren(head,h('span',{html:why}))}
 
-function quiz(r,box,end,done){
+function quiz(r,box,end){
   let i=0,ok=0;
   const next=()=>{
-    if(i>=r.q.length)return (done||score)(ok,r.q.length,end);
+    if(i>=r.q.length)return score(ok,r.q.length,end);
     const q=r.q[i],fb=h('div',{cls:'fb','aria-live':'polite'}),nav=h('div',{cls:'row'});
     const stems=[];let shown=1;
     if(q.c){const cl=h('div',{cls:'opts'});const add=()=>cl.append(h('p',{cls:'clue'},q.c[shown-1]));add();
       const more=h('button',{cls:'btn small',onclick:()=>{shown++;add();if(shown>=q.c.length)more.remove()}},'Otra pista');stems.push(cl,h('div',{cls:'row'},more));nav.dataset.more='1';q._more=more}
     else stems.push(h('p',{cls:'stem',html:q.s}));
     const btns=shuffle(q.o.map((t,n)=>({t,good:n===0}))).map(o=>{const b=h('button',{cls:'opt',html:o.t,onclick:()=>pick(o,b)});b._g=o.good;return b});
-    const pick=(o,b)=>{btns.forEach(x=>{x.disabled=true;if(x._g)x.classList.add('good')});if(q._more)q._more.remove();
-      if(o.good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else b.classList.add('bad');fbk(fb,o.good,o.good?'Correcto.':'Esa no era.',q.y);
+    /* Primer error: pista y otro intento. Segundo error: respuesta y explicación. */
+    let errores=0;
+    const cerrar=()=>{btns.forEach(x=>{x.disabled=true;if(x._g)x.classList.add('good')});if(q._more)q._more.remove();
       i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
+    const pick=(o,b)=>{
+      if(o.good){
+        if(!errores){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length);marcarFalla(r,q,false);fbk(fb,true,'Correcto.',q.y)}
+        else{fbk(fb,true,'Ahora sí. Al segundo intento no suma XP.',q.y)}
+        return cerrar();
+      }
+      b.classList.add('bad');b.disabled=true;
+      if(!errores++){
+        marcarFalla(r,q,true);
+        if(q._more)while(q._more.isConnected)q._more.click();
+        fbk(fb,false,'Todavía no. Inténtalo otra vez.',q.p||'Lee con calma todas las pistas.');
+        ligaTema(fb,q);
+        return;
+      }
+      fbk(fb,false,'Esa tampoco era.',`${q.y} ${recordatorio(q)}`);
+      ligaTema(fb,q);
+      cerrar();
+    };
     const etiqueta=()=>`Pregunta ${i+1} de ${r.q.length} · Aciertos: ${ok}`,cuenta=h('p',{cls:'count'},etiqueta());
-    box.replaceChildren(...(r.intro&&!done?[h('div',{cls:'intro',html:r.intro})]:[]),cuenta,...stems,h('div',{cls:'opts'},btns),fb,nav);
+    box.replaceChildren(...(r.intro?[h('div',{cls:'intro',html:r.intro})]:[]),cuenta,...stems,h('div',{cls:'opts'},btns),fb,nav);
   };
   next();
 }
@@ -30,7 +49,9 @@ function tf(r,box,end){
       let t;
       const ans=v=>{clearTimeout(t);stop=()=>{};bar&&bar.remove();[bv,bf].forEach(b=>{b.disabled=true});(q.v?bv:bf).classList.add('good');
         const good=v===q.v;if(good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else if(v!==null)(v?bv:bf).classList.add('bad');
-        fbk(fb,good,good?'Correcto.':(v===null?'Se acabó el tiempo.':'Esa no era.'),`${q.v?'Es verdadero.':'Es falso.'} ${q.y}`);
+        marcarFalla(r,q,!good);
+        fbk(fb,good,good?'Correcto.':(v===null?'Se acabó el tiempo.':'Esa no era.'),`${q.v?'Es verdadero.':'Es falso.'} ${q.y}${good?'':' '+recordatorio(q)}`);
+        if(!good)ligaTema(fb,q);
         i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
       const bv=h('button',{cls:'opt',onclick:()=>ans(true)},'Verdadero'),bf=h('button',{cls:'opt',onclick:()=>ans(false)},'Falso');
       const bar=S.noClock?null:h('div',{cls:'clock'},h('i'));

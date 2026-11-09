@@ -32,7 +32,7 @@ function renderCofres(){
 function renderReset(){
   const r=$('reset');
   r.replaceChildren(h('button',{cls:'btn plain',onclick:()=>{
-    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},tem:{},examenes:{},fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
+    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},fallas:{},tem:{},examenes:{},fields:{},world:0};save();renderInicio();renderReset()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
   }},'Empezar de cero'));
 }
 renderCofres();renderInicio();renderReset();

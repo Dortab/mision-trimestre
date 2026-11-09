@@ -111,3 +111,74 @@ const EXAMENES=[
  {s:'¿Qué es domesticar animales?',o:['Criarlos para convivir con las personas','Cazarlos en el bosque','Pintarlos en una cueva'],y:'Ocurrió en el Neolítico.'}]
 ]
 ];
+
+/* Preguntas para llegar a 30 por mundo. */
+const sumarExamen=(w,t,qs)=>EXAMENES[w][t].push(...qs);
+sumarExamen(0,0,[
+{s:'¿Qué células fabrican los anticuerpos?',o:['Los glóbulos blancos','Los glóbulos rojos','Las células de la piel'],y:'Los leucocitos forman parte de las defensas.'},
+{s:'¿Cómo ayudan los mocos y la saliva?',o:['Atrapan a muchos microbios','Fabrican huesos','Producen la fiebre'],y:'Son parte de las primeras barreras.'}]);
+sumarExamen(0,1,[
+{s:'¿Qué alimento aporta más vitaminas para tus defensas?',o:['Una naranja','Una bolsa de frituras','Un dulce'],y:'Las frutas tienen vitaminas y minerales.'},
+{s:'Moverte todos los días ayuda a tu cuerpo porque:',o:['Mantiene tu salud y tus defensas','Elimina la necesidad de dormir','Sustituye las vacunas'],y:'El ejercicio forma parte de un buen cuidado.'}]);
+sumarExamen(0,2,[
+{s:'¿Qué aprende tu cuerpo gracias a una vacuna?',o:['A reconocer y combatir un microbio','A digerir más rápido','A crecer más alto'],y:'Crea defensas y memoria.'},
+{s:'¿Quiénes se benefician si mucha gente se vacuna?',o:['Toda la comunidad','Solo las personas mayores','Solo quienes trabajan en hospitales'],y:'Los microbios circulan menos.'}]);
+sumarExamen(0,3,[
+{s:'¿Cuál enfermedad NO es contagiosa?',o:['La miopía','La gripe','La varicela'],y:'La miopía no pasa de una persona a otra.'},
+{s:'¿Qué acción bloquea la transmisión por alimentos?',o:['Lavarlos y cocinarlos bien','Comerlos sin lavar','Dejarlos al sol todo el día'],y:'Elimina microbios.'}]);
+sumarExamen(0,4,[
+{s:'¿Qué necesita un bebé desde que nace?',o:['Cuidados, alimento y atención médica','Solo juguetes','Solo una cuna'],y:'Por eso cambia la vida de sus cuidadores.'},
+{s:'¿Qué significa tomar una decisión informada?',o:['Decidir con información confiable','Hacer lo que digan todas las personas','Elegir al azar'],y:'La información ayuda a decidir mejor.'}]);
+sumarExamen(0,5,[
+{s:'¿Cómo actúa un método de barrera?',o:['Impide el contacto directo','Aumenta la temperatura','Fortalece los huesos'],y:'El condón es un ejemplo.'},
+{s:'Ante una posible ITS, lo correcto es:',o:['Acudir al médico','Esperar a que pase','Tomar lo que recomiende un amigo'],y:'Debe atenderla personal de salud.'}]);
+sumarExamen(0,6,[{s:'¿Quién tiene derecho a decidir sobre tu cuerpo?',o:['Tú','Cualquier adulto','Tus amistades'],y:'Tu cuerpo es tuyo, y nadie debe tocarlo sin permiso.'}]);
+sumarExamen(0,7,[{s:'¿Qué conviene tomar en lugar de refresco?',o:['Agua simple','Bebida energética','Jugo con azúcar añadida'],y:'El agua simple no aporta azúcar.'}]);
+sumarExamen(1,0,[{s:'¿Qué expresión indica un suceso posterior?',o:['Tiempo después','Antes de eso','Al mismo tiempo'],y:'Ubica algo que ocurrió más adelante.'}]);
+sumarExamen(1,4,[{s:'«Corrí mucho; ___, llegué tarde.» ¿Qué nexo muestra contraste?',o:['sin embargo','por lo tanto','además'],y:'Lo esperado era llegar a tiempo.'}]);
+sumarExamen(1,9,[{s:'¿Qué necesita una gráfica para entenderse?',o:['Título y etiquetas','Rimas y personajes','Un final sorpresa'],y:'Explican qué muestra cada parte.'}]);
+sumarExamen(1,11,[{s:'¿Quién se beneficia al leer una reseña?',o:['Quien decide si leer o ver una obra','Solo quien escribió la obra','Nadie'],y:'Le ayuda a elegir.'}]);
+sumarExamen(2,3,[{s:'¿Cuánto vale en maya un piso con 4 puntos?',o:['4','20','9'],y:'Cada punto vale 1.'}]);
+sumarExamen(2,5,[{s:'¿Cuánto pesan 1.5 kg en gramos?',o:['1,500 g','150 g','15 g'],y:'Cada kilo tiene 1000 gramos.'}]);
+sumarExamen(2,7,[{s:'¿Cuánto es 10 − 3.25?',o:['6.75','7.75','7.25'],y:'10.00 − 3.25 = 6.75.'}]);
+sumarExamen(2,9,[{s:`¿Cuánto es ${F(3,8)} + ${F(1,4)}?`,o:[F(5,8),F(4,12),F(1,2)],y:`${F(1,4)} = ${F(2,8)}.`}]);
+sumarExamen(2,10,[{s:'¿Cuál de estos números es el más pequeño?',o:['0.205',F(1,4),'0.3'],y:`${F(1,4)} = 0.25.`}]);
+sumarExamen(2,11,[{s:`En un salón de 30, ${F(2,5)} usan lentes. ¿Cuántas personas son?`,o:['12','6','15'],y:'30 ÷ 5 = 6 y 6 × 2 = 12.'}]);
+sumarExamen(3,0,[
+{s:'¿Qué organismos forman parte de la biodiversidad?',o:['Animales, plantas, hongos y microorganismos','Únicamente los mamíferos','Únicamente los árboles'],y:'Incluye todas las formas de vida.'},
+{s:'¿Dónde vive naturalmente la vaquita marina?',o:['En el norte del golfo de California','En el río Nilo','En el océano Ártico'],y:'Es endémica de México.'},
+{s:'México tiene muchos ecosistemas gracias a:',o:['Sus montañas, costas, desiertos y selvas','Sus centros comerciales','Su número de carreteras'],y:'Su relieve crea climas distintos.'}]);
+sumarExamen(3,1,[
+{s:'Usar una caja vieja como organizador es:',o:['Reutilizar','Reciclar','Contaminar'],y:'Le das un nuevo uso.'},
+{s:'¿Cuál compra es más sustentable?',o:['Un producto con poco empaque','Uno envuelto en varias bolsas','Uno que se tira al primer uso'],y:'Se generan menos residuos.'},
+{s:'Consumir de forma sustentable significa:',o:['Cubrir necesidades sin agotar recursos','Comprar lo más nuevo cada mes','No usar ningún recurso'],y:'Piensa también en el futuro.'}]);
+sumarExamen(3,2,[
+{s:'¿Qué especie está en riesgo si se destruye su bosque de invierno?',o:['La mariposa monarca','El tiburón blanco','El camello'],y:'Depende de ese hábitat.'},
+{s:'¿Qué significa hábitat?',o:['El lugar donde vive una especie','El alimento de un animal','Un tipo de vacuna'],y:'Si se destruye, la especie peligra.'},
+{s:'¿Cómo puedes ayudar a la biodiversidad?',o:['No tirando basura en la naturaleza','Llevándote animales a casa','Cortando plantas silvestres'],y:'Evita contaminar sus hábitats.'}]);
+sumarExamen(3,3,[
+{s:'¿A quiénes les corresponde el derecho al agua?',o:['A todas las personas','Solo a quienes viven en ciudades','Solo a quienes pagan más'],y:'Es un derecho humano.'},
+{s:'Si una familia casi no puede pagar el agua, ¿qué condición falla?',o:['Asequible','Salubre','Aceptable'],y:'El costo debe estar a su alcance.'},
+{s:'Si el agua no alcanza para beber y asearse, ¿qué condición falla?',o:['Suficiente','Asequible','Aceptable'],y:'Debe alcanzar para usos básicos.'}]);
+sumarExamen(3,4,[
+{s:'¿Qué conviene hacer mientras te enjabonas?',o:['Cerrar la llave','Dejar correr el agua','Abrir otra llave'],y:'Evitas desperdiciarla.'},
+{s:'¿Qué NO debe tirarse al drenaje?',o:['Aceite usado','Agua de enjuague','Agua de lavar platos sin grasa'],y:'El aceite contamina mucha agua.'},
+{s:'Una llave gasta 6 L por minuto. ¿Cuánto ahorras si la cierras 2 minutos?',o:['12 L','8 L','3 L'],y:'6 × 2 = 12.'}]);
+sumarExamen(4,0,[
+{s:'¿Quiénes investigan con excavaciones los restos antiguos?',o:['Las y los arqueólogos','Las y los meteorólogos','Las y los abogados'],y:'Estudian objetos del pasado.'},
+{s:'¿Cuáles son dos periodos importantes de la Prehistoria?',o:['Paleolítico y Neolítico','Independencia y Reforma','Grecia y Roma'],y:'El Paleolítico ocurrió primero.'}]);
+sumarExamen(4,1,[
+{s:'¿Quién participó en la conspiración de Querétaro?',o:['Josefa Ortiz de Domínguez','Sor Juana Inés de la Cruz','Frida Kahlo'],y:'Avisó que había sido descubierta.'},
+{s:'¿Qué documento se relaciona con José María Morelos?',o:['Sentimientos de la Nación','Plan de Iguala','Constitución de 1917'],y:'Propuso ideas para la nueva nación.'}]);
+sumarExamen(4,2,[
+{s:'¿Cómo conseguían alimento los primeros humanos?',o:['Cazando y recolectando','Comprando en mercados','Sembrando en grandes ciudades'],y:'Aún no existía la agricultura.'},
+{s:'¿Qué hicieron los humanos desde África?',o:['Se dispersaron por el planeta','Se quedaron todos ahí para siempre','Construyeron Roma de inmediato'],y:'Poco a poco poblaron otros lugares.'}]);
+sumarExamen(4,3,[
+{s:'¿Para qué se usó primero la escritura?',o:['Para llevar cuentas','Para escribir novelas','Para mandar mensajes de texto'],y:'Luego sirvió para leyes e historia.'},
+{s:'¿Quiénes aparecieron al crecer las ciudades?',o:['Gobernantes, sacerdotes y comerciantes','Astronautas y pilotos','Programadores'],y:'Surgieron nuevos oficios.'}]);
+sumarExamen(4,4,[
+{s:'¿Junto a qué río surgió Egipto?',o:['El Nilo','El Indo','El Yangtsé'],y:'El río permitía cultivar.'},
+{s:'¿Qué civilización apareció primero?',o:['Mesopotamia','Grecia','Roma'],y:'Hacia el 3500 a.C. ya tenía ciudades.'}]);
+sumarExamen(4,5,[
+{s:'¿Cómo eran las herramientas del Neolítico?',o:['De piedra pulida','De plástico','De aluminio'],y:'Neolítico significa piedra nueva.'},
+{s:'¿Qué periodo fue primero?',o:['Paleolítico','Neolítico','Fueron al mismo tiempo'],y:'Paleolítico significa piedra antigua.'}]);
