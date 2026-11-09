@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Misión Trimestre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="hero wrap">
+  <div>
+    <p class="eyebrow">6.º de primaria · 1.er trimestre</p>
+    <h1>Misión Trimestre</h1>
+    <p class="rules">Jacob, tu misión es dominar los 44 temas de la evaluación. Aprende cada tema, supera los retos y abre los cofres.</p>
+    <a class="cta" id="continuar" href="guia.html">Empezar la misión</a>
+  </div>
+  <section class="hud" aria-label="Tu progreso">
+    <div class="xp-row">
+      <span class="xp-num"><span id="xp">0</span> <small>de <span id="xp-total">0</span> XP</small></span>
+    </div>
+    <div class="meter"><i id="bar"></i></div>
+    <div class="stats">
+      <div><b id="temas">0</b><span>temas dominados</span></div>
+      <div><b id="retos-n">0</b><span>retos superados</span></div>
+    </div>
+  </section>
+</header>
+
+<main class="wrap">
+  <section class="seccion">
+    <h2>Elige un mundo</h2>
+    <div class="mundos" id="mundos"></div>
+  </section>
+
+  <section class="seccion">
+    <h2>Cómo se juega</h2>
+    <ol class="pasos">
+      <li><strong>Aprende</strong><p>Abre cada tema, lee la explicación y el ejemplo, y márcalo cuando puedas explicarlo.</p></li>
+      <li><strong>Juega</strong><p>Supera los retos de cada mundo. Cada uno vale 100 XP.</p></li>
+      <li><strong>Abre cofres</strong><p>Cada 500 XP se abre un cofre con la recompensa que acordaron.</p></li>
+    </ol>
+  </section>
+
+  <section class="seccion">
+    <h2>Cofres</h2>
+    <div class="chests" id="chests"></div>
+    <p class="adultos"><b>Para los adultos:</b> escriban juntos las recompensas en los cofres. Se recomienda estudiar una materia por sesión de 25 minutos con el temporizador de la guía. Algunos retos se hacen en casa y necesitan su revisión.</p>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <span>Basada en el temario de evaluación del primer trimestre. Tu avance se guarda en este dispositivo.</span>
+  <span id="reset"></span>
+</footer>
+
+<script src="js/datos.js"></script>
+<script src="js/temas.js"></script>
+<script src="js/comun.js"></script>
+<script src="js/inicio.js"></script>
+</body>
+</html>
