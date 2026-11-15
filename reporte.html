@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reporte de práctica en casa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-reporte" data-reloj="no">
+<div class="rep-barra no-imprimir">
+  <div class="wrap rep-barra-in">
+    <a class="volver" href="bitacora.html">Bitácora</a>
+    <label class="rep-periodo">Periodo
+      <select id="periodo">
+        <option value="7">Últimos 7 días</option>
+        <option value="30">Últimos 30 días</option>
+        <option value="todo" selected>Todo el trimestre</option>
+      </select>
+    </label>
+    <button class="btn main" id="imprimir">Imprimir o guardar PDF</button>
+    <button class="btn" id="copiar">Copiar resumen</button>
+    <span id="copiado" class="intro" role="status"></span>
+  </div>
+</div>
+<main class="reporte" id="reporte"></main>
+
+<script src="js/datos.js"></script>
+<script src="js/temas.js"></script>
+<script src="js/comun.js"></script>
+<script src="js/reporte.js"></script>
+</body>
+</html>

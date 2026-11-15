@@ -55,11 +55,22 @@ function cambiarPaso(k){
 }
 function arriba(){$('etapas').scrollIntoView({block:'start'})}
 function irTema(i){temaActual=i;renderLeccion();arriba()}
+/* Una lección cuenta como estudiada si se queda en ella al menos 20 segundos (una vez por día). */
+let leccionT=null;
+function contarLeccion(w,i,titulo){
+  clearTimeout(leccionT);
+  leccionT=setTimeout(()=>{
+    if(paso!=='aprende'||S.world!==w||temaActual!==i)return;
+    if(bit().ev.some(e=>e.tipo==='leccion'&&e.dia===diaClave()&&e.w===w&&e.i===i))return;
+    registrar('leccion',{w,i,titulo});
+  },20000);
+}
 function renderLeccion(){
   const lista=lecciones(),t=lista[temaActual];
+  contarLeccion(S.world,temaActual,t.t);
   const numeros=lista.map((x,i)=>h('button',{cls:'num'+(S.tem[x.id]?' hecho':''),'aria-current':i===temaActual?'true':'false','aria-label':`Tema ${i+1}: ${x.t}`,onclick:()=>irTema(i)},String(i+1)));
   const check=h('input',{id:t.id,type:'checkbox'});check.checked=!!S.tem[t.id];
-  check.addEventListener('change',()=>{S.tem[t.id]=check.checked;save();numeros[temaActual].classList.toggle('hecho',check.checked)});
+  check.addEventListener('change',()=>{S.tem[t.id]=check.checked;save();if(check.checked)registrar('tema',{w:S.world,i:temaActual,titulo:t.t});numeros[temaActual].classList.toggle('hecho',check.checked)});
   const ultimo=temaActual===lista.length-1;
   $('contenido').replaceChildren(
     h('div',{cls:'nums'},numeros),
@@ -99,7 +110,9 @@ function play(r,box,w){
   const end=(pass,msg)=>{
     stop();
     box.replaceChildren();
+    if(pass)sonido('win');
     const first=pass&&!S.done[r.id];
+    registrar('reto',{w:S.world,reto:r.id,titulo:r.t,pass,primera:first});
     if(first&&!sumarXP(()=>{S.done[r.id]=true})&&$('toast').hidden)toast('Reto superado');
     const idx=w.retos.indexOf(r),next=w.retos.slice(idx+1).find(q=>!S.done[q.id]);
     box.append(h('div',{cls:'result',role:'status'},
@@ -122,7 +135,8 @@ function chart(r,box,end){
   const grafica=()=>h('div',{cls:'bars'},r.rows.map(f=>h('div',{cls:'bar-row'},h('span',{},f[0]),h('i',{style:`width:${f[1]/max*100}%`}),h('b',{},f[1]))));
   box.replaceChildren(h('p',{cls:'stem'},'Pasa este texto a una tabla.'),h('p',{cls:'clue'},r.texto),tabla,fb,
     h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>{
-      if(!r.rows.every((f,i)=>Number(inputs[i].value)===f[1])||inputs.some(n=>n.value==='')){fb.className='fb n';fb.textContent='Algún dato no coincide con el texto. Léelo otra vez.';return}
+      if(!r.rows.every((f,i)=>Number(inputs[i].value)===f[1])||inputs.some(n=>n.value==='')){sonido('bad');fb.className='fb n';fb.textContent='Algún dato no coincide con el texto. Léelo otra vez.';return}
+      sonido('ok');
       box.replaceChildren(h('p',{cls:'stem'},'Con tu tabla se puede hacer esta gráfica.'),grafica(),h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>quiz(r,box,end)},'Continuar')));
     }},'Revisar')));
 }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi bitácora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-reloj="no">
+<header class="barra">
+  <div class="barra-in wrap">
+    <a class="volver" href="index.html">Inicio</a>
+    <div class="barra-xp">
+      <span class="xp-num"><span id="xp">0</span> <small>de <span id="xp-total">0</span> XP</small></span>
+      <div class="meter"><i id="bar"></i></div>
+      <span id="xp-next" class="intro"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap bitacora">
+  <section class="bit-head">
+    <div>
+      <p class="eyebrow">Tu historial</p>
+      <h1>Mi bitácora</h1>
+      <p class="rules">Aquí queda todo lo que has trabajado: los días, el tiempo, las lecciones y tus exámenes.</p>
+      <div class="row acciones"><a class="cta cta-alt" href="reporte.html">Crear reporte</a></div>
+    </div>
+    <div class="bit-stats" id="resumen"></div>
+  </section>
+
+  <div class="bit-grid">
+    <section class="leccion">
+      <div class="cal-nav">
+        <button class="btn small" id="mes-ant" aria-label="Mes anterior">‹</button>
+        <h2 id="mes-titulo"></h2>
+        <button class="btn small" id="mes-sig" aria-label="Mes siguiente">›</button>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div class="cal-ley" aria-hidden="true">
+        <span><i class="n0"></i>Sin actividad</span><span><i class="n1"></i>Menos de 10 min</span><span><i class="n2"></i>10 a 19 min</span><span><i class="n3"></i>20 min o más</span>
+      </div>
+    </section>
+    <section class="leccion" id="detalle" aria-live="polite"></section>
+  </div>
+
+  <section class="seccion">
+    <h2>Mi progreso por mundo</h2>
+    <div class="bit-mundos" id="mundos"></div>
+  </section>
+
+  <section class="seccion">
+    <h2>Mis exámenes</h2>
+    <div class="leccion" id="examenes"></div>
+  </section>
+
+  <p class="adultos"><b>Para los adultos:</b> el tiempo solo cuenta mientras la página está abierta y en uso. Se pausa si cambia de pestaña o si pasan 3 minutos sin tocar nada. Una lección cuenta como estudiada cuando se queda en ella al menos 20 segundos. Todo se guarda en este dispositivo.</p>
+</main>
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script src="js/datos.js"></script>
+<script src="js/temas.js"></script>
+<script src="js/comun.js"></script>
+<script src="js/bitacora.js"></script>
+</body>
+</html>

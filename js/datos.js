@@ -93,7 +93,7 @@ retos:[
 {s:'Usar un frasco de vidrio como portalápices es:',o:['Reutilizar','Reducir','Reciclar'],y:'Le das un nuevo uso sin transformarlo.'},
 {s:'El derecho al agua significa acceso a agua:',o:['Suficiente, salubre y asequible','Embotellada para todas las personas','Solo en las ciudades'],y:'Es un derecho de todo ser humano.'},
 {s:'¿Cuál es un consumo responsable del agua?',o:['Cerrar la llave al enjabonarte','Lavar el patio con manguera','Tirar aceite al drenaje'],y:'Pequeños hábitos ahorran muchos litros.'}]},
-{id:'g2',t:'Auditoría ecológica en casa',k:'home',intro:'Recorre la cocina y el baño en 3 minutos. Escribe 3 acciones concretas para cuidar el agua o la biodiversidad.',f:['Acción en la cocina','Acción en el baño','Otra acción que propongas'],adult:'Un adulto revisó las acciones'}]},
+{id:'g2',t:'Auditoría ecológica en casa',k:'home',intro:'Recorre la cocina y el baño en 3 minutos. Escribe 3 acciones concretas para cuidar el agua o la biodiversidad.',f:['Acción en la cocina','Acción en el baño','Otra acción que propongas'],adult:'Mi papá o mi mamá revisó las acciones'}]},
 
 {name:'Historia',sub:'De lo humano a lo comunitario',lead:'De las primeras personas a la Independencia de México.',
 retos:[
@@ -154,8 +154,8 @@ WORLDS[1].retos.push(
 {s:'¿Qué no debe faltar en una opinión fundamentada?',o:['Las razones','El final de la historia','Muchos signos de admiración'],y:'Opinar con fundamento significa decir por qué.'},
 {s:'«Deberá guardar silencio en la biblioteca.» ¿Qué tiempo usa el verbo?',o:['Futuro','Pasado','Infinitivo'],y:'Deberá indica una obligación en futuro.'},
 {s:'¿Cómo se organizan las normas de un reglamento?',o:['Numeradas o por artículos','Como un poema','Sin ningún orden'],y:'La numeración facilita consultarlas.'}]},
-{id:'l11',t:'Escribe tu reseña',k:'home',intro:'Elige un libro, serie o película que conozcas y completa tu reseña.',f:['Título y autor','Resumen sin contar el final','Mi opinión y por qué','A quién se la recomiendo'],adult:'Un adulto leyó mi reseña'},
-{id:'l12',t:'Duelo de argumentos',k:'home',intro:'Tema: ¿debería haber más horas de educación física? Escribe tu postura y defiéndela. Luego debatan en casa.',f:['Mi postura','Un argumento basado en datos o hechos','Un argumento basado en opinión o experiencia','Lo que diría alguien con la postura contraria'],adult:'Un adulto debatió conmigo'});
+{id:'l11',t:'Escribe tu reseña',k:'home',intro:'Elige un libro, serie o película que conozcas y completa tu reseña.',f:['Título y autor','Resumen sin contar el final','Mi opinión y por qué','A quién se la recomiendo'],adult:'Mi papá o mi mamá leyó mi reseña'},
+{id:'l12',t:'Duelo de argumentos',k:'home',intro:'Tema: ¿debería haber más horas de educación física? Escribe tu postura y defiéndela. Luego debatan en casa.',f:['Mi postura','Un argumento basado en datos o hechos','Un argumento basado en opinión o experiencia','Lo que diría alguien con la postura contraria'],adult:'Mi papá o mi mamá debatió conmigo'});
 
 WORLDS[2].retos.push(
 {id:'m7',t:'Decimales en la vida real',k:'quiz',q:[
@@ -184,7 +184,7 @@ WORLDS[3].retos.push(
 {s:'¿Qué significa agua salubre?',o:['Que no daña la salud','Que tiene sal','Que es muy cara'],y:'Debe ser segura para beber y usar.'},
 {s:'Una ducha gasta 10 L por minuto. Si la reduces de 10 a 5 minutos, ¿cuánto ahorras?',o:['50 L','5 L','100 L'],y:'100 L − 50 L = 50 L.'},
 {s:'¿Qué conviene hacer con el aceite usado?',o:['Guardarlo en un envase y llevarlo a un centro de acopio','Tirarlo al drenaje','Echarlo a una planta'],y:'En el drenaje contamina mucha agua.'}]},
-{id:'g4',t:'Mi glosario Nova',k:'home',intro:'Abre tu libro Nova y escribe los conceptos en negritas o recuadros con tus propias palabras.',f:['Concepto 1 y su significado','Concepto 2 y su significado','Concepto 3 y su significado','Concepto 4 y su significado','Concepto 5 y su significado'],adult:'Un adulto revisó mi glosario'});
+{id:'g4',t:'Mi glosario Nova',k:'home',intro:'Abre tu libro Nova y escribe los conceptos en negritas o recuadros con tus propias palabras.',f:['Concepto 1 y su significado','Concepto 2 y su significado','Concepto 3 y su significado','Concepto 4 y su significado','Concepto 5 y su significado'],adult:'Mi papá o mi mamá revisó mi glosario'});
 
 WORLDS[4].retos.push(
 {id:'h5',t:'¿Cuándo y dónde?',k:'order',intro:'Toca las civilizaciones de la más antigua a la más reciente. Las fechas son aproximadas.',rounds:[['Mesopotamia · 3500 a.C.','Egipto · 3100 a.C.','Valle del Indo · 2500 a.C.','China · 1600 a.C.','Grecia · 800 a.C.','Roma · 753 a.C.']]},

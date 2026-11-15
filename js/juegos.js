@@ -17,12 +17,12 @@ function quiz(r,box,end){
       i++;nav.append(h('button',{cls:'btn main',onclick:next},i>=r.q.length?'Ver resultado':'Siguiente'));nav.lastChild.focus({preventScroll:true})};
     const pick=(o,b)=>{
       if(o.good){
-        ok++;puntos+=errores?.5:1;cuenta.textContent=etiqueta();acierto(r,puntos,r.q.length,q,errores?.5:1);
+        sonido('ok');ok++;puntos+=errores?.5:1;cuenta.textContent=etiqueta();acierto(r,puntos,r.q.length,q,errores?.5:1);
         if(!errores){marcarFalla(r,q,false);fbk(fb,true,'Correcto.',q.y)}
         else fbk(fb,true,'Ahora sí. Al segundo intento suma la mitad de los puntos.',q.y);
         return cerrar();
       }
-      b.classList.add('bad');b.disabled=true;
+      sonido('bad');b.classList.add('bad');b.disabled=true;
       if(!errores++){
         marcarFalla(r,q,true);
         if(q._more)while(q._more.isConnected)q._more.click();
@@ -49,7 +49,7 @@ function tf(r,box,end){
       const q=r.q[i],fb=h('div',{cls:'fb','aria-live':'polite'}),nav=h('div',{cls:'row'});
       let t;
       const ans=v=>{clearTimeout(t);stop=()=>{};bar&&bar.remove();[bv,bf].forEach(b=>{b.disabled=true});(q.v?bv:bf).classList.add('good');
-        const good=v===q.v;if(good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else if(v!==null)(v?bv:bf).classList.add('bad');
+        const good=v===q.v;sonido(good?'ok':'bad');if(good){ok++;cuenta.textContent=etiqueta();acierto(r,ok,r.q.length)}else if(v!==null)(v?bv:bf).classList.add('bad');
         marcarFalla(r,q,!good);
         fbk(fb,good,good?'Correcto.':(v===null?'Se acabó el tiempo.':'Esa no era.'),`${q.v?'Es verdadero.':'Es falso.'} ${q.y}${good?'':' '+recordatorio(q)}`);
         if(!good)ligaTema(fb,q);
@@ -69,10 +69,10 @@ function match(r,box,end){
   const L=shuffle(r.p).map(p=>{const b=h('button',{cls:'tag',onclick:()=>{if(sel)sel.classList.remove('sel');sel=b;b.classList.add('sel')}},p[0]);b._k=p[1];return b});
   const R=shuffle(r.p).map(p=>{const b=h('button',{cls:'tag',onclick:()=>{
     if(!sel){fb.className='fb n';fb.textContent='Primero toca un tema.';return}
-    if(sel._k===p[1]){sel.classList.remove('sel');sel.classList.add('good');b.classList.add('good');sel.disabled=b.disabled=true;sel=null;fb.className='fb y';fb.textContent='Correcto.';
+    if(sel._k===p[1]){sel.classList.remove('sel');sel.classList.add('good');b.classList.add('good');sel.disabled=b.disabled=true;sel=null;sonido('ok');fb.className='fb y';fb.textContent='Correcto.';
       left--;acierto(r,r.p.length-left,r.p.length);
       if(left===0)end(true,miss?`Lo completaste con ${miss} ${miss===1?'error':'errores'}.`:'Lo completaste sin errores.')}
-    else{miss++;b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),500);fb.className='fb n';fb.textContent='Esa pareja no va. Intenta otra.'}}},p[1]);return b});
+    else{miss++;sonido('bad');b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),500);fb.className='fb n';fb.textContent='Esa pareja no va. Intenta otra.'}}},p[1]);return b});
   box.replaceChildren(h('p',{cls:'intro'},r.intro),h('div',{cls:'match'},h('div',{},L),h('div',{},R)),fb);
 }
 function order(r,box,end){
@@ -88,8 +88,8 @@ function order(r,box,end){
       act.replaceChildren(h('button',{cls:'btn main',onclick:check,...(picks.length<right.length?{disabled:''}:{})},'Revisar'),h('button',{cls:'btn',onclick:()=>{picks=[];fb.textContent='';draw()}},'Borrar'));
     };
     function check(){
-      if(picks.every((x,i)=>x===right[i])){round++;acierto(r,round,r.rounds.length);start();return}
-      miss++;draw(true);fb.className='fb n';fb.textContent='Las rojas están fuera de lugar. Tócalas para quitarlas y vuelve a intentarlo.';
+      if(picks.every((x,i)=>x===right[i])){round++;sonido('ok');acierto(r,round,r.rounds.length);start();return}
+      miss++;sonido('bad');draw(true);fb.className='fb n';fb.textContent='Las rojas están fuera de lugar. Tócalas para quitarlas y vuelve a intentarlo.';
     }
     draw();
     box.replaceChildren(h('p',{cls:'intro'},r.intro),...(r.rounds.length>1?[h('p',{cls:'count'},`Ronda ${round+1} de ${r.rounds.length}`)]:[]),pool,picked,fb,act);
@@ -119,8 +119,8 @@ function maya(r,box,end){
     box.replaceChildren(h('p',{cls:'count'},`Número ${i+1} de ${r.targets.length}`),h('p',{cls:'stem'},`Escribe el ${t} con números mayas.`),h('p',{cls:'intro'},'Cinco puntos se convierten en una raya.'),wrap,fb,
       h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>{
         const val=v[0]*20+v[1];
-        if(val===t){i++;acierto(r,i,r.targets.length);fb.className='fb y';fb.textContent='Correcto.';setTimeout(next,700)}
-        else{fb.className='fb n';fb.textContent=`Tu número vale (${v[0]} × 20) + ${v[1]} = ${val}. Debe dar ${t}.`}
+        if(val===t){i++;sonido('ok');acierto(r,i,r.targets.length);fb.className='fb y';fb.textContent='Correcto.';setTimeout(next,700)}
+        else{sonido('bad');fb.className='fb n';fb.textContent=`Tu número vale (${v[0]} × 20) + ${v[1]} = ${val}. Debe dar ${t}.`}
       }},'Revisar')));
   };
   next();
@@ -134,8 +134,8 @@ function mosaic(r,box,end){
   box.replaceChildren(h('p',{cls:'stem',html:`Pinta ${F(1,3)} de azul y ${F(1,4)} de rojo.`}),h('p',{cls:'intro'},'El mosaico tiene 12 cuadritos. Calcula cuántos corresponden a cada color.'),h('div',{cls:'row'},paints),grid,fb,
     h('div',{cls:'row'},h('button',{cls:'btn main',onclick:()=>{
       const b=cells.filter(c=>c==='b').length,red=cells.filter(c=>c==='r').length;
-      if(b===4&&red===3)quiz(r,box,end);
-      else{fb.className='fb n';fb.innerHTML=`Llevas ${b} azules y ${red} rojos. Pista: ${F(1,3)} de 12 es 12 ÷ 3.`}
+      if(b===4&&red===3){sonido('ok');quiz(r,box,end)}
+      else{sonido('bad');fb.className='fb n';fb.innerHTML=`Llevas ${b} azules y ${red} rojos. Pista: ${F(1,3)} de 12 es 12 ÷ 3.`}
     }},'Revisar')));
 }
 function home(r,box,end){
@@ -162,4 +162,3 @@ function home(r,box,end){
   };
   $('pomo-re').onclick=()=>{halt();left=600;paint();go.textContent='Iniciar 10 minutos'};
 })();
-

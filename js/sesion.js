@@ -6,19 +6,30 @@ let sesion=null;
 
 const temasTodos=()=>TEMAS.flatMap((l,w)=>l.map((t,i)=>({...t,w,i,id:temaId(w,i)})).filter(t=>!t.nota));
 
-/* Alterna repasos de lo que costó trabajo con temas nuevos, y equilibra las materias. */
+/* Estado de cada tema en Mi misión de hoy:
+   'hecha' (terminó la misión), 'empezada' (le dio Empezar y no terminó) o 'pendiente'.
+   Una misión terminada con menos de 4 aciertos queda además «por reforzar». */
+S.iniciadas=S.iniciadas||{};
+const estado=t=>S.sesiones[t.id]?'hecha':(S.iniciadas[t.id]?'empezada':'pendiente');
+const reforzar=t=>enRefuerzo(t.id);
+
+/* SPARK propone primero lo que dejó a medias, luego temas nuevos equilibrando materias.
+   Solo cuando ya no hay temas nuevos propone repasos. */
 function siguienteTema(){
   const todos=temasTodos(),h_=S.sesiones;
-  const debiles=todos.filter(t=>h_[t.id]&&h_[t.id].ok<3&&t.id!==S.ultimaSesion);
-  if(debiles.length&&!S.ultimaFueRepaso)return {t:debiles[0],repaso:true};
-  const nuevos=todos.filter(t=>!h_[t.id]);
+  const empezadas=todos.filter(t=>estado(t)==='empezada').sort((a,b)=>S.iniciadas[a.id]-S.iniciadas[b.id]);
+  if(empezadas.length)return {t:empezadas[0],motivo:'empezada'};
+  const nuevos=todos.filter(t=>estado(t)==='pendiente');
+  /* Entre los nuevos, primero los que salieron con errores en un examen. */
+  const delExamen=nuevos.filter(reforzar).sort((a,b)=>debilidad(a.id)-debilidad(b.id));
+  if(delExamen.length)return {t:delExamen[0],motivo:'examen'};
   if(nuevos.length){
-    const vistos=w=>todos.filter(t=>t.w===w&&h_[t.id]).length;
+    const vistos=w=>todos.filter(t=>t.w===w&&estado(t)!=='pendiente').length;
     const mundos=[...new Set(nuevos.map(t=>t.w))].sort((a,b)=>vistos(a)-vistos(b)||a-b);
-    return {t:nuevos.find(t=>t.w===mundos[0]),repaso:false};
+    return {t:nuevos.find(t=>t.w===mundos[0]),motivo:'nuevo'};
   }
   const orden=[...todos].filter(t=>t.id!==S.ultimaSesion).sort((a,b)=>h_[a.id].ok-h_[b.id].ok||h_[a.id].n-h_[b.id].n);
-  return {t:orden[0],repaso:true};
+  return {t:orden[0]||todos[0],motivo:'repaso'};
 }
 function preguntasDe(t){
   const pool=WORLDS[t.w].retos.flatMap(r=>(r.q||[]).filter(q=>q.t===t.i&&!DEPENDE.test(q.s||'')).map(q=>({...q,reto:r.id,o:q.o||[q.v?'Verdadero':'Falso',q.v?'Falso':'Verdadero']})));
@@ -41,27 +52,47 @@ function pintar(...nodos){
   window.scrollTo(0,0);
 }
 function nuevaSesion(elegido){
-  const s=elegido?{t:elegido,repaso:false}:siguienteTema();
-  sesion={...s,aciertos:0,xp0:xp(),tarjeta:0,ejemplo:0};
+  const s=elegido?{t:elegido,motivo:estado(elegido)==='hecha'?'repaso':(estado(elegido)==='empezada'?'empezada':(reforzar(elegido)?'examen':'nuevo'))}:siguienteTema();
+  sesion={...s,repaso:s.motivo==='repaso',aciertos:0,xp0:xp(),tarjeta:0,ejemplo:0};
   S.world=s.t.w;save();
   presentar();
 }
+const TEXTO_MOTIVO={
+  nuevo:'Un tema nuevo para hoy.',
+  empezada:'Esta misión la empezaste y no la terminaste. ¡Vamos a acabarla!',
+  repaso:'Este tema vuelve para que hoy te salga mejor.',
+  examen:'En tu examen este tema salió con errores. ¡Vamos a reforzarlo!'};
+/* Mapa de temas: cada tema es una casilla de color según su estado. Tocarla abre esa misión. */
+function mapaTemas(){
+  const todos=temasTodos();
+  const icono={hecha:'✓',empezada:'◐',pendiente:''};
+  const nombre={hecha:'terminada',empezada:'empezada sin terminar',pendiente:'pendiente'};
+  return h('section',{cls:'tarjeta mapa'},
+    h('h3',{},'Todos los temas'),
+    h('div',{cls:'mapa-ley','aria-hidden':'true'},h('span',{},h('i',{cls:'e-hecha'}),'Terminada'),h('span',{},h('i',{cls:'e-empezada'}),'Sin terminar'),h('span',{},h('i',{cls:'e-pendiente'}),'Pendiente'),h('span',{},h('b',{cls:'refuerzo'},'por reforzar'),'menos de 4 aciertos o errores en el examen')),
+    WORLDS.map((w,i)=>{
+      const lista=todos.filter(t=>t.w===i),hechas=lista.filter(t=>estado(t)==='hecha').length;
+      const d=h('details',{cls:'mapa-mundo','data-w':i},
+        h('summary',{},h('span',{},w.name),h('span',{cls:'mapa-cuenta'},`${hechas} de ${lista.length} terminadas`)),
+        h('div',{cls:'mapa-temas'},lista.map(t=>{const e=estado(t),r=reforzar(t);
+          return h('button',{cls:`mapa-tema e-${e}`,'aria-current':t.id===sesion.t.id?'true':'false',
+            'aria-label':`${t.t}: ${nombre[e]}${r?', por reforzar':''}`,onclick:()=>nuevaSesion(t)},
+            h('span',{cls:'mapa-ico','aria-hidden':'true'},icono[e]),h('span',{cls:'mapa-txt'},t.t),r?h('b',{cls:'refuerzo'},'por reforzar'):null)})));
+      if(i===sesion.t.w)d.open=true;
+      return d;
+    }));
+}
 function presentar(){
-  const t=sesion.t,elegir=h('div',{cls:'row'});
-  const abrirLista=()=>{
-    const sel=h('select',{id:'otro-tema','aria-label':'Elegir otro tema',onchange:e=>{if(e.target.value)nuevaSesion(temasTodos().find(x=>x.id===e.target.value))}},
-      h('option',{value:''},'Elige un tema…'),
-      WORLDS.map((w,i)=>h('optgroup',{label:w.name},temasTodos().filter(x=>x.w===i).map(x=>h('option',{value:x.id},x.t)))));
-    elegir.replaceChildren(sel);sel.focus();
-  };
-  elegir.append(h('button',{cls:'btn plain',onclick:abrirLista},'Elegir otro tema'));
+  const t=sesion.t;
+  const porReforzar=temasTodos().filter(x=>reforzar(x)&&x.id!==t.id).sort((a,b)=>debilidad(a.id)-debilidad(b.id));
   pintar(h('article',{cls:'tarjeta'},
     h('p',{cls:'count'},`SPARK te propone · ${WORLDS[t.w].name}`),
     h('h2',{},t.t),
-    h('p',{},sesion.repaso?'Este tema vuelve para que hoy te salga mejor.':'Solo este tema por hoy.'),
+    h('p',{},TEXTO_MOTIVO[sesion.motivo]),
     h('ul',{cls:'reglas'},h('li',{},'Lees unas tarjetas cortas.'),h('li',{},'Contestas 5 preguntas.'),h('li',{},'Te llevas una chispa de SPARK.')),
-    h('div',{cls:'row'},h('button',{cls:'btn main grande',onclick:()=>{sesion.tarjeta=0;tarjetas()}},'Empezar: 10 minutos')),
-    elegir));
+    h('div',{cls:'row'},h('button',{cls:'btn main grande',onclick:()=>{S.iniciadas[t.id]=S.iniciadas[t.id]||Date.now();save();sesion.tarjeta=0;tarjetas()}},'Empezar: 10 minutos'),
+      porReforzar.length&&sesion.motivo!=='repaso'?h('button',{cls:'btn',onclick:()=>nuevaSesion(porReforzar[0])},'Repasar un tema por reforzar'):null)),
+    mapaTemas());
 }
 function tarjetas(){
   const t=sesion.t,total=t.e.length+2,i=sesion.tarjeta,cuerpo=[];
@@ -86,19 +117,25 @@ function preguntas(){
 function cerrar(n){
   const t=sesion.t,prev=S.sesiones[t.id]||{n:0,ok:0};
   S.sesiones[t.id]={n:prev.n+1,ok:sesion.aciertos};
-  S.ultimaSesion=t.id;S.ultimaFueRepaso=sesion.repaso;
+  S.ultimaSesion=t.id;S.ultimaFueRepaso=sesion.repaso;delete S.iniciadas[t.id];
   S.chispas=(S.chispas||0)+1;
-  const domino=sesion.aciertos>=4;
+  const domino=sesion.aciertos>=MIN_DOMINIO,salio=domino&&enRefuerzo(t.id);
+  if(domino)delete S.refuerzo[t.id];else marcarRefuerzo(t.id,{fuente:'mision',ok:sesion.aciertos,n});
   if(domino)S.tem[t.id]=true;
-  save();renderHud();
-  const gano=xp()-sesion.xp0;
+  save();renderHud();sonido('win');
+  const gano=xp()-sesion.xp0,faltan=CADA_CHISPAS-S.chispas%CADA_CHISPAS;
+  registrar('mision',{w:t.w,i:t.i,titulo:t.t,ok:sesion.aciertos,n,xp:gano,domino});
   pintar(h('article',{cls:'tarjeta cierre'},
     h('div',{cls:'chispa','aria-hidden':'true'}),
     h('h2',{},'¡Misión cumplida!'),
     h('p',{},`SPARK te dio una chispa. Ya llevas ${S.chispas}.`),
+    h('p',{cls:'intro'},S.chispas%CADA_CHISPAS===0?'¡Juntaste 5 chispas y abriste un cofre de constancia!':`Te ${faltan===1?'falta 1 chispa':`faltan ${faltan} chispas`} para tu próximo cofre de constancia.`),
     h('p',{},`Acertaste ${sesion.aciertos} de ${n}${gano?` y ganaste ${gano} XP`:''}.`),
-    h('p',{},domino?'Este tema ya quedó como dominado.':'Este tema volverá pronto para que te salga mejor.'),
+    h('p',{},salio?'¡Listo! Este tema ya no está por reforzar.':domino?'Este tema ya quedó como dominado.':'Quedó como «por reforzar». Puedes repasarlo cuando quieras desde el mapa de temas.'),
     h('p',{cls:'intro'},'Buen trabajo por hoy. Si quieres otra misión, primero levántate y toma agua.'),
-    h('div',{cls:'row centro'},h('a',{cls:'btn main grande',href:'index.html'},'Terminar por hoy'),h('button',{cls:'btn',onclick:()=>nuevaSesion()},'Otra misión'))));
+    h('div',{cls:'row centro'},h('a',{cls:'btn main grande',href:'index.html'},'Terminar por hoy'),h('a',{cls:'btn',href:'bitacora.html'},'Ver mi bitácora'),h('button',{cls:'btn',onclick:()=>nuevaSesion()},'Otra misión'))));
+  if(S.chispas%CADA_CHISPAS===0)setTimeout(()=>abrirCofre(S.chispas/CADA_CHISPAS,'constancia'),700);
 }
-renderHud();nuevaSesion();
+/* Si llega con un tema en la dirección (por ejemplo, desde el examen), abre esa misión. */
+const pedido=temasTodos().find(x=>'#'+x.id===location.hash);
+renderHud();nuevaSesion(pedido);
