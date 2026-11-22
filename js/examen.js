@@ -8,7 +8,7 @@ function armarExamen(){
   const lista=[...banco.map(b=>b[0]),...shuffle(banco.flatMap(b=>b.slice(1)))].slice(0,TAM_EXAMEN);
   const preguntas=shuffle(lista).map(q=>({...q,ops:shuffle(q.o.map((t,n)=>({t,ok:n===0})))}));
   ex={preguntas,resp:Array(preguntas.length).fill(null),i:0,fin:false,confirmar:false,pausa:false};
-  S.exActual[S.world]=ex;save();
+  S.exActual[exKey(S.world)]=ex;save();
 }
 const totalExamen=()=>Math.min(TAM_EXAMEN,EXAMENES[S.world].flat().length);
 const calificacion=(ok,n)=>Math.round(ok/n*100)/10;
@@ -63,7 +63,7 @@ function pausaExamen(){
     h('div',{cls:'row centro'},h('button',{cls:'btn main grande',onclick:()=>{ex.pausa=false;terminarExamen()}},'Ver mi calificación')));
 }
 function introExamen(){
-  const g=S.examenes[S.world];
+  const g=S.examenes[exKey(S.world)];
   $('contenido').replaceChildren(h('article',{cls:'leccion'},
     h('p',{cls:'count'},'Examen de práctica'),
     h('h3',{},`Demuestra lo que sabes de ${WORLDS[S.world].name}`),
@@ -113,13 +113,13 @@ function porTema(e){
 function terminarExamen(){
   const ok=ex.preguntas.filter((q,i)=>ex.resp[i]!==null&&q.ops[ex.resp[i]].ok).length;
   ex.fin=true;ex.ok=ok;ex.nota=calificacion(ok,ex.preguntas.length);
-  const g=S.examenes[S.world]||{mejor:0,intentos:0};
-  S.examenes[S.world]={mejor:Math.max(g.mejor,ex.nota),intentos:g.intentos+1,ultima:ex.nota};
+  const g=S.examenes[exKey(S.world)]||{mejor:0,intentos:0};
+  S.examenes[exKey(S.world)]={mejor:Math.max(g.mejor,ex.nota),intentos:g.intentos+1,ultima:ex.nota};
   ex.record=ex.nota>g.mejor&&g.intentos>0;
   const lista=lecciones(),temas=porTema(ex);
   temas.filter(x=>x.ok<x.n).forEach(x=>marcarRefuerzo(temaId(S.world,x.t),{fuente:'examen',ok:x.ok,n:x.n,w:S.world}));
   registrar('examen',{w:S.world,nota:ex.nota,ok,n:ex.preguntas.length,temas:temas.map(x=>({i:x.t,titulo:lista[x.t].t,ok:x.ok,n:x.n}))});
-  delete S.exActual[S.world];
+  delete S.exActual[exKey(S.world)];
   save();resultadoExamen();arriba();
 }
 /* Dónde trabajar: cada tema con errores, sus aciertos y qué hacer. */

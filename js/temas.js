@@ -1,6 +1,6 @@
 /* Lecciones: un elemento por cada tema del temario, en el mismo orden del PDF.
    t: tema, e: párrafos de la explicación, x: ejemplos, k: lo más importante, r: retos para practicarlo. */
-const TEMAS=[
+const TEMAS_T1=[
 [
 {t:'Características y funciones del sistema inmunitario',e:[
 'Imagina que tu cuerpo es un castillo. Todos los días llegan enemigos muy pequeños que quieren entrar: virus y bacterias. El <b>sistema inmunitario</b> es el ejército que cuida ese castillo.',

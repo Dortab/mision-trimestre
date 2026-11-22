@@ -25,7 +25,7 @@ h3:[[2,'¿Se quedaban o se movían?'],[5,'Piensa en sembrar.'],[3,'Las ciudades 
 h4:[4,5,4,1,4,1],
 h6:[[1,'Francia invadió a España.'],[1,'Fue una mujer de Querétaro.'],[1,'Pertenece a la etapa de organización.'],[1,'Luchó en el sur.'],[1,'Lleva el nombre de una ciudad de Guerrero.'],[1,'Una de ellas es la independencia.'],[1,'Se recuerda cada septiembre con el Grito.'],[1,'Tri significa tres.'],[1,'Resta 1821 − 1810.']]
 };
-WORLDS.forEach(w=>w.retos.forEach(r=>(PISTAS[r.id]||[]).forEach((x,i)=>{[r.q[i].t,r.q[i].p]=[].concat(x)})));
+WORLDS_T1.forEach(w=>w.retos.forEach(r=>(PISTAS[r.id]||[]).forEach((x,i)=>{[r.q[i].t,r.q[i].p]=[].concat(x)})));
 
 agregar('c1',[
 {t:1,p:'Tu cuerpo la necesita todos los días y no trae azúcar.',s:'¿Qué bebida ayuda más a tu cuerpo durante el día?',o:['Agua simple','Refresco','Bebida energética'],y:'El agua simple hidrata sin azúcar.'},
@@ -158,5 +158,5 @@ agregar('h3',[
 
 agregar('l9',[{t:9,p:'Sin él, nadie sabría de qué trata.',s:'¿Para qué sirve el título de una tabla o gráfica?',o:['Para saber de qué trata','Para adornar la hoja','Para ocupar más espacio'],y:'Un título claro dice qué datos se muestran.'}]);
 
-/* Cada lección enlaza los retos de la Guía que tienen preguntas de su tema (los bancos de misión no). */
-WORLDS.forEach((w,i)=>w.retos.filter(r=>r.k!=='banco').forEach(r=>(r.q||[]).forEach(q=>{const l=TEMAS[i][q.t].r;if(!l.includes(r.id))l.push(r.id)})));
+/* Cada lección enlaza todos los retos que tienen preguntas de su tema. */
+WORLDS_T1.forEach((w,i)=>w.retos.forEach(r=>(r.q||[]).forEach(q=>{const l=TEMAS_T1[i][q.t].r;if(!l.includes(r.id))l.push(r.id)})));

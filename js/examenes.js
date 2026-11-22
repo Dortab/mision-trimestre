@@ -1,6 +1,6 @@
-/* Banco de preguntas del examen de práctica. EXAMENES[mundo][tema] sigue el orden de TEMAS.
+/* Banco de preguntas del examen de práctica. EXAMENES_T1[mundo][tema] sigue el orden de TEMAS_T1.
    En cada pregunta, la primera opción de o[] es la correcta. */
-const EXAMENES=[
+const EXAMENES_T1=[
 [
 [{s:'¿Cuál es la función principal del sistema inmunitario?',o:['Defender al cuerpo de agentes extraños','Transportar los alimentos al estómago','Mover los huesos y los músculos'],y:'Reconoce lo que no es del cuerpo y lo combate.'},
  {s:'¿Qué son los antígenos?',o:['Señales que permiten reconocer a un invasor','Vitaminas que hay en las frutas','Células que forman los huesos'],y:'Son como la credencial del microbio.'}],
@@ -113,7 +113,7 @@ const EXAMENES=[
 ];
 
 /* Preguntas para llegar a 30 por mundo. */
-const sumarExamen=(w,t,qs)=>EXAMENES[w][t].push(...qs);
+const sumarExamen=(w,t,qs)=>EXAMENES_T1[w][t].push(...qs);
 sumarExamen(0,0,[
 {s:'¿Qué células fabrican los anticuerpos?',o:['Los glóbulos blancos','Los glóbulos rojos','Las células de la piel'],y:'Los leucocitos forman parte de las defensas.'},
 {s:'¿Cómo ayudan los mocos y la saliva?',o:['Atrapan a muchos microbios','Fabrican huesos','Producen la fiebre'],y:'Son parte de las primeras barreras.'}]);

@@ -28,7 +28,9 @@ function racha(){
   return n;
 }
 const fallados=e=>(e.temas||[]).filter(x=>x.ok<x.n).map(x=>x.titulo).join(', ');
-const mundo=w=>WORLDS[w]?WORLDS[w].name:'';
+/* Cada registro guarda su trimestre (tr); los anteriores a los trimestres son del 1.º */
+const mundo=(w,tr)=>mundoDe(w,tr);
+const deEste=e=>(e.tr||1)===TRIM;
 /* replaceChildren escribiría «null» en pantalla: se quitan los vacíos. */
 const poner=(el,...n)=>el.replaceChildren(...n.filter(x=>x!=null&&x!==false));
 
@@ -70,14 +72,14 @@ function lista(titulo,items){
 function renderDetalle(){
   const k=diaSel,f=fecha(k),ev=evDe(k).sort((a,b)=>a.t-b.t),s=segDe(k);
   const de=t=>ev.filter(e=>e.tipo===t);
-  const misiones=de('mision').map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo} · ${e.ok} de ${e.n} ${e.v?'a la primera':'aciertos'}${e.v&&e.conPista?` (+${e.conPista} con pista)`:''}${e.xp?` · +${e.xp} XP`:''}${e.domino?' · <span class="ok">tema demostrado</span>':''}`);
-  const lecciones=de('leccion').map(e=>`<b>${mundo(e.w)}:</b> Tema ${e.i+1}, ${e.titulo}`);
-  const temas=de('tema').map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo}`);
+  const misiones=de('mision').map(e=>`<b>${mundo(e.w,e.tr)}:</b> ${e.titulo} · ${e.ok} de ${e.n} aciertos${e.xp?` · +${e.xp} XP`:''}${e.domino?' · <span class="ok">tema dominado</span>':''}`);
+  const lecciones=de('leccion').map(e=>`<b>${mundo(e.w,e.tr)}:</b> Tema ${e.i+1}, ${e.titulo}`);
+  const temas=de('tema').map(e=>`<b>${mundo(e.w,e.tr)}:</b> ${e.titulo}`);
   /* Un reto puede jugarse varias veces el mismo día: se muestra una vez, con su mejor resultado. */
   const retos=Object.values(de('reto').reduce((o,e)=>{const p=o[e.reto]||{...e,veces:0,gano:false};p.veces++;p.gano=p.gano||e.pass;o[e.reto]=p;return o},{}))
-    .map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo} · ${e.gano?'<span class="ok">superado</span>':'intentado'}${e.veces>1?` (${e.veces} veces)`:''}`);
+    .map(e=>`<b>${mundo(e.w,e.tr)}:</b> ${e.titulo} · ${e.gano?'<span class="ok">superado</span>':'intentado'}${e.veces>1?` (${e.veces} veces)`:''}`);
   const cofres=de('cofre').map(e=>`${e.clase==='constancia'?'Cofre de constancia':'Cofre'} ${e.n}: <b>${e.premio}</b>`);
-  const exs=de('examen').map(e=>`<b>${mundo(e.w)}:</b> calificación <b>${e.nota}</b> (${e.ok} de ${e.n})${fallados(e)?` · a reforzar: ${fallados(e)}`:''}`);
+  const exs=de('examen').map(e=>`<b>${mundo(e.w,e.tr)}:</b> calificación <b>${e.nota}</b> (${e.ok} de ${e.n})${fallados(e)?` · a reforzar: ${fallados(e)}`:''}`);
   const algo=cofres.length+misiones.length+lecciones.length+temas.length+retos.length+exs.length;
   poner($('detalle'),
     h('p',{cls:'count'},k===hoy?'Hoy':'Día seleccionado'),
@@ -87,30 +89,31 @@ function renderDetalle(){
     algo?null:h('p',{cls:'intro'},s?'Estuvo en la página, pero no terminó ninguna actividad.':(k===hoy?'Hoy todavía no hay actividad. ¡Una misión de 10 minutos y este día se pinta!':'No hubo actividad este día.')));
 }
 function renderMundos(){
+  $('trim-tag').textContent=NOMBRE_TRIM[TRIM];
   $('mundos').replaceChildren(...WORLDS.map((w,i)=>{
-    const ts=temasDe(i),dom=ts.filter(t=>S.tem[t.id]).length,rg=retosGuia(i),rd=rg.filter(r=>S.done[r.id]).length,g=S.examenes[i];
+    const ts=temasDe(i),dom=ts.filter(t=>S.tem[t.id]).length,rd=w.retos.filter(r=>S.done[r.id]).length,g=S.examenes[exKey(i)];
     const barra=(v,n)=>h('span',{cls:'mini'},h('i',{style:`width:${n?v/n*100:0}%`}));
     return h('article',{cls:'bit-mundo','data-w':i},
       h('h3',{},w.name),
       h('p',{},`Temas dominados: ${dom} de ${ts.length}`),barra(dom,ts.length),
-      h('p',{},`Retos superados: ${rd} de ${rg.length}`),barra(rd,rg.length),
+      h('p',{},`Retos superados: ${rd} de ${w.retos.length}`),barra(rd,w.retos.length),
       h('p',{},g?`Examen: mejor ${g.mejor} · último ${g.ultima??g.mejor} · ${g.intentos} ${g.intentos===1?'intento':'intentos'}`:'Examen: todavía no lo presenta'));
   }));
 }
 function renderExamenes(){
   const ev=B.ev.filter(e=>e.tipo==='examen').sort((a,b)=>b.t-a.t);
-  const previo=e=>ev.find(x=>x.w===e.w&&x.t<e.t);
+  const previo=e=>ev.find(x=>x.w===e.w&&(x.tr||1)===(e.tr||1)&&x.t<e.t);
   const filas=ev.map(e=>{
     const p=previo(e),f=new Date(e.t);
     const cambio=p?(e.nota>p.nota?h('span',{cls:'sube-n'},`▲ ${Math.round((e.nota-p.nota)*10)/10}`):e.nota<p.nota?h('span',{cls:'baja-n'},`▼ ${Math.round((p.nota-e.nota)*10)/10}`):h('span',{cls:'intro'},'igual')):h('span',{cls:'intro'},'primero');
-    return h('tr',{'data-w':e.w},h('td',{},`${f.getDate()} ${MESES[f.getMonth()].slice(0,3)}`),h('td',{},mundo(e.w)),h('td',{cls:'cal-nota'},String(e.nota)),h('td',{},`${e.ok} de ${e.n}`),h('td',{},cambio),h('td',{cls:'bit-fallas'},e.temas?(fallados(e)||'Ninguno'):'—'));
+    return h('tr',{'data-w':e.w},h('td',{},`${f.getDate()} ${MESES[f.getMonth()].slice(0,3)}`),h('td',{},mundo(e.w,e.tr)),h('td',{cls:'cal-nota'},String(e.nota)),h('td',{},`${e.ok} de ${e.n}`),h('td',{},cambio),h('td',{cls:'bit-fallas'},e.temas?(fallados(e)||'Ninguno'):'—'));
   });
   /* Exámenes presentados antes de que existiera la bitácora: solo se conoce el resumen. */
-  const antes=WORLDS.map((w,i)=>({w:i,g:S.examenes[i],n:ev.filter(e=>e.w===i).length})).filter(x=>x.g&&x.g.intentos>x.n);
+  const antes=WORLDS.map((w,i)=>({w:i,tr:TRIM,g:S.examenes[exKey(i)],n:ev.filter(e=>e.w===i&&deEste(e)).length})).filter(x=>x.g&&x.g.intentos>x.n);
   poner($('examenes'),
     ev.length?h('div',{cls:'tabla-wrap'},h('table',{cls:'tabla bit-tabla'},h('tr',{},['Fecha','Mundo','Calificación','Aciertos','Cambio','Temas con errores'].map(t=>h('th',{},t))),filas)):
       h('p',{cls:'intro'},'Todavía no hay exámenes registrados. Cuando presentes uno, aquí verás la fecha, tu calificación y si vas mejorando.'),
-    antes.length?h('p',{cls:'intro'},`Antes de la bitácora: ${antes.map(x=>`${mundo(x.w)} (mejor ${x.g.mejor}, ${x.g.intentos-x.n} ${x.g.intentos-x.n===1?'intento':'intentos'})`).join(' · ')}.`):null);
+    antes.length?h('p',{cls:'intro'},`Antes de la bitácora: ${antes.map(x=>`${mundo(x.w,x.tr)} (mejor ${x.g.mejor}, ${x.g.intentos-x.n} ${x.g.intentos-x.n===1?'intento':'intentos'})`).join(' · ')}.`):null);
 }
 $('mes-ant').onclick=()=>{verMes.setMonth(verMes.getMonth()-1);renderCal();renderResumen()};
 $('mes-sig').onclick=()=>{verMes.setMonth(verMes.getMonth()+1);renderCal();renderResumen()};

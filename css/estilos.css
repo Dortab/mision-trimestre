@@ -428,3 +428,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   body::before{display:none}
   .reporte{box-shadow:none;margin:0;padding:0;max-width:none}
 }
+
+/* Selector de trimestre */
+.trims{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.6rem}
+.trims .trim{font-size:1.05rem;padding:.7rem 1.2rem}
+.trim-tag{font-size:.8rem;font-weight:600;opacity:.7;margin-left:.4rem}
