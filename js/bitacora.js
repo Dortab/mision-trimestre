@@ -70,7 +70,7 @@ function lista(titulo,items){
 function renderDetalle(){
   const k=diaSel,f=fecha(k),ev=evDe(k).sort((a,b)=>a.t-b.t),s=segDe(k);
   const de=t=>ev.filter(e=>e.tipo===t);
-  const misiones=de('mision').map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo} · ${e.ok} de ${e.n} aciertos${e.xp?` · +${e.xp} XP`:''}${e.domino?' · <span class="ok">tema dominado</span>':''}`);
+  const misiones=de('mision').map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo} · ${e.ok} de ${e.n} ${e.v?'a la primera':'aciertos'}${e.v&&e.conPista?` (+${e.conPista} con pista)`:''}${e.xp?` · +${e.xp} XP`:''}${e.domino?' · <span class="ok">tema demostrado</span>':''}`);
   const lecciones=de('leccion').map(e=>`<b>${mundo(e.w)}:</b> Tema ${e.i+1}, ${e.titulo}`);
   const temas=de('tema').map(e=>`<b>${mundo(e.w)}:</b> ${e.titulo}`);
   /* Un reto puede jugarse varias veces el mismo día: se muestra una vez, con su mejor resultado. */
@@ -88,12 +88,12 @@ function renderDetalle(){
 }
 function renderMundos(){
   $('mundos').replaceChildren(...WORLDS.map((w,i)=>{
-    const ts=temasDe(i),dom=ts.filter(t=>S.tem[t.id]).length,rd=w.retos.filter(r=>S.done[r.id]).length,g=S.examenes[i];
+    const ts=temasDe(i),dom=ts.filter(t=>S.tem[t.id]).length,rg=retosGuia(i),rd=rg.filter(r=>S.done[r.id]).length,g=S.examenes[i];
     const barra=(v,n)=>h('span',{cls:'mini'},h('i',{style:`width:${n?v/n*100:0}%`}));
     return h('article',{cls:'bit-mundo','data-w':i},
       h('h3',{},w.name),
       h('p',{},`Temas dominados: ${dom} de ${ts.length}`),barra(dom,ts.length),
-      h('p',{},`Retos superados: ${rd} de ${w.retos.length}`),barra(rd,w.retos.length),
+      h('p',{},`Retos superados: ${rd} de ${rg.length}`),barra(rd,rg.length),
       h('p',{},g?`Examen: mejor ${g.mejor} · último ${g.ultima??g.mejor} · ${g.intentos} ${g.intentos===1?'intento':'intentos'}`:'Examen: todavía no lo presenta'));
   }));
 }

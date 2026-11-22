@@ -8,15 +8,27 @@ let S={done:{},pts:{},sesPts:{},ganadas:{},fallas:{},tem:{},examenes:{},exActual
 try{const raw=localStorage.getItem(KEY);if(raw)S={...S,...JSON.parse(raw)}}catch(e){}
 while(S.rewards.length<CHESTS.length)S.rewards.push(CHESTS[S.rewards.length]);
 /* Temas por reforzar: una sola regla para examen, mapa de misiones y reporte.
-   Entra si saca menos de 4 de 5 en su misión o si falla alguna pregunta del tema en un examen.
-   Sale cuando vuelve a hacer la misión de ese tema con 4 o 5 aciertos. */
+   Solo cuentan los aciertos al primer intento (en la misión, el acierto después de la pista no cuenta).
+   Entra si saca menos de 4 de 5 a la primera en su misión o si falla alguna pregunta del tema en un examen.
+   Sale cuando vuelve a hacer la misión de ese tema con 4 o 5 aciertos a la primera. */
 const MIN_DOMINIO=4;
 S.refuerzo=S.refuerzo||{};
 Object.entries(S.sesiones||{}).forEach(([id,s])=>{if(s.ok<MIN_DOMINIO&&!S.refuerzo[id])S.refuerzo[id]={fuente:'mision',ok:s.ok,n:5}});
+/* Versión del registro de misiones. v:2 = «ok» cuenta solo aciertos al primer intento y «q» guarda cada pregunta.
+   Las misiones hechas antes (sin v) no distinguían el primer intento: si salieron con 4 o 5,
+   quedan «por confirmar» hasta que repita la misión. No se borra nada ni se pierden chispas o XP. */
+const VERSION_MISION=2;
 const enRefuerzo=id=>!!S.refuerzo[id];
 const debilidad=id=>{const r=S.refuerzo[id];return r&&r.n?r.ok/r.n:1};
-const demostrado=id=>!!S.sesiones[id]&&S.sesiones[id].ok>=MIN_DOMINIO&&!enRefuerzo(id);
-function marcarRefuerzo(id,datos){S.refuerzo[id]={...datos,t:Date.now(),dia:diaClave()}}
+const misionNueva=id=>!!S.sesiones[id]&&S.sesiones[id].v>=VERSION_MISION;
+const demostrado=id=>misionNueva(id)&&S.sesiones[id].ok>=MIN_DOMINIO&&!enRefuerzo(id);
+const porConfirmar=id=>!!S.sesiones[id]&&!misionNueva(id)&&S.sesiones[id].ok>=MIN_DOMINIO&&!enRefuerzo(id);
+/* Guarda desde cuándo está por reforzar (para proponer primero el más antiguo) y el día en que falló (para no repetirlo ese día). */
+function marcarRefuerzo(id,datos){
+  const prev=S.refuerzo[id],ahora=Date.now();
+  S.refuerzo[id]={...datos,t:ahora,dia:diaClave(),desde:prev?(prev.desde||prev.t||0):ahora};
+}
+const desdeRefuerzo=id=>{const r=S.refuerzo[id];return r?(r.desde||r.t||0):0};
 const premioChispa=n=>(S.premiosChispa[(n-1)%S.premiosChispa.length]||'').trim()||'Un premio sorpresa';
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 
@@ -28,6 +40,11 @@ const ptsReto=id=>Math.min(100,(S.pts[id]||0)+(S.sesPts[id]||0));
 const xp=()=>WORLDS.reduce((n,w)=>n+w.retos.reduce((m,r)=>m+(S.done[r.id]?100:ptsReto(r.id)),0),0);
 const TOTAL_XP=WORLDS.reduce((n,w)=>n+w.retos.length,0)*100;
 const temaId=(w,i)=>`tema-${w}-${i}`;
+/* Retos con k:'banco' son el banco de preguntas de misión: no se muestran en la Guía.
+   Siguen guardando el XP de las misiones, así nadie pierde lo que ya ganó. */
+const retosGuia=w=>WORLDS[w].retos.filter(r=>r.k!=='banco');
+/* Preguntas que dependen de una figura o tabla que solo existe en su reto de la Guía. */
+const DEPENDE=/mosaico quedó blanca|para tu gráfica|respondieron en total/;
 const temasDe=w=>TEMAS[w].map((t,i)=>({...t,id:temaId(w,i)})).filter(t=>!t.nota);
 const TOTAL_TEMAS=WORLDS.reduce((n,_,w)=>n+temasDe(w).length,0);
 let stop=()=>{};

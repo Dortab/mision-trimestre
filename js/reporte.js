@@ -33,10 +33,10 @@ function datos(p){
   const ev=B.ev.filter(e=>dentro(e.dia,r));
   const avance=WORLDS.map((w,i)=>{
     const ts=temasDe(i);
-    const dem=ts.filter(t=>demostrado(t.id)),ref=ts.filter(t=>enRefuerzo(t.id));
-    const auto=ts.filter(t=>!demostrado(t.id)&&!enRefuerzo(t.id)&&S.tem[t.id]);
+    const dem=ts.filter(t=>demostrado(t.id)),ref=ts.filter(t=>enRefuerzo(t.id)),conf=ts.filter(t=>porConfirmar(t.id));
+    const auto=ts.filter(t=>!demostrado(t.id)&&!porConfirmar(t.id)&&!enRefuerzo(t.id)&&S.tem[t.id]);
     const sin=ts.filter(t=>!S.sesiones[t.id]&&!enRefuerzo(t.id)&&!S.tem[t.id]);
-    return {w:i,total:ts.length,dem,ref,auto,sin};
+    return {w:i,total:ts.length,dem,ref,conf,auto,sin};
   });
   const refuerzo=Object.keys(S.refuerzo).map(id=>{const t=deId(id);return t&&{...t,...S.refuerzo[id]}}).filter(Boolean)
     .sort((a,b)=>debilidad(a.id)-debilidad(b.id)||(b.t||0)-(a.t||0));
@@ -57,7 +57,7 @@ function render(){
   const p=$('periodo').value,d=datos(p);
   const periodo=d.r.desde===d.r.hasta?larga(d.r.hasta):`${larga(d.r.desde)} al ${larga(d.r.hasta)}`;
   const anteriores=WORLDS.map((w,i)=>({w:i,g:S.examenes[i],n:d.examenes.filter(e=>e.w===i).length})).filter(x=>x.g&&x.g.intentos>x.n);
-  const sug=sugerencias(d);
+  const sug=sugerencias(d),hayConf=d.avance.some(a=>a.conf.length);
   poner($('reporte'),
     h('header',{cls:'rep-head'},
       h('p',{cls:'eyebrow'},'Reporte de práctica en casa'),
@@ -72,9 +72,9 @@ function render(){
 
     h('section',{cls:'rep-sec'},h('h2',{},'2. Avance por materia'),h('p',{cls:'intro'},'Acumulado desde que empezó a usar la página.'),
       h('div',{cls:'tabla-wrap'},h('table',{cls:'tabla rep-tabla'},
-        h('tr',{},['Materia','Temas','Demostrados','Por reforzar','Solo autoevaluación','Sin practicar'].map(t=>h('th',{},t))),
-        d.avance.map(a=>h('tr',{},h('td',{},materia(a.w)),h('td',{},String(a.total)),h('td',{},String(a.dem.length)),h('td',{cls:a.ref.length?'rep-alerta':''},String(a.ref.length)),h('td',{},String(a.auto.length)),h('td',{},String(a.sin.length)))),
-        h('tr',{cls:'rep-total'},h('td',{},'Total'),...['total','dem','ref','auto','sin'].map(k=>h('td',{},String(d.avance.reduce((n,a)=>n+(k==='total'?a.total:a[k].length),0)))))))),
+        h('tr',{},['Materia','Temas','Demostrados','Por reforzar',...(hayConf?['Por confirmar']:[]),'Solo autoevaluación','Sin practicar'].map(t=>h('th',{},t))),
+        d.avance.map(a=>h('tr',{},h('td',{},materia(a.w)),h('td',{},String(a.total)),h('td',{},String(a.dem.length)),h('td',{cls:a.ref.length?'rep-alerta':''},String(a.ref.length)),hayConf?h('td',{},String(a.conf.length)):null,h('td',{},String(a.auto.length)),h('td',{},String(a.sin.length)))),
+        h('tr',{cls:'rep-total'},h('td',{},'Total'),...['total','dem','ref',...(hayConf?['conf']:[]),'auto','sin'].map(k=>h('td',{},String(d.avance.reduce((n,a)=>n+(k==='total'?a.total:a[k].length),0)))))))),
 
     h('section',{cls:'rep-sec'},h('h2',{},'3. Exámenes de práctica en el periodo'),
       d.exPeriodo.length?h('div',{cls:'tabla-wrap'},h('table',{cls:'tabla rep-tabla'},
@@ -90,16 +90,19 @@ function render(){
       d.refuerzo.length?WORLDS.map((w,i)=>{const l=d.refuerzo.filter(x=>x.w===i);return l.length?h('div',{cls:'rep-grupo'},h('h3',{},w.name),
         h('ul',{},l.map(x=>h('li',{},h('span',{},x.titulo),h('span',{cls:'rep-evid'},evidencia(x))))) ):null}):h('p',{},'No hay temas por reforzar en este momento.')),
 
-    h('section',{cls:'rep-sec'},h('h2',{},'5. Temas demostrados'),h('p',{cls:'intro'},'Sacó 4 o 5 de 5 en la misión del tema y no ha tenido errores después en un examen.'),
-      d.avance.some(a=>a.dem.length)?d.avance.map(a=>a.dem.length?h('div',{cls:'rep-grupo'},h('h3',{},materia(a.w)),h('p',{},a.dem.map(t=>t.t).join(' · '))):null):h('p',{},'Todavía no hay temas demostrados.')),
+    h('section',{cls:'rep-sec'},h('h2',{},'5. Temas demostrados'),h('p',{cls:'intro'},'Sacó 4 o 5 de 5 al primer intento en la misión del tema y no ha tenido errores después en un examen.'),
+      d.avance.some(a=>a.dem.length)?d.avance.map(a=>a.dem.length?h('div',{cls:'rep-grupo'},h('h3',{},materia(a.w)),h('p',{},a.dem.map(t=>t.t).join(' · '))):null):h('p',{},'Todavía no hay temas demostrados.'),
+      hayConf?h('div',{cls:'rep-grupo'},h('h3',{},'Por confirmar'),
+        h('p',{cls:'intro'},'Misiones terminadas con 4 o 5 aciertos antes del 16 de noviembre de 2026, cuando todavía no se distinguía el acierto al primer intento del acierto después de una pista. Se confirman al repetir la misión.'),
+        d.avance.map(a=>a.conf.length?h('p',{},h('b',{},materia(a.w)+': '),a.conf.map(t=>t.t).join(' · ')):null)):null),
 
     h('section',{cls:'rep-sec rep-sug'},h('h2',{},'6. Sugerencia para la próxima semana'),
       sug.length?h('ol',{},sug.map(x=>h('li',{},h('b',{},x.titulo),` (${materia(x.w)})`,x.nuevo?' · tema nuevo':` · ${evidencia(x)}`))):h('p',{},'¡Completó todo el temario! Conviene repasar con exámenes de práctica.'),
-      h('p',{},sug.length&&!sug[0].nuevo?'En cada tema: leer juntos la lección y después hacer su misión de repaso. Con 4 o 5 aciertos, el tema deja de estar por reforzar.':'Seguir con una misión de 10 minutos al día.'),
+      h('p',{},sug.length&&!sug[0].nuevo?'En cada tema: leer juntos la lección y después hacer su misión de repaso. Con 4 o 5 aciertos al primer intento, el tema deja de estar por reforzar.':'Seguir con una misión de 10 minutos al día.'),
       h('p',{cls:'intro'},'Lo que más ayuda: sesiones cortas (10 minutos) casi todos los días, mejor que una sesión larga el fin de semana.')),
 
     h('footer',{cls:'rep-pie'},
-      h('p',{},h('b',{},'Cómo leer este reporte. '),'«Demostrado»: sacó 4 o 5 de 5 en la misión del tema. «Por reforzar»: menos de 4 de 5 en su misión, o errores en ese tema en un examen de práctica (cada tema tiene 1 o 2 preguntas por examen, así que es una alerta, no un diagnóstico). «Solo autoevaluación»: marcó que lo entiende, pero todavía no lo demuestra en una misión. El tiempo cuenta solo mientras la página está en uso.'),
+      h('p',{},h('b',{},'Cómo leer este reporte. '),'«Demostrado»: sacó 4 o 5 de 5 al primer intento en la misión del tema (el acierto después de una pista no cuenta). «Por reforzar»: menos de 4 de 5 al primer intento en su misión, o errores en ese tema en un examen de práctica (cada tema tiene 1 o 2 preguntas por examen, así que es una alerta, no un diagnóstico). «Solo autoevaluación»: marcó que lo entiende, pero todavía no lo demuestra en una misión. El tiempo cuenta solo mientras la página está en uso.'),
       h('p',{},'Práctica en casa con Misión Trimestre. No sustituye la evaluación de la escuela.')));
   return {d,periodo,sug};
 }
@@ -111,7 +114,7 @@ function resumen(){
     `Reporte de práctica en casa · ${ALUMNO} · ${GRADO}`,
     `Periodo: ${periodo}`,
     `Trabajó ${d.dias} ${d.dias===1?'día':'días'} (${tiempo(d.seg)} en total) y terminó ${d.misiones} ${d.misiones===1?'misión':'misiones'}.`,
-    `Temas demostrados: ${tot('dem')} de ${tot('total')}. Por reforzar: ${tot('ref')}.`,
+    `Temas demostrados: ${tot('dem')} de ${tot('total')}. Por reforzar: ${tot('ref')}.${tot('conf')?` Por confirmar: ${tot('conf')}.`:''}`,
     ex?`Exámenes de práctica: ${ex}.`:'Sin exámenes en el periodo.',
     sug.length?`Para la próxima semana: ${sug.map(x=>`${x.titulo} (${materia(x.w)})`).join('; ')}.`:'',
     'Práctica en casa con Misión Trimestre; no sustituye la evaluación de la escuela.'

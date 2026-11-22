@@ -23,9 +23,9 @@ function renderHud(){
   const x=xp();$('xp').textContent=x;$('xp-total').textContent=TOTAL_XP;$('bar').style.width=(x/TOTAL_XP*100)+'%';
   $('xp-next').textContent=x>=TOTAL_XP?'Misión completa':`Faltan ${500-(x%500)} XP para el siguiente cofre`;
   $('board').replaceChildren(...WORLDS.map((w,i)=>{
-    const d=w.retos.filter(r=>S.done[r.id]).length;
+    const rg=retosGuia(i),d=rg.filter(r=>S.done[r.id]).length;
     return h('button',{cls:'st','data-w':i,'aria-current':i===S.world?'true':'false',onclick:()=>{S.world=i;inicioMundo();save();try{location.hash='mundo'+(i+1)}catch(e){}renderHud();renderWorld();window.scrollTo(0,$('board').offsetTop-document.querySelector('.barra').offsetHeight)}},
-      h('span',{cls:'n'},`Mundo ${i+1}`),h('span',{cls:'name'},w.name),h('span',{cls:'prog'},`${d} de ${w.retos.length} retos`))}));
+      h('span',{cls:'n'},`Mundo ${i+1}`),h('span',{cls:'name'},w.name),h('span',{cls:'prog'},`${d} de ${rg.length} retos`))}));
 }
 const lecciones=()=>TEMAS[S.world].map((t,i)=>({...t,id:temaId(S.world,i)}));
 function inicioMundo(){
@@ -42,7 +42,7 @@ function renderWorld(){
 }
 function renderPaso(){
   stop();
-  $('etapas').replaceChildren(...[['aprende','1. Explicación'],['preguntas','2. Preguntas'],['examen','3. Examen']].map(([k,l])=>
+  $('etapas').replaceChildren(...[['aprende','1. Explicación'],['preguntas','2. Retos'],['examen','3. Examen']].map(([k,l])=>
     h('button',{cls:'etapa','aria-current':paso===k?'true':'false',onclick:()=>{cambiarPaso(k)}},l)));
   if(paso==='aprende')renderLeccion();
   else if(paso==='examen')renderExamen();
@@ -50,7 +50,7 @@ function renderPaso(){
 }
 function cambiarPaso(k){
   paso=k;
-  if(k==='preguntas'&&!openId){const w=WORLDS[S.world],f=w.retos.find(r=>!S.done[r.id]);openId=(f||w.retos[0]).id}
+  if(k==='preguntas'&&!openId){const rg=retosGuia(S.world),f=rg.find(r=>!S.done[r.id]);openId=(f||rg[0]).id}
   renderPaso();arriba();
 }
 function arriba(){$('etapas').scrollIntoView({block:'start'})}
@@ -81,19 +81,19 @@ function renderLeccion(){
       h('section',{cls:'ejemplos'},h('h4',{},'Ejemplos'),h('ul',{},t.x.map(x=>h('li',{html:x})))),
       h('p',{cls:'clave',html:`<b>Lo más importante:</b> ${t.k}`}),
       h('label',{cls:'check',for:t.id},check,'Ya puedo explicarlo con mis palabras'),
-      h('div',{cls:'row'},h('span',{cls:'intro'},'Practica este tema:'),t.r.map(id=>h('button',{cls:'btn small',onclick:()=>practicar(id)},`Reto ${numero(id)}`)))),
+      t.r.length?h('div',{cls:'row'},h('span',{cls:'intro'},'Practica este tema:'),t.r.map(id=>h('button',{cls:'btn small',onclick:()=>practicar(id)},`Reto ${numero(id)}`))):null),
     h('div',{cls:'row nav-tema'},
       temaActual>0?h('button',{cls:'btn',onclick:()=>irTema(temaActual-1)},'Tema anterior'):null,
-      ultimo?h('button',{cls:'btn main',onclick:()=>cambiarPaso('preguntas')},'Ya estudié: ir a las preguntas'):h('button',{cls:'btn main',onclick:()=>irTema(temaActual+1)},'Siguiente tema')));
+      ultimo?h('button',{cls:'btn main',onclick:()=>cambiarPaso('preguntas')},'Ya estudié: ir a los retos'):h('button',{cls:'btn main',onclick:()=>irTema(temaActual+1)},'Siguiente tema')));
 }
-function numero(id){return `${S.world+1}.${WORLDS[S.world].retos.findIndex(r=>r.id===id)+1}`}
+function numero(id){return `${S.world+1}.${retosGuia(S.world).findIndex(r=>r.id===id)+1}`}
 function practicar(id){paso='preguntas';openId=id;renderPaso();document.querySelector(`[data-reto="${id}"]`).scrollIntoView({block:'start'})}
 function repasar(id){paso='aprende';temaActual=Math.max(0,lecciones().findIndex(t=>t.r.includes(id)));renderPaso();arriba()}
 function renderRetos(){
   stop();
   const w=WORLDS[S.world],list=$('retos');
-  list.replaceChildren(h('h3',{},'Preguntas y retos'));
-  w.retos.forEach((r,i)=>{
+  list.replaceChildren(h('h3',{},'Retos'));
+  retosGuia(S.world).forEach((r,i)=>{
     const body=h('div',{cls:'reto-b'});
     const card=h('article',{cls:'reto','data-reto':r.id},
       h('button',{cls:'reto-h','aria-expanded':openId===r.id?'true':'false',onclick:()=>{openId=openId===r.id?'__':r.id;renderRetos()}},
@@ -114,7 +114,7 @@ function play(r,box,w){
     const first=pass&&!S.done[r.id];
     registrar('reto',{w:S.world,reto:r.id,titulo:r.t,pass,primera:first});
     if(first&&!sumarXP(()=>{S.done[r.id]=true})&&$('toast').hidden)toast('Reto superado');
-    const idx=w.retos.indexOf(r),next=w.retos.slice(idx+1).find(q=>!S.done[q.id]);
+    const rg=retosGuia(S.world),idx=rg.indexOf(r),next=rg.slice(idx+1).find(q=>!S.done[q.id]);
     box.append(h('div',{cls:'result',role:'status'},
       h('strong',{},pass?(first?'Reto superado. Ya tienes sus 100 XP':'Reto superado otra vez'):'Casi lo logras'),
       h('p',{},pass||S.done[r.id]?msg:`${msg} Llevas ${S.pts[r.id]||0} de 100 XP en este reto.`),
@@ -124,7 +124,8 @@ function play(r,box,w){
         pass?null:h('button',{cls:'btn',onclick:()=>repasar(r.id)},'Repasar la explicación'))));
     if(S.done[r.id]){const b=box.parentNode.querySelector('.badge');b.textContent='Ganado';b.classList.add('won')}
   };
-  go(r.k==='quiz'||r.k==='tf'?{...r,q:muestra(r)}:r,box,end);
+  /* La gráfica y el mosaico solo usan en la Guía las preguntas que dependen de su figura; las demás son del banco de misión. */
+  go(r.k==='quiz'||r.k==='tf'?{...r,q:muestra(r)}:(r.k==='chart'||r.k==='mosaic'?{...r,q:r.q.filter(q=>DEPENDE.test(q.s||''))}:r),box,end);
 }
 /* Convierte un texto corrido en tabla y gráfica de barras. */
 function chart(r,box,end){

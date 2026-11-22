@@ -158,5 +158,5 @@ agregar('h3',[
 
 agregar('l9',[{t:9,p:'Sin él, nadie sabría de qué trata.',s:'¿Para qué sirve el título de una tabla o gráfica?',o:['Para saber de qué trata','Para adornar la hoja','Para ocupar más espacio'],y:'Un título claro dice qué datos se muestran.'}]);
 
-/* Cada lección enlaza todos los retos que tienen preguntas de su tema. */
-WORLDS.forEach((w,i)=>w.retos.forEach(r=>(r.q||[]).forEach(q=>{const l=TEMAS[i][q.t].r;if(!l.includes(r.id))l.push(r.id)})));
+/* Cada lección enlaza los retos de la Guía que tienen preguntas de su tema (los bancos de misión no). */
+WORLDS.forEach((w,i)=>w.retos.filter(r=>r.k!=='banco').forEach(r=>(r.q||[]).forEach(q=>{const l=TEMAS[i][q.t].r;if(!l.includes(r.id))l.push(r.id)})));
