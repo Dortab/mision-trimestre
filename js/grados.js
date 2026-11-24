@@ -39,6 +39,8 @@ const KEY=GRADO?claveGrado(GRADO):null;
 /* 1.º y 2.º usan letra y botones más grandes, exámenes y retos más cortos y dibujos en las lecciones. */
 const PEQUES=GRADO>0&&GRADO<=2;
 if(PEQUES)document.documentElement.classList.add('peques');
+/* La tipografía de jeroglíficos solo la usa 6.º; los demás grados no la descargan. */
+if(GRADO===6){const l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap';document.head.append(l)}
 /* Nombre para hablarle: el que escribió o «tripulante». */
 const nombreTripulante=()=>(PERFIL.nombre||'').trim()||'tripulante';
 const tieneNombre=()=>!!(PERFIL.nombre||'').trim();
@@ -50,3 +52,7 @@ function cargar(...pagina){
   const lista=[...GRADOS[GRADO].archivos.map(a=>`grados/${GRADO}/${a}.js`),'js/trimestre.js','js/comun.js',...pagina.map(p=>`js/${p}.js`)];
   lista.forEach(src=>{const s=document.createElement('script');s.src=src;s.async=false;document.body.append(s)});
 }
+
+/* Guarda una copia de la app en el celular para que abra rápido y funcione sin señal (ver sw.js). */
+if('serviceWorker' in navigator&&location.protocol==='https:')
+  addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
