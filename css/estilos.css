@@ -169,6 +169,7 @@ h1{font-size:clamp(42px,7vw,68px);margin-block:4px 10px}
 .mundo:nth-child(n+4){grid-column:span 3}
 /* Con seis mundos (2.º y 3.er trimestre) van en dos filas de tres */
 .mundos:has(.mundo:nth-child(6)) .mundo{grid-column:span 2}
+.mundos:has(.mundo:nth-child(4):last-child) .mundo{grid-column:span 3}
 .mundo:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--line)}
 .mundo h3{font-size:30px}
 .mundo-n,.mundo-p{font-size:13px;font-weight:700}
@@ -265,6 +266,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .mundo,.mundo:nth-child(n+4){grid-column:auto}
   .mundo:last-child{grid-column:1/-1}
   .mundos:has(.mundo:nth-child(6)) .mundo{grid-column:auto}
+  .mundos:has(.mundo:nth-child(4):last-child) .mundo{grid-column:auto}
   .barra-xp{grid-template-columns:auto minmax(0,1fr)}
   .barra-xp .intro{grid-column:1/-1}
 }
