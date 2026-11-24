@@ -457,3 +457,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-entrada{grid-template-columns:minmax(0,1fr)}
 .hero-entrada .rules{max-width:52ch}
 .entrada-nombre input{width:100%;box-sizing:border-box}
+
+/* Lectura en voz alta */
+.voz-btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:40px;min-height:40px;padding:4px 10px;margin-left:6px;vertical-align:middle;
+  border:2.5px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font:700 16px/1 inherit;cursor:pointer;box-shadow:2px 2px 0 var(--line)}
+.voz-btn.grande{justify-self:end;align-self:flex-end;width:auto;margin:0 0 4px auto;font-size:15px;padding:6px 14px}
+.voz-btn[aria-pressed="true"]{background:var(--w3);color:#fff}
+.voz-btn:focus-visible{outline:3px solid var(--w3);outline-offset:2px}
+.leyendo{background:color-mix(in srgb,var(--w3) 18%,transparent);border-radius:8px;box-shadow:0 0 0 4px color-mix(in srgb,var(--w3) 18%,transparent);transition:background .2s}
+.voz-auto{flex:none;white-space:nowrap}
+.voz-auto[aria-pressed="true"]{background:var(--w3);color:#fff}
+@media (prefers-reduced-motion:reduce){.leyendo{transition:none}}
