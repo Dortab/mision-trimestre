@@ -39,7 +39,7 @@ function limpiar(t){
   return t
     .replace(/\p{Extended_Pictographic}|️/gu,'')
     .replace(/(\d) (?=\d{3}\b)/g,'$1')
-    .replace(/\$\s?([\d.,]+)/g,'$1 pesos')
+    .replace(/\$\s?(\d+(?:[.,]\d+)*)/g,'$1 pesos')
     .replace(/(\d)\.er\b/g,'primer').replace(/(\d)\.º/g,(m,d)=>ORD[d]||d)
     .replace(/km²/g,' kilómetros cuadrados').replace(/cm²/g,' centímetros cuadrados').replace(/m²/g,' metros cuadrados')
     .replace(/(\d)\s?km\b/g,'$1 kilómetros').replace(/(\d)\s?cm\b/g,'$1 centímetros').replace(/(\d)\s?mm\b/g,'$1 milímetros')

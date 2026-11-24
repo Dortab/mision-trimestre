@@ -2,7 +2,8 @@
    Cada grado vive en grados/<n>/ y se carga solo cuando se elige. Su avance se guarda aparte. */
 const GRADOS={
   1:{nombre:'1.º de primaria',corto:'1.º',lema:'Leer, contar y conocer mi cuerpo',activo:false},
-  2:{nombre:'2.º de primaria',corto:'2.º',lema:'Escribir, sumar y cuidar mi entorno',activo:false},
+  2:{nombre:'2.º de primaria',corto:'2.º',lema:'Escribir, sumar y cuidar mi entorno',activo:true,archivos:['trimestre1','trimestre2','trimestre3'],
+     fuente:()=>'Basada en el Programa Sintético de la Fase 3 de la SEP para 2.º de primaria.'},
   3:{nombre:'3.º de primaria',corto:'3.º',lema:'Fracciones, ecosistemas y mi entidad',activo:true,
      archivos:['trimestre1','trimestre2','trimestre3'],
      fuente:()=>'Basada en el Programa Sintético de la Fase 4 de la SEP para 3.º de primaria.'},
