@@ -33,7 +33,7 @@ const exKey=w=>TRIM===1?w:`t${TRIM}-${w}`;
 const temasDe=w=>TEMAS[w].map((t,i)=>({...t,id:temaId(w,i)})).filter(t=>!t.nota);
 const TOTAL_TEMAS=WORLDS.reduce((n,_,w)=>n+temasDe(w).length,0);
 /* Cada materia tiene siempre el mismo color, en cualquier grado y trimestre. */
-const COLOR_MATERIA={'Ciencias':0,'Lenguajes':1,'Matemáticas':2,'Geografía':3,'Historia':4,'Civismo':5,'Conocimiento del medio':3};
+const COLOR_MATERIA={'Ciencias':0,'Lenguajes':1,'Matemáticas':2,'Geografía':3,'Historia':4,'Civismo':5,'Historia y civismo':4,'Conocimiento del medio':3};
 const colorW=(w,tr)=>{const n=mundoDe(w,tr||TRIM);return n in COLOR_MATERIA?COLOR_MATERIA[n]:w};
 let stop=()=>{};
 /* Botones para cambiar de trimestre desde cualquier página. Guardan la elección y recargan. */

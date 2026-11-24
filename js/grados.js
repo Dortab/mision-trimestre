@@ -3,7 +3,9 @@
 const GRADOS={
   1:{nombre:'1.º de primaria',corto:'1.º',lema:'Leer, contar y conocer mi cuerpo',activo:false},
   2:{nombre:'2.º de primaria',corto:'2.º',lema:'Escribir, sumar y cuidar mi entorno',activo:false},
-  3:{nombre:'3.º de primaria',corto:'3.º',lema:'Fracciones, ecosistemas y mi entidad',activo:false},
+  3:{nombre:'3.º de primaria',corto:'3.º',lema:'Fracciones, ecosistemas y mi entidad',activo:true,
+     archivos:['trimestre1','trimestre2','trimestre3'],
+     fuente:()=>'Basada en el Programa Sintético de la Fase 4 de la SEP para 3.º de primaria.'},
   4:{nombre:'4.º de primaria',corto:'4.º',lema:'Decimales, nutrición y el mapa de México',activo:true,
      archivos:['trimestre1','trimestre2','trimestre3'],
      fuente:()=>'Basada en el Programa Sintético de la Fase 4 de la SEP para 4.º de primaria.'},
