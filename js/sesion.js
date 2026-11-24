@@ -96,6 +96,7 @@ function presentar(){
 }
 function tarjetas(){
   const t=sesion.t,total=t.e.length+2,i=sesion.tarjeta,cuerpo=[];
+  if(i===0&&t.d)cuerpo.push(h('p',{cls:'dibujo','aria-hidden':'true'},t.d));
   if(i<t.e.length)cuerpo.push(h('p',{cls:'idea',html:t.e[i]}));
   else if(i===t.e.length){
     cuerpo.push(h('h3',{},'Por ejemplo'),h('p',{cls:'idea',html:t.x[sesion.ejemplo%t.x.length]}),

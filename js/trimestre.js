@@ -26,7 +26,7 @@ function armarTrimestre(n,mundos){
       if(q.length)retos.push({id:`${pre}v${i/4+1}`,t:`Falso o verdadero: ${ls.map(l=>minus(l.c||l.t)).join(', ')}`,k:'tf',q});
     }
     worlds.push({name:m.name,sub:m.sub,lead:m.lead,retos});
-    temas.push(m.temas.map(l=>({t:l.t,e:l.e,x:l.x,k:l.k,r:[]})));
+    temas.push(m.temas.map(l=>({t:l.t,e:l.e,x:l.x,k:l.k,d:l.d,r:[]})));
     /* Si un mundo tiene pocas preguntas de examen, se completan con las de sus misiones para acercarse a 20. */
     const pocas=m.temas.reduce((n,l)=>n+(l.ex||[]).length,0)<20;
     examenes.push(m.temas.map(l=>[...(l.ex||[]),...(pocas?(l.q||[]).map(({s,o,y})=>({s,o,y})):[])]));

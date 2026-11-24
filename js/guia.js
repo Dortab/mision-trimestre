@@ -4,7 +4,7 @@ const m=/^#mundo([1-9])$/.exec(location.hash);
 if(m){S.world=+m[1]-1;save()}
 
 /* Cada intento toma hasta 8 preguntas y da prioridad a las que falló antes. */
-const MAX_RETO=8;
+const MAX_RETO=PEQUES?5:8;
 function muestra(r){
   const fallas=S.fallas[r.id]||[];
   const pendientes=shuffle(r.q.filter(q=>fallas.includes(claveQ(q)))).slice(0,4);
@@ -77,6 +77,7 @@ function renderLeccion(){
     h('article',{cls:'leccion'},
       h('p',{cls:'count'},t.nota?'Nota del temario':`Tema ${temaActual+1} de ${lista.length}`),
       h('h3',{},t.t),
+      t.d?h('p',{cls:'dibujo','aria-hidden':'true'},t.d):null,
       t.e.map(p=>h('p',{html:p})),
       h('section',{cls:'ejemplos'},h('h4',{},'Ejemplos'),h('ul',{},t.x.map(x=>h('li',{html:x})))),
       h('p',{cls:'clave',html:`<b>Lo más importante:</b> ${t.k}`}),

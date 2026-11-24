@@ -1,5 +1,5 @@
 /* Examen de práctica: sin ayudas durante la prueba, con calificación y revisión al final. */
-const TAM_EXAMEN=20;
+const TAM_EXAMEN=PEQUES?12:20;
 let ex=null;
 
 /* Toma una pregunta de cada tema y completa con otras al azar. */
