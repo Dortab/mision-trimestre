@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mi bitácora</title>
+<title>Mi bitácora · Universo SPARK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap">
 <link rel="stylesheet" href="css/estilos.css">
@@ -11,7 +11,7 @@
 <body data-reloj="no">
 <header class="barra">
   <div class="barra-in wrap">
-    <a class="volver" href="index.html">Inicio</a>
+    <a class="volver" href="base.html">Mi base</a>
     <div class="barra-xp">
       <span class="xp-num"><span id="xp">0</span> <small>de <span id="xp-total">0</span> XP</small></span>
       <div class="meter"><i id="bar"></i></div>
@@ -56,16 +56,11 @@
     <div class="leccion" id="examenes"></div>
   </section>
 
-  <p class="adultos"><b>Para los adultos:</b> el tiempo solo cuenta mientras la página está abierta y en uso. Se pausa si cambia de pestaña o si pasan 3 minutos sin tocar nada. Una lección cuenta como estudiada cuando se queda en ella al menos 20 segundos. Todo se guarda en este dispositivo.</p>
+  <p class="adultos"><b>Para mamá, papá, tutor o docente:</b> el tiempo solo cuenta mientras la página está abierta y en uso. Se pausa si cambia de pestaña o si pasan 3 minutos sin tocar nada. Una lección cuenta como estudiada cuando se queda en ella al menos 20 segundos. Todo se guarda en este dispositivo.</p>
 </main>
 <div id="toast" class="toast" role="status" hidden></div>
 
-<script src="js/datos.js"></script>
-<script src="js/temas.js"></script>
-<script src="js/trimestre2.js"></script>
-<script src="js/trimestre3.js"></script>
-<script src="js/trimestre.js"></script>
-<script src="js/comun.js"></script>
-<script src="js/bitacora.js"></script>
+<script src="js/grados.js"></script>
+<script>cargar('bitacora')</script>
 </body>
 </html>

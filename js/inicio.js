@@ -13,7 +13,7 @@ function renderInicio(){
   $('chispas-txt').textContent=`chispas · ${fal===1?'falta 1':`faltan ${fal}`} para el cofre de constancia`;
   $('mundos').replaceChildren(...WORLDS.map((w,i)=>{
     const d=avance(i),n=w.retos.length,t=temasDe(i).length;
-    return h('a',{cls:'mundo','data-w':i,href:`guia.html#mundo${i+1}`,onclick:()=>ir(i)},
+    return h('a',{cls:'mundo','data-w':colorW(i),href:`guia.html#mundo${i+1}`,onclick:()=>ir(i)},
       h('span',{cls:'mundo-n'},`Mundo ${i+1}`),h('h3',{},w.name),h('p',{},w.lead),
       h('span',{cls:'mundo-p'},`${t} temas · ${d} de ${n} retos${S.examenes[exKey(i)]?` · Examen: ${S.examenes[exKey(i)].mejor}`:''}`),
       h('span',{cls:'mini'},h('i',{style:`width:${d/n*100}%`})));
@@ -37,14 +37,14 @@ function renderCofres(){
 function renderReset(){
   const r=$('reset');
   r.replaceChildren(h('button',{cls:'btn plain',onclick:()=>{
-    r.replaceChildren('¿Borrar todo el progreso? ',h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},sesPts:{},ganadas:{},fallas:{},tem:{},examenes:{},exActual:{},sesiones:{},iniciadas:{},refuerzo:{},chispas:0,ultimaSesion:null,ultimaFueRepaso:false,fields:{},world:0,trim:1,bitacora:{v:1,dias:{},ev:[]}};save();location.reload()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
+    r.replaceChildren(`¿Borrar todo el progreso de ${GRADOS[GRADO].corto}? `,h('button',{cls:'btn small',onclick:()=>{S={...S,done:{},pts:{},sesPts:{},ganadas:{},fallas:{},tem:{},examenes:{},exActual:{},sesiones:{},iniciadas:{},refuerzo:{},chispas:0,ultimaSesion:null,ultimaFueRepaso:false,fields:{},world:0,trim:1,bitacora:{v:1,dias:{},ev:[]}};save();location.reload()}},'Sí, borrar'),' ',h('button',{cls:'btn small',onclick:renderReset},'Cancelar'));
   }},'Empezar de cero'));
 }
 /* Selector de trimestre: cada trimestre tiene sus mundos, su XP y sus cofres. El avance de los demás se conserva. */
 function renderTrims(){
-  $('grado').textContent=`6.º de primaria · ${NOMBRE_TRIM[TRIM]}`;
-  $('base').textContent=TRIM===1?'Basada en el temario de evaluación del primer trimestre. Tu avance se guarda en este dispositivo.':
-    `Basada en los libros de 6.º (Universo Luca y Nova) y en el Programa Sintético de la Fase 5 de la SEP. Tu avance se guarda en este dispositivo.`;
+  $('grado').textContent=`${GRADOS[GRADO].nombre} · ${NOMBRE_TRIM[TRIM]}`;
+  $('nombre').textContent=nombreTripulante();
+  $('base').textContent=`${GRADOS[GRADO].fuente(TRIM)} Tu avance se guarda en este dispositivo.`;
   $('trims').replaceChildren(...selectorTrim().childNodes);
 }
 renderTrims();renderCofres();renderInicio();renderReset();

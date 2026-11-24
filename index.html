@@ -3,78 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Misión Trimestre</title>
+<title>Universo SPARK · 10 minutos al día para aprender</title>
+<meta name="description" content="Universo SPARK: un ratito de estudio al día para niñas y niños de primaria, con lecciones cortas, retos y exámenes de práctica.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<header class="hero wrap">
+<header class="hero hero-entrada wrap">
   <div class="saludo">
     <img class="spark-foto" src="imagenes/spark_saludo.jpeg" alt="SPARK, un robot blanco y naranja, saluda con la mano" width="320" height="320">
     <div>
-      <p class="eyebrow" id="grado">6.º de primaria · 1.er trimestre</p>
-      <h1>Misión Trimestre</h1>
-      <p class="rules">Hola, Jacob. Soy <b>SPARK</b>. Hoy solo necesitas 10 minutos: un tema, unas tarjetas y 5 preguntas.</p>
-      <div class="row acciones">
-        <a class="cta" href="mision.html">Mi misión de hoy</a>
-        <a class="cta cta-alt" href="bitacora.html">Mi bitácora</a>
-      </div>
+      <p class="eyebrow">10 minutos al día</p>
+      <h1>Universo SPARK</h1>
+      <p class="rules">¡Hola, tripulante! Soy <b>SPARK</b>. Te acompaño a estudiar un ratito cada día: un tema, unas tarjetas y 5 preguntas.</p>
+      <div class="continuar" id="continuar" hidden></div>
     </div>
   </div>
-  <section class="hud" aria-label="Tu progreso">
-    <div class="xp-row">
-      <span class="xp-num"><span id="xp">0</span> <small>de <span id="xp-total">0</span> XP</small></span>
-    </div>
-    <div class="meter"><i id="bar"></i></div>
-    <div class="stats">
-      <div><b id="temas">0</b><span>temas dominados</span></div>
-      <div><b id="retos-n">0</b><span>retos superados</span></div>
-      <div><b id="chispas">0</b><span id="chispas-txt">chispas de SPARK</span></div>
-    </div>
-  </section>
 </header>
 
 <main class="wrap">
   <section class="seccion">
-    <h2>Elige tu trimestre</h2>
-    <div class="trims" id="trims" role="group" aria-label="Trimestre"></div>
-    <h2>Elige un mundo</h2>
-    <div class="mundos" id="mundos"></div>
+    <h2>1. ¿Cómo te llamas?</h2>
+    <div class="entrada-nombre">
+      <label for="nombre-in">Escribe tu nombre o tu apodo. SPARK lo usará para saludarte.</label>
+      <input id="nombre-in" maxlength="20" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Tu nombre">
+      <small>Puedes dejarlo vacío: te diremos «tripulante».</small>
+    </div>
   </section>
 
   <section class="seccion">
-    <h2>Cómo se juega</h2>
-    <ol class="pasos">
-      <li><strong>Mi misión de hoy</strong><p>SPARK te propone un tema: tarjetas cortas y 5 preguntas en unos 10 minutos.</p></li>
-      <li><strong>Juega</strong><p>Cada respuesta correcta suma XP. Si te equivocas, tienes una pista y otro intento por la mitad de los puntos.</p></li>
-      <li><strong>Presenta el examen</strong><p>Cada mundo tiene un examen de 20 preguntas en bloques de 5, con descansos y calificación del 0 al 10.</p></li>
-      <li><strong>Abre cofres</strong><p>Cada 500 XP se abre un cofre. Y cada misión terminada te da una chispa: con 5 chispas abres un cofre de constancia.</p></li>
-    </ol>
+    <h2>2. ¿En qué grado vas?</h2>
+    <div class="mundos grados" id="grados"></div>
   </section>
 
   <section class="seccion">
-    <h2>Cofres</h2>
-    <h3 class="sub-cofres">Cofres de XP <small>uno cada 500 XP: premian lo bien que le va</small></h3>
-    <div class="chests" id="chests"></div>
-    <h3 class="sub-cofres">Cofres de constancia <small>uno cada 5 chispas: premian terminar misiones, sin importar los aciertos</small></h3>
-    <div class="chests" id="chests-chispa"></div>
-    <p class="adultos"><b>Para los adultos:</b> escriban juntos las recompensas en los cofres. Los de constancia conviene que sean premios chicos y frecuentes; al llegar al último, la lista vuelve a empezar. Se recomienda una misión de 10 minutos por sesión y acompañar las primeras veces. Algunos retos se hacen en casa y necesitan su revisión.</p>
+    <h2>Para mamás, papás, tutores y docentes</h2>
+    <div class="adultos legal">
+      <p><b>Qué es.</b> Universo SPARK ayuda a formar el hábito de estudiar 10 minutos al día. Cada misión repasa un tema con tarjetas cortas y 5 preguntas, y cada mundo tiene un examen de práctica. Los temas siguen el plan de estudios de primaria.</p>
+      <p><b>Privacidad.</b> No pedimos correo ni cuenta. El nombre y el avance se guardan solo en este dispositivo y no se envían a ningún servidor. Si borran los datos del navegador, el avance se pierde.</p>
+      <p><b>Para docentes.</b> Pueden recomendarla como repaso en casa. Desde la bitácora, cada familia puede imprimir o enviar un reporte con los temas trabajados, las misiones y las calificaciones de los exámenes de práctica.</p>
+      <p><b>Aviso.</b> Es un apoyo independiente para practicar en casa. No es material oficial de la SEP ni sustituye la evaluación de la escuela.</p>
+    </div>
   </section>
 </main>
 
 <footer class="foot wrap">
-  <span id="base">Basada en el temario de evaluación del primer trimestre. Tu avance se guarda en este dispositivo.</span>
-  <span id="reset"></span>
+  <span>© 2026 Universo SPARK. Todos los derechos reservados.</span>
+  <span>Hecho en México</span>
 </footer>
 
-<script src="js/datos.js"></script>
-<script src="js/temas.js"></script>
-<script src="js/trimestre2.js"></script>
-<script src="js/trimestre3.js"></script>
-<script src="js/trimestre.js"></script>
-<script src="js/comun.js"></script>
-<script src="js/inicio.js"></script>
+<script src="js/grados.js"></script>
+<script src="js/entrada.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* Página de la guía: mundos, lecciones y apertura de retos. */
 let openId=null,paso='aprende',temaActual=0;
-const m=/^#mundo([1-5])$/.exec(location.hash);
+const m=/^#mundo([1-9])$/.exec(location.hash);
 if(m){S.world=+m[1]-1;save()}
 
 /* Cada intento toma hasta 8 preguntas y da prioridad a las que falló antes. */
@@ -24,7 +24,7 @@ function renderHud(){
   $('xp-next').textContent=x>=TOTAL_XP?'Misión completa':`Faltan ${500-(x%500)} XP para el siguiente cofre`;
   $('board').replaceChildren(...WORLDS.map((w,i)=>{
     const d=w.retos.filter(r=>S.done[r.id]).length;
-    return h('button',{cls:'st','data-w':i,'aria-current':i===S.world?'true':'false',onclick:()=>{S.world=i;inicioMundo();save();try{location.hash='mundo'+(i+1)}catch(e){}renderHud();renderWorld();window.scrollTo(0,$('board').offsetTop-document.querySelector('.barra').offsetHeight)}},
+    return h('button',{cls:'st','data-w':colorW(i),'aria-current':i===S.world?'true':'false',onclick:()=>{S.world=i;inicioMundo();save();try{location.hash='mundo'+(i+1)}catch(e){}renderHud();renderWorld();window.scrollTo(0,$('board').offsetTop-document.querySelector('.barra').offsetHeight)}},
       h('span',{cls:'n'},`Mundo ${i+1}`),h('span',{cls:'name'},w.name),h('span',{cls:'prog'},`${d} de ${w.retos.length} retos`))}));
 }
 const lecciones=()=>TEMAS[S.world].map((t,i)=>({...t,id:temaId(S.world,i)}));
@@ -34,7 +34,7 @@ function inicioMundo(){
 }
 function renderWorld(){
   const w=WORLDS[S.world];
-  $('world').replaceChildren(h('div',{'data-w':S.world},
+  $('world').replaceChildren(h('div',{'data-w':colorW(S.world)},
     h('section',{cls:'world-head'},h('p',{cls:'eyebrow',style:'color:inherit'},`${w.sub} · ${NOMBRE_TRIM[TRIM]}`),h('h2',{},`Mundo ${S.world+1}: ${w.name}`),h('p',{},w.lead)),
     h('div',{cls:'etapas',id:'etapas'}),
     h('div',{cls:'contenido',id:'contenido'})));

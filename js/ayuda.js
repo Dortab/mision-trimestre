@@ -14,7 +14,7 @@ function ligaTema(fb,q){
 /* Muestra la lección encima de lo que se está haciendo, sin perder el lugar. */
 function verTema(i){
   const t=TEMAS[S.world][i];
-  const d=h('dialog',{cls:'ayuda','data-w':S.world,onclose:()=>d.remove()},
+  const d=h('dialog',{cls:'ayuda','data-w':colorW(S.world),onclose:()=>d.remove()},
     h('p',{cls:'count'},`Tema ${i+1}`),h('h3',{},t.t),t.e.map(p=>h('p',{html:p})),
     h('section',{cls:'ejemplos'},h('h4',{},'Ejemplos'),h('ul',{},t.x.map(x=>h('li',{html:x})))),
     h('p',{cls:'clave',html:`<b>Lo más importante:</b> ${t.k}`}),
@@ -45,7 +45,7 @@ function abrirCofre(n,clase='xp'){
     cons?h('p',{},`Terminaste ${CADA_CHISPAS} misiones más. Eso es esfuerzo de verdad.`):null,
     h('p',{},'Tu premio es:'),
     h('p',{cls:'premio'},premio),
-    h('p',{cls:'intro'},'Enséñale esta pantalla a tu papá o a tu mamá para recibirlo.'),
+    h('p',{cls:'intro'},'Enséñale esta pantalla a tu mamá, papá o tutor para recibirlo.'),
     h('button',{cls:'btn main grande',onclick:()=>{d.close();d.remove()}},'¡Genial!'));
   document.body.append(d);d.showModal();
   sonido('cofre');

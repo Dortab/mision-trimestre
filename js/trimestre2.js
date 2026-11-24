@@ -739,100 +739,897 @@ v:[{s:'Un cubo de 10 cm de lado tiene un volumen de 1 000 cm³.',v:true,y:'10 ×
 ex:[{s:'¿Cuál es el volumen de una caja de 5 cm × 4 cm × 2 cm?',o:['40 cm³','11 cm³','20 cm³'],y:'5 × 4 × 2 = 40.'},
 {s:'¿Cuántos litros caben en 3 000 cm³?',o:['3','30','300'],y:'1 000 cm³ = 1 litro.'}]}
 ]});
-T2_MUNDOS.push({name:'Sociedad',sub:'Ética, naturaleza y sociedades',lead:'Desastres, fronteras, el México del siglo XX y la democracia: cómo vivimos juntos y cómo nos organizamos.',temas:[
-{t:'Desastres naturales en el mundo',c:'Desastres naturales',e:[
-'Un <b>fenómeno natural</b> es algo que ocurre en la naturaleza: un sismo, un huracán, una erupción o una inundación. Se convierte en <b>desastre</b> cuando causa daños graves a las personas, sus casas y su comunidad.',
-'Los fenómenos pueden ser <b>geológicos</b> (sismos, erupciones volcánicas, tsunamis) o <b>hidrometeorológicos</b> (huracanes, inundaciones, sequías). México está expuesto a muchos: está sobre varias placas tectónicas, tiene volcanes activos como el Popocatépetl y recibe huracanes por el Pacífico y el Atlántico.',
-'La <b>prevención</b> salva vidas: participar en simulacros, conocer las rutas de evacuación, tener una mochila de emergencia (agua, linterna, botiquín, documentos) y un plan familiar. En un sismo: <b>no corro, no grito, no empujo</b>.'],
-x:['Los sismos del 19 de septiembre de 1985 y de 2017 causaron grandes daños en la Ciudad de México; desde entonces se hacen simulacros nacionales.','Antes de que llegue un huracán, las autoridades avisan con días de anticipación para que la población se proteja.'],
-k:'Un fenómeno natural se vuelve desastre cuando daña a la población. La prevención salva vidas.',
-q:[{s:'¿Cuándo un fenómeno natural se convierte en desastre?',o:['Cuando causa daños graves a las personas','Siempre que llueve','Cuando ocurre de noche'],y:'Depende del daño y de qué tan preparada esté la población.',p:'Piensa en las consecuencias.'},
-{s:'¿Cuál es un fenómeno geológico?',o:['Un sismo','Un huracán','Una sequía'],y:'Se origina en el interior de la Tierra.',p:'Geo significa tierra.'},
-{s:'¿Qué debe llevar una mochila de emergencia?',o:['Agua, linterna, botiquín y documentos','Juguetes y dulces','Ropa de fiesta'],y:'Lo necesario para las primeras horas.',p:'Lo indispensable para sobrevivir.'},
-{s:'¿Qué se hace durante un sismo?',o:['No corro, no grito, no empujo','Correr por las escaleras','Usar el elevador'],y:'Y seguir la ruta de evacuación.',p:'Son tres «no».'}],
-v:[{s:'México está expuesto a sismos porque está sobre varias placas tectónicas.',v:true,y:'Su movimiento provoca los temblores.'},
-{s:'Los simulacros no sirven para nada.',v:false,y:'Enseñan a actuar rápido y con calma.'}],
-ex:[{s:'Un huracán es un fenómeno:',o:['Hidrometeorológico','Geológico','Astronómico'],y:'Se relaciona con el agua y la atmósfera.'},
-{s:'¿Qué acción ayuda a prevenir daños por un desastre?',o:['Participar en simulacros','Ignorar las alertas','Construir en el cauce de un río'],y:'La preparación salva vidas.'},
-{s:'¿Qué volcán activo está cerca de la Ciudad de México y Puebla?',o:['Popocatépetl','Monte Everest','Vesubio'],y:'Las autoridades lo vigilan todo el tiempo.'}]},
-
-{t:'Conflictos territoriales',c:'Conflictos territoriales',e:[
-'Un <b>conflicto territorial</b> ocurre cuando dos o más grupos o países quieren el mismo territorio o no se ponen de acuerdo sobre dónde está la frontera.',
-'Sus causas suelen ser los <b>recursos</b> (agua, petróleo, tierras fértiles, minerales), la <b>historia</b> (un territorio que perteneció a uno y luego a otro), la <b>identidad</b> (pueblos que se sienten parte de un lugar) o la <b>ubicación estratégica</b>.',
-'La mejor forma de resolverlos es <b>pacífica</b>: el diálogo, la negociación, los tratados y los tribunales internacionales. México perdió más de la mitad de su territorio después de la guerra con Estados Unidos (1846–1848), que terminó con el Tratado de Guadalupe Hidalgo.'],
-x:['Dos comunidades vecinas pueden discutir por el uso del agua de un río; un acuerdo puede repartir el agua de forma justa.','Muchos países han llevado disputas de fronteras a la Corte Internacional de Justicia para que decida sin guerra.'],
-k:'Los conflictos territoriales nacen por recursos, historia o identidad; se deben resolver con diálogo y acuerdos.',
-q:[{s:'¿Qué es un conflicto territorial?',o:['Un desacuerdo por un territorio o una frontera','Un partido de futbol','Un cambio de clima'],y:'Puede darse entre comunidades o países.',p:'Territorio es tierra.'},
-{s:'¿Cuál es una causa común de conflictos territoriales?',o:['Los recursos como el agua o el petróleo','El color de las banderas','La música'],y:'Todos quieren aprovecharlos.',p:'Algo valioso que hay en el lugar.'},
-{s:'¿Cuál es la mejor forma de resolverlos?',o:['El diálogo y los acuerdos','La violencia','Ignorarlos'],y:'Evita sufrimiento.',p:'Hablando.'},
-{s:'¿Con qué tratado terminó la guerra entre México y Estados Unidos?',o:['Tratado de Guadalupe Hidalgo','Tratado de Córdoba','T-MEC'],y:'México perdió más de la mitad de su territorio.',p:'Lleva el nombre de un lugar y un apellido de héroe.'}],
-v:[{s:'Los tribunales internacionales ayudan a resolver disputas de fronteras.',v:true,y:'Es una vía pacífica.'},
-{s:'Los conflictos territoriales solo pueden resolverse con guerras.',v:false,y:'El diálogo y los tratados son mejores caminos.'}],
-ex:[{s:'Dos pueblos discuten por el agua de un río. ¿Qué solución es pacífica?',o:['Un acuerdo para repartir el agua','Bloquear el río','Expulsar al otro pueblo'],y:'El diálogo permite soluciones justas.'},
-{s:'¿Entre qué años fue la guerra entre México y Estados Unidos?',o:['1846–1848','1910–1920','1810–1821'],y:'Terminó con el Tratado de Guadalupe Hidalgo.'},
-{s:'Un territorio con mucho petróleo puede generar conflicto por:',o:['Sus recursos','Su clima frío','Su idioma'],y:'Los recursos valiosos generan disputas.'}]},
-
-{t:'México durante el siglo XX',c:'México en el siglo XX',e:[
-'El siglo XX empezó con la <b>Revolución Mexicana</b> (1910), que terminó con el gobierno de Porfirio Díaz y dio lugar a la <b>Constitución de 1917</b>, que reconoció derechos como la educación gratuita, el reparto de tierras y los derechos de los trabajadores.',
-'Después, México se transformó: creció la industria, se construyeron carreteras, presas, escuelas y hospitales, y millones de personas se mudaron del campo a las ciudades. En 1953 las mujeres obtuvieron el derecho a votar en elecciones federales.',
-'En la segunda mitad del siglo hubo hechos muy importantes: el movimiento estudiantil y los Juegos Olímpicos de 1968, el sismo de 1985 y la firma del Tratado de Libre Comercio con Estados Unidos y Canadá, que entró en vigor en 1994.'],
-x:['Tu bisabuela quizá nació en un pueblo y luego se mudó a una ciudad buscando trabajo: así le pasó a millones de familias.','La Constitución de 1917 sigue vigente, aunque se ha reformado muchas veces.'],
-k:'Revolución (1910), Constitución (1917), industrialización y ciudades, voto de la mujer (1953), 1968, 1985 y TLC (1994).',
-q:[{s:'¿En qué año inició la Revolución Mexicana?',o:['1910','1810','1917'],y:'Comenzó el 20 de noviembre de 1910.',p:'Cien años después de la Independencia.'},
-{s:'¿Qué documento surgió de la Revolución?',o:['La Constitución de 1917','El Acta de Independencia','El Plan de Iguala'],y:'Sigue vigente hoy.',p:'Se celebra el 5 de febrero.'},
-{s:'¿En qué año votaron por primera vez las mujeres en elecciones federales?',o:['1953','1910','1994'],y:'Fue un gran avance en derechos.',p:'A mitad del siglo.'},
-{s:'¿Qué ocurrió con la población durante el siglo XX?',o:['Muchas personas se mudaron del campo a las ciudades','Todos se fueron al campo','La población no cambió'],y:'Las ciudades crecieron muchísimo.',p:'Buscaban trabajo en las fábricas.'}],
-v:[{s:'Los Juegos Olímpicos se celebraron en México en 1968.',v:true,y:'Fue el mismo año del movimiento estudiantil.'},
-{s:'La Constitución de 1917 ya no está vigente.',v:false,y:'Sigue vigente, con reformas.'}],
-ex:[{s:'¿Qué gobierno terminó con la Revolución Mexicana?',o:['El de Porfirio Díaz','El de Benito Juárez','El de Lázaro Cárdenas'],y:'Gobernó más de 30 años.'},
-{s:'¿Qué tratado comercial entró en vigor en 1994?',o:['El Tratado de Libre Comercio de América del Norte','El Tratado de Guadalupe Hidalgo','Los Tratados de Córdoba'],y:'Lo firmaron México, Estados Unidos y Canadá.'},
-{s:'¿Qué derechos reconoció la Constitución de 1917?',o:['Educación gratuita, reparto de tierras y derechos laborales','Solo el derecho a votar de los hombres','Ninguno nuevo'],y:'Fue una constitución muy avanzada.'}]},
-
-{t:'Principios democráticos',c:'Principios democráticos',e:[
-'La <b>democracia</b> es una forma de gobierno en la que el poder viene del pueblo: las personas eligen a sus gobernantes y participan en las decisiones.',
-'Se basa en <b>principios</b>: la <b>libertad</b> (de expresión, de reunión, de creencias); la <b>igualdad</b> (todas las personas tienen los mismos derechos); la <b>justicia</b>; la <b>legalidad</b> (todos, incluso los gobernantes, deben respetar la ley); el <b>pluralismo</b> (se respetan las distintas ideas) y la <b>participación</b>.',
-'En México el voto es <b>universal, libre, secreto y directo</b>, y el poder se divide en tres: <b>Ejecutivo</b>, <b>Legislativo</b> y <b>Judicial</b>, para que ninguno tenga todo el poder.'],
-x:['Cuando tu grupo vota para elegir al jefe de grupo y todos respetan el resultado, practican la democracia.','En una asamblea, todos pueden opinar aunque piensen distinto: eso es pluralismo.'],
-k:'Libertad, igualdad, justicia, legalidad, pluralismo y participación. Voto universal, libre, secreto y directo.',
-q:[{s:'¿Qué significa democracia?',o:['El poder viene del pueblo','El poder es de una sola persona','No hay leyes'],y:'Demos significa pueblo.',p:'Demos = pueblo.'},
-{s:'El principio de que todos deben respetar la ley se llama:',o:['Legalidad','Pluralismo','Libertad'],y:'Incluye a los gobernantes.',p:'Viene de la palabra ley.'},
-{s:'¿Cómo es el voto en México?',o:['Universal, libre, secreto y directo','Obligatorio y público','Solo para algunos'],y:'Nadie debe saber por quién votaste.',p:'Una de sus características es que nadie ve tu voto.'},
-{s:'¿Cuáles son los tres poderes?',o:['Ejecutivo, Legislativo y Judicial','Militar, Escolar y Familiar','Norte, Centro y Sur'],y:'Se dividen para que ninguno abuse.',p:'Uno gobierna, otro hace leyes, otro juzga.'}],
-v:[{s:'El pluralismo significa respetar las ideas diferentes.',v:true,y:'Es base de la convivencia democrática.'},
-{s:'En una democracia, los gobernantes no tienen que respetar la ley.',v:false,y:'Todos deben respetarla.'}],
-ex:[{s:'Elegir al jefe de grupo por votación y respetar el resultado es un ejemplo de:',o:['Democracia','Dictadura','Monarquía'],y:'Decide la mayoría y se respeta.'},
-{s:'¿Para qué se divide el poder en tres?',o:['Para que ninguno tenga todo el poder','Para que haya más fiestas','Para que no haya leyes'],y:'Cada poder vigila a los otros.'},
-{s:'«Todas las personas tienen los mismos derechos» describe el principio de:',o:['Igualdad','Legalidad','Pluralismo'],y:'Sin discriminación.'}]},
-
-{t:'Violencia de género en el mundo',c:'Violencia de género',e:[
-'La <b>violencia de género</b> es cualquier daño que se hace a una persona por ser mujer, hombre o por su identidad. La sufren sobre todo niñas y mujeres en todo el mundo, y es una violación a los derechos humanos.',
-'Puede ser <b>física</b> (golpes, empujones), <b>psicológica</b> (insultos, burlas, amenazas, humillaciones), <b>económica</b> (controlar el dinero de alguien) o <b>digital</b> (acoso o difusión de fotos en internet). También empieza con ideas como «las niñas no pueden jugar futbol» o «los niños no lloran».',
-'Para prevenirla: trata a todas las personas con respeto, no te rías de chistes que humillan, y si tú o alguien que conoces vive violencia, <b>díselo a un adulto de confianza</b>. En una emergencia se puede llamar al <b>911</b>.'],
-x:['Si un compañero se burla de una niña porque «eso no es de niñas», está reproduciendo una idea que discrimina.','Muchos países tienen leyes para proteger a las mujeres; en México existe la Ley General de Acceso de las Mujeres a una Vida Libre de Violencia.'],
-k:'Nadie merece violencia. Respeta a todos y, si algo pasa, avisa a un adulto de confianza o llama al 911.',
-q:[{s:'Un insulto o una humillación constante es violencia:',o:['Psicológica','Física','Económica'],y:'Daña las emociones y la autoestima.',p:'Afecta la mente y las emociones.'},
-{s:'¿Qué debes hacer si alguien vive violencia?',o:['Contárselo a un adulto de confianza','Guardar el secreto','Reírte'],y:'Pedir ayuda es lo correcto.',p:'No te quedes callado.'},
-{s:'Difundir fotos de alguien sin permiso por internet es violencia:',o:['Digital','Económica','Física'],y:'Ocurre en medios electrónicos.',p:'Pasa en internet.'},
-{s:'¿Cuál frase reproduce estereotipos de género?',o:['«Los niños no lloran»','«Todos podemos expresar lo que sentimos»','«Cualquiera puede jugar futbol»'],y:'Limita a las personas por su género.',p:'Busca la que pone reglas por ser niño o niña.'}],
-v:[{s:'La violencia de género viola los derechos humanos.',v:true,y:'Todas las personas tienen derecho a vivir sin violencia.'},
-{s:'Las burlas no son una forma de violencia.',v:false,y:'Son violencia psicológica.'}],
-ex:[{s:'Controlar el dinero de otra persona para dominarla es violencia:',o:['Económica','Física','Digital'],y:'Limita su libertad.'},
-{s:'¿A qué número se llama en una emergencia en México?',o:['911','066','123'],y:'Es el número único de emergencias.'},
-{s:'¿Qué acción ayuda a prevenir la violencia de género?',o:['Tratar a todas las personas con respeto','Reírse de chistes que humillan','Decir que hay juegos solo para niños'],y:'El respeto es la base.'}]},
-
-{t:'Rendición de cuentas y transparencia',c:'Transparencia',e:[
-'Los gobernantes y servidores públicos manejan el dinero de todos, que viene de los <b>impuestos</b>. Por eso tienen la obligación de informar qué hacen y cómo lo gastan.',
-'La <b>transparencia</b> significa que la información del gobierno sea pública y fácil de consultar. La <b>rendición de cuentas</b> es que los gobernantes expliquen y justifiquen sus decisiones y respondan si hicieron algo mal.',
-'Las personas tienen <b>derecho de acceso a la información pública</b>: cualquiera puede pedir datos al gobierno, como cuánto costó una obra. Esto ayuda a prevenir la <b>corrupción</b>, que es usar un cargo público para beneficio propio.'],
-x:['Un municipio publica en su página cuánto gastó en arreglar el parque: eso es transparencia.','Si en tu grupo juntan dinero para una excursión, el tesorero debe mostrar en qué se gastó: eso es rendir cuentas.'],
-k:'Transparencia: la información es pública. Rendición de cuentas: explicar y responder por lo que se hace.',
-q:[{s:'¿Qué es la transparencia?',o:['Que la información del gobierno sea pública','Que los gobernantes oculten datos','Que no haya gobierno'],y:'Cualquiera puede consultarla.',p:'Transparente es lo que se puede ver.'},
-{s:'¿De dónde viene el dinero que maneja el gobierno?',o:['De los impuestos','De los videojuegos','De la lotería solamente'],y:'Por eso debe informar cómo lo usa.',p:'Lo pagan las personas.'},
-{s:'Usar un cargo público para beneficio propio es:',o:['Corrupción','Transparencia','Democracia'],y:'Daña a toda la sociedad.',p:'Es lo contrario de la honestidad.'},
-{s:'El tesorero del grupo muestra en qué gastó el dinero. Eso es:',o:['Rendir cuentas','Ocultar información','Corrupción'],y:'Explica y justifica.',p:'Cuenta en qué se usó.'}],
-v:[{s:'Cualquier persona puede pedir información pública al gobierno.',v:true,y:'Es un derecho.'},
-{s:'La transparencia ayuda a que haya más corrupción.',v:false,y:'Ayuda a prevenirla.'}],
-ex:[{s:'Un municipio publica cuánto gastó en una obra. Eso es:',o:['Transparencia','Corrupción','Censura'],y:'La información es pública.'},
-{s:'¿Por qué los gobernantes deben rendir cuentas?',o:['Porque manejan dinero y decisiones de todos','Porque es un juego','Porque no tienen nada que hacer'],y:'Deben responder ante la población.'},
-{s:'¿Qué derecho permite saber cuánto costó una obra pública?',o:['El acceso a la información pública','El derecho al voto','La libertad de tránsito'],y:'Cualquiera puede solicitarla.'}]}
-]});
+T2_MUNDOS.push({
+ "name": "Geografía",
+ "sub": "Ética, naturaleza y sociedades",
+ "lead": "Sismos, volcanes, huracanes y fronteras: cómo funciona el planeta y cómo prepararnos.",
+ "temas": [
+  {
+   "t": "Sismos, volcanes y tsunamis",
+   "c": "Sismos y volcanes",
+   "e": [
+    "La capa exterior de la Tierra está partida en enormes piezas llamadas <b>placas tectónicas</b>, que se mueven unos centímetros al año. Donde chocan o se rozan ocurren <b>sismos</b> y se forman <b>volcanes</b>.",
+    "México está sobre cinco placas, entre ellas la de Cocos y la Norteamericana; por eso tiembla seguido, sobre todo en la costa del Pacífico (Guerrero, Oaxaca, Chiapas, Michoacán) y en el centro del país. También tiene volcanes activos en el <b>Eje Neovolcánico</b>, como el Popocatépetl y el Volcán de Colima.",
+    "Un <b>tsunami</b> es una serie de olas gigantes que se forma cuando un sismo ocurre bajo el mar. Estos fenómenos se llaman <b>geológicos</b> porque se originan en el interior de la Tierra. No se pueden predecir con exactitud, pero sí se puede estar preparado: la <b>alerta sísmica</b> avisa unos segundos antes de que llegue la onda a algunas ciudades."
+   ],
+   "x": [
+    "Cuando suena la alerta sísmica, sales por la ruta de evacuación hacia la zona de menor riesgo.",
+    "El Popocatépetl lanza fumarolas de ceniza; las autoridades usan un semáforo de alerta volcánica."
+   ],
+   "k": "Sismos, volcanes y tsunamis son fenómenos geológicos causados por el movimiento de las placas tectónicas.",
+   "q": [
+    {
+     "s": "¿Qué provoca los sismos?",
+     "o": [
+      "El movimiento de las placas tectónicas",
+      "La lluvia",
+      "El viento fuerte"
+     ],
+     "y": "Las placas chocan o se rozan.",
+     "p": "Piensa en piezas gigantes de la corteza."
+    },
+    {
+     "s": "¿Qué es un tsunami?",
+     "o": [
+      "Olas gigantes causadas por un sismo bajo el mar",
+      "Un huracán en tierra",
+      "Una erupción de lava"
+     ],
+     "y": "Puede inundar costas.",
+     "p": "Ocurre en el mar."
+    },
+    {
+     "s": "¿Dónde están muchos volcanes activos de México?",
+     "o": [
+      "En el Eje Neovolcánico",
+      "En la península de Yucatán",
+      "En el desierto de Sonora"
+     ],
+     "y": "Cruza el centro del país.",
+     "p": "Atraviesa el centro de México."
+    },
+    {
+     "s": "¿Para qué sirve la alerta sísmica?",
+     "o": [
+      "Para avisar segundos antes de que llegue el sismo",
+      "Para detener el sismo",
+      "Para predecirlo con días de anticipación"
+     ],
+     "y": "Esos segundos permiten protegerse.",
+     "p": "Avisa poco antes."
+    }
+   ],
+   "v": [
+    {
+     "s": "Los sismos se pueden predecir con exactitud días antes.",
+     "v": false,
+     "y": "No se pueden predecir; por eso hay que estar preparados."
+    },
+    {
+     "s": "México tiembla seguido porque está sobre varias placas tectónicas.",
+     "v": true,
+     "y": "Entre ellas la de Cocos y la Norteamericana."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Los sismos, volcanes y tsunamis son fenómenos:",
+     "o": [
+      "Geológicos",
+      "Hidrometeorológicos",
+      "Astronómicos"
+     ],
+     "y": "Se originan en el interior de la Tierra."
+    },
+    {
+     "s": "¿Qué región de México tiembla con más frecuencia?",
+     "o": [
+      "La costa del Pacífico",
+      "La península de Yucatán",
+      "El norte de Coahuila"
+     ],
+     "y": "Ahí chocan placas tectónicas."
+    },
+    {
+     "s": "¿Qué volcán activo se vigila con un semáforo de alerta?",
+     "o": [
+      "Popocatépetl",
+      "Pico de Orizaba dormido",
+      "Monte Fuji"
+     ],
+     "y": "Está entre Puebla, Morelos y el Estado de México."
+    }
+   ]
+  },
+  {
+   "t": "Huracanes, inundaciones y sequías: cómo prevenir",
+   "c": "Huracanes y prevención",
+   "e": [
+    "Los <b>fenómenos hidrometeorológicos</b> tienen que ver con el agua y la atmósfera: <b>huracanes</b>, lluvias intensas, <b>inundaciones</b>, granizadas, heladas y <b>sequías</b>.",
+    "Un huracán es una gran tormenta que gira, con vientos de más de 119 km/h y lluvias muy fuertes. A México llegan por el Pacífico y por el Atlántico (Golfo de México y Caribe), sobre todo entre junio y noviembre. Una <b>sequía</b> es lo contrario: pasa mucho tiempo sin llover y faltan agua y alimentos.",
+    "Un fenómeno natural se vuelve <b>desastre</b> cuando daña a la población. La <b>prevención</b> reduce el daño: conocer los riesgos de tu zona, no construir en cauces de ríos, participar en <b>simulacros</b>, tener una <b>mochila de emergencia</b> (agua, linterna, botiquín, documentos) y un plan familiar. En un sismo: <b>no corro, no grito, no empujo</b>."
+   ],
+   "x": [
+    "Los sismos del 19 de septiembre de 1985 y de 2017 causaron grandes daños en la Ciudad de México; desde entonces se hacen simulacros nacionales.",
+    "Antes de que toque tierra un huracán, las autoridades avisan con días de anticipación para evacuar a quien lo necesite."
+   ],
+   "k": "Huracanes, inundaciones y sequías son hidrometeorológicos. Un fenómeno se vuelve desastre si daña a la población; la prevención salva vidas.",
+   "q": [
+    {
+     "s": "¿Cuál es un fenómeno hidrometeorológico?",
+     "o": [
+      "Un huracán",
+      "Un sismo",
+      "Una erupción volcánica"
+     ],
+     "y": "Se relaciona con el agua y la atmósfera.",
+     "p": "Hidro = agua."
+    },
+    {
+     "s": "¿Cuándo un fenómeno natural se vuelve desastre?",
+     "o": [
+      "Cuando causa daños graves a la población",
+      "Siempre que llueve",
+      "Cuando ocurre de noche"
+     ],
+     "y": "Depende del daño y de la preparación.",
+     "p": "Piensa en las consecuencias."
+    },
+    {
+     "s": "¿Qué debe llevar una mochila de emergencia?",
+     "o": [
+      "Agua, linterna, botiquín y documentos",
+      "Juguetes y dulces",
+      "Ropa de fiesta"
+     ],
+     "y": "Lo necesario para las primeras horas.",
+     "p": "Lo indispensable."
+    },
+    {
+     "s": "¿Qué se hace durante un sismo?",
+     "o": [
+      "No corro, no grito, no empujo",
+      "Correr por las escaleras",
+      "Usar el elevador"
+     ],
+     "y": "Y seguir la ruta de evacuación.",
+     "p": "Son tres «no»."
+    }
+   ],
+   "v": [
+    {
+     "s": "Una sequía es un periodo largo sin lluvias.",
+     "v": true,
+     "y": "Provoca falta de agua y alimentos."
+    },
+    {
+     "s": "Los simulacros no sirven para nada.",
+     "v": false,
+     "y": "Enseñan a actuar rápido y con calma."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Por qué mares llegan huracanes a México?",
+     "o": [
+      "Por el Pacífico y el Atlántico",
+      "Solo por el Pacífico",
+      "Por el océano Índico"
+     ],
+     "y": "El Atlántico incluye el Golfo de México y el Caribe."
+    },
+    {
+     "s": "¿Qué acción ayuda a prevenir daños por una inundación?",
+     "o": [
+      "No construir en el cauce de un río",
+      "Tirar basura en las coladeras",
+      "Ignorar las alertas"
+     ],
+     "y": "Los ríos crecen con las lluvias."
+    },
+    {
+     "s": "¿Qué día ocurrieron dos grandes sismos en la Ciudad de México, en 1985 y 2017?",
+     "o": [
+      "19 de septiembre",
+      "16 de septiembre",
+      "20 de noviembre"
+     ],
+     "y": "Desde entonces ese día hay simulacro nacional."
+    }
+   ]
+  },
+  {
+   "t": "Conflictos territoriales",
+   "c": "Conflictos territoriales",
+   "e": [
+    "Un <b>conflicto territorial</b> ocurre cuando dos o más grupos o países quieren el mismo territorio o no se ponen de acuerdo sobre dónde está la frontera.",
+    "Sus causas suelen ser los <b>recursos</b> (agua, petróleo, tierras fértiles, minerales), la <b>historia</b> (un territorio que perteneció a uno y luego a otro), la <b>identidad</b> (pueblos que se sienten parte de un lugar) o la <b>ubicación estratégica</b>.",
+    "La mejor forma de resolverlos es <b>pacífica</b>: el diálogo, la negociación, los tratados y los tribunales internacionales. México perdió más de la mitad de su territorio después de la guerra con Estados Unidos (1846–1848), que terminó con el Tratado de Guadalupe Hidalgo."
+   ],
+   "x": [
+    "Dos comunidades vecinas pueden discutir por el uso del agua de un río; un acuerdo puede repartir el agua de forma justa.",
+    "Muchos países han llevado disputas de fronteras a la Corte Internacional de Justicia para que decida sin guerra."
+   ],
+   "k": "Los conflictos territoriales nacen por recursos, historia o identidad; se deben resolver con diálogo y acuerdos.",
+   "q": [
+    {
+     "s": "¿Qué es un conflicto territorial?",
+     "o": [
+      "Un desacuerdo por un territorio o una frontera",
+      "Un partido de futbol",
+      "Un cambio de clima"
+     ],
+     "y": "Puede darse entre comunidades o países.",
+     "p": "Territorio es tierra."
+    },
+    {
+     "s": "¿Cuál es una causa común de conflictos territoriales?",
+     "o": [
+      "Los recursos como el agua o el petróleo",
+      "El color de las banderas",
+      "La música"
+     ],
+     "y": "Todos quieren aprovecharlos.",
+     "p": "Algo valioso que hay en el lugar."
+    },
+    {
+     "s": "¿Cuál es la mejor forma de resolverlos?",
+     "o": [
+      "El diálogo y los acuerdos",
+      "La violencia",
+      "Ignorarlos"
+     ],
+     "y": "Evita sufrimiento.",
+     "p": "Hablando."
+    },
+    {
+     "s": "¿Con qué tratado terminó la guerra entre México y Estados Unidos?",
+     "o": [
+      "Tratado de Guadalupe Hidalgo",
+      "Tratado de Córdoba",
+      "T-MEC"
+     ],
+     "y": "México perdió más de la mitad de su territorio.",
+     "p": "Lleva el nombre de un lugar y un apellido de héroe."
+    }
+   ],
+   "v": [
+    {
+     "s": "Los tribunales internacionales ayudan a resolver disputas de fronteras.",
+     "v": true,
+     "y": "Es una vía pacífica."
+    },
+    {
+     "s": "Los conflictos territoriales solo pueden resolverse con guerras.",
+     "v": false,
+     "y": "El diálogo y los tratados son mejores caminos."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Dos pueblos discuten por el agua de un río. ¿Qué solución es pacífica?",
+     "o": [
+      "Un acuerdo para repartir el agua",
+      "Bloquear el río",
+      "Expulsar al otro pueblo"
+     ],
+     "y": "El diálogo permite soluciones justas."
+    },
+    {
+     "s": "¿Entre qué años fue la guerra entre México y Estados Unidos?",
+     "o": [
+      "1846–1848",
+      "1910–1920",
+      "1810–1821"
+     ],
+     "y": "Terminó con el Tratado de Guadalupe Hidalgo."
+    },
+    {
+     "s": "Un territorio con mucho petróleo puede generar conflicto por:",
+     "o": [
+      "Sus recursos",
+      "Su clima frío",
+      "Su idioma"
+     ],
+     "y": "Los recursos valiosos generan disputas."
+    }
+   ]
+  }
+ ]
+});
+T2_MUNDOS.push({
+ "name": "Historia",
+ "sub": "México en el siglo XX",
+ "lead": "De la Revolución al año 2000: cómo cambió México en cien años.",
+ "temas": [
+  {
+   "t": "La Revolución Mexicana (1910–1917)",
+   "c": "La Revolución Mexicana",
+   "e": [
+    "A principios del siglo XX, <b>Porfirio Díaz</b> llevaba más de 30 años en el poder. Hubo progreso en trenes e industria, pero la mayoría de la población era pobre: muchos campesinos no tenían tierras y los obreros trabajaban en malas condiciones.",
+    "En 1910 <b>Francisco I. Madero</b> llamó a levantarse en armas con el <b>Plan de San Luis</b>; la lucha empezó el <b>20 de noviembre de 1910</b> y Díaz renunció en 1911. Después hubo años de guerra entre distintos grupos. Participaron líderes como <b>Emiliano Zapata</b> en el sur, que exigía «Tierra y libertad», <b>Francisco Villa</b> en el norte y <b>Venustiano Carranza</b>.",
+    "La Revolución terminó con la <b>Constitución de 1917</b>, que reconoció derechos muy avanzados para su época: educación laica y gratuita (artículo 3.º), reparto de tierras (27) y derechos de los trabajadores, como la jornada de 8 horas (123). Sigue vigente hoy, con reformas."
+   ],
+   "x": [
+    "Cada 20 de noviembre se conmemora el inicio de la Revolución, a veces con desfiles deportivos.",
+    "El lema zapatista «Tierra y libertad» resumía la lucha de los campesinos por sus tierras."
+   ],
+   "k": "La Revolución (1910) terminó con el porfiriato y dio lugar a la Constitución de 1917: educación, tierras y derechos laborales.",
+   "q": [
+    {
+     "s": "¿Qué presidente gobernaba cuando empezó la Revolución?",
+     "o": [
+      "Porfirio Díaz",
+      "Benito Juárez",
+      "Lázaro Cárdenas"
+     ],
+     "y": "Llevaba más de 30 años en el poder.",
+     "p": "Su gobierno se llama porfiriato."
+    },
+    {
+     "s": "¿Quién convocó a la Revolución con el Plan de San Luis?",
+     "o": [
+      "Francisco I. Madero",
+      "Emiliano Zapata",
+      "Miguel Hidalgo"
+     ],
+     "y": "La lucha empezó el 20 de noviembre de 1910.",
+     "p": "Después fue presidente."
+    },
+    {
+     "s": "¿Qué exigía Emiliano Zapata?",
+     "o": [
+      "Tierra y libertad para los campesinos",
+      "Más trenes",
+      "La independencia de España"
+     ],
+     "y": "Luchaba en el sur del país.",
+     "p": "Su lema tiene dos palabras."
+    },
+    {
+     "s": "¿Qué documento surgió de la Revolución?",
+     "o": [
+      "La Constitución de 1917",
+      "El Acta de Independencia",
+      "Los Tratados de Córdoba"
+     ],
+     "y": "Sigue vigente hoy.",
+     "p": "Se celebra el 5 de febrero."
+    }
+   ],
+   "v": [
+    {
+     "s": "La Revolución Mexicana comenzó el 20 de noviembre de 1910.",
+     "v": true,
+     "y": "Por eso se conmemora ese día."
+    },
+    {
+     "s": "La Constitución de 1917 ya no está vigente.",
+     "v": false,
+     "y": "Sigue vigente, con reformas."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué artículo de la Constitución de 1917 trata de la educación?",
+     "o": [
+      "El 3.º",
+      "El 123",
+      "El 27"
+     ],
+     "y": "Educación laica y gratuita."
+    },
+    {
+     "s": "¿Qué líder revolucionario luchó en el norte del país?",
+     "o": [
+      "Francisco Villa",
+      "Emiliano Zapata",
+      "José María Morelos"
+     ],
+     "y": "Encabezó la División del Norte."
+    },
+    {
+     "s": "¿Por qué hubo descontento durante el porfiriato?",
+     "o": [
+      "Muchos campesinos no tenían tierras y los obreros vivían en malas condiciones",
+      "Porque no había trenes",
+      "Porque México era colonia de Francia"
+     ],
+     "y": "El progreso no llegó a la mayoría."
+    }
+   ]
+  },
+  {
+   "t": "El México que se transformó (1940–1970)",
+   "c": "México se transforma",
+   "e": [
+    "A partir de 1940, México vivió un periodo de crecimiento económico al que se llamó el <b>«milagro mexicano»</b>. Se construyeron fábricas, carreteras, presas, hospitales y escuelas, y el país pasó de ser rural a ser cada vez más urbano.",
+    "Millones de personas se mudaron del <b>campo a las ciudades</b> buscando trabajo; la Ciudad de México, Guadalajara y Monterrey crecieron muchísimo. Se fundaron instituciones que todavía existen, como el <b>IMSS</b> (1943), y en 1959 se creó la Comisión Nacional de Libros de Texto Gratuitos, que empezó a repartir libros a todas las escuelas.",
+    "También hubo avances en derechos: en <b>1953</b> las mujeres obtuvieron el derecho a votar en elecciones federales, y votaron por primera vez en una elección federal en 1955.  Pero el crecimiento no llegó a todos: muchas comunidades rurales e indígenas siguieron en la pobreza."
+   ],
+   "x": [
+    "Si tus abuelos o bisabuelos llegaron del campo a la ciudad, fueron parte de esta gran migración interna.",
+    "Los libros de texto gratuitos que usas vienen de la comisión creada en 1959."
+   ],
+   "k": "De 1940 a 1970: industrialización, crecimiento de las ciudades, IMSS, libros de texto gratuitos y voto de la mujer (1953).",
+   "q": [
+    {
+     "s": "¿Cómo se llamó el periodo de crecimiento económico desde 1940?",
+     "o": [
+      "El milagro mexicano",
+      "El porfiriato",
+      "El virreinato"
+     ],
+     "y": "Se construyeron fábricas, carreteras y presas.",
+     "p": "Suena a algo increíble."
+    },
+    {
+     "s": "¿En qué año obtuvieron las mujeres el voto en elecciones federales?",
+     "o": [
+      "1953",
+      "1910",
+      "1810"
+     ],
+     "y": "Votaron por primera vez en una federal en 1955.",
+     "p": "A mitad del siglo."
+    },
+    {
+     "s": "¿Qué pasó con la población durante estos años?",
+     "o": [
+      "Millones se mudaron del campo a las ciudades",
+      "Todos se fueron al campo",
+      "No hubo cambios"
+     ],
+     "y": "Las ciudades crecieron muchísimo.",
+     "p": "Buscaban trabajo en fábricas."
+    },
+    {
+     "s": "¿En qué año se creó la Comisión Nacional de Libros de Texto Gratuitos?",
+     "o": [
+      "1959",
+      "1910",
+      "2000"
+     ],
+     "y": "Sus libros se siguen repartiendo hoy.",
+     "p": "Finales de los cincuenta."
+    }
+   ],
+   "v": [
+    {
+     "s": "El IMSS se fundó en 1943.",
+     "v": true,
+     "y": "Brinda servicios de salud a trabajadores."
+    },
+    {
+     "s": "El milagro mexicano terminó con la pobreza en todo el país.",
+     "v": false,
+     "y": "El crecimiento no llegó a todos."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué ciudades crecieron mucho con la migración del campo?",
+     "o": [
+      "Ciudad de México, Guadalajara y Monterrey",
+      "Ninguna",
+      "Solo pueblos pequeños"
+     ],
+     "y": "Atraían trabajadores por sus fábricas."
+    },
+    {
+     "s": "¿Qué derecho obtuvieron las mujeres en 1953?",
+     "o": [
+      "Votar en elecciones federales",
+      "Ir a la escuela por primera vez",
+      "Trabajar"
+     ],
+     "y": "Fue un gran avance democrático."
+    },
+    {
+     "s": "El paso de un país rural a uno urbano significa que:",
+     "o": [
+      "Cada vez más gente vive en ciudades",
+      "Todos viven en el campo",
+      "Desaparecieron las ciudades"
+     ],
+     "y": "Eso ocurrió en México en el siglo XX."
+    }
+   ]
+  },
+  {
+   "t": "México de 1968 al año 2000",
+   "c": "De 1968 al 2000",
+   "e": [
+    "<b>1968</b> fue un año muy importante: México organizó los <b>Juegos Olímpicos</b>, los primeros en América Latina, y hubo un gran <b>movimiento estudiantil</b> que pedía libertades democráticas; terminó con la represión del 2 de octubre en Tlatelolco. En 1970 México organizó también el Mundial de futbol.",
+    "En los años setenta y ochenta hubo <b>crisis económicas</b>: subieron mucho los precios y la deuda del país. El <b>sismo del 19 de septiembre de 1985</b> dañó gravemente la Ciudad de México, y la población se organizó para rescatar y ayudar, lo que impulsó la participación ciudadana.",
+    "En <b>1994</b> entró en vigor el <b>Tratado de Libre Comercio de América del Norte (TLCAN)</b> con Estados Unidos y Canadá, y ese mismo año se levantó en Chiapas el <b>EZLN</b> exigiendo derechos para los pueblos indígenas. En el año <b>2000</b> ganó la presidencia un partido distinto al que había gobernado más de 70 años: a eso se le llama <b>alternancia</b>."
+   ],
+   "x": [
+    "El 2 de octubre se recuerda a los estudiantes del movimiento de 1968.",
+    "Después del sismo de 1985, vecinos y voluntarios formaron brigadas de rescate antes de que llegara ayuda oficial."
+   ],
+   "k": "1968 (Olimpiadas y movimiento estudiantil), crisis económicas, sismo de 1985, TLCAN y EZLN (1994) y alternancia (2000).",
+   "q": [
+    {
+     "s": "¿Qué evento deportivo organizó México en 1968?",
+     "o": [
+      "Los Juegos Olímpicos",
+      "El Mundial de futbol",
+      "Los Juegos Panamericanos de 2011"
+     ],
+     "y": "Fueron los primeros en América Latina.",
+     "p": "Tienen cinco aros."
+    },
+    {
+     "s": "¿Qué pedía el movimiento estudiantil de 1968?",
+     "o": [
+      "Libertades democráticas",
+      "Más tareas",
+      "Cerrar las universidades"
+     ],
+     "y": "Terminó con la represión del 2 de octubre.",
+     "p": "Tiene que ver con la democracia."
+    },
+    {
+     "s": "¿Qué tratado comercial entró en vigor en 1994?",
+     "o": [
+      "El TLCAN",
+      "El Tratado de Guadalupe Hidalgo",
+      "Los Tratados de Córdoba"
+     ],
+     "y": "Con Estados Unidos y Canadá.",
+     "p": "Libre comercio en América del Norte."
+    },
+    {
+     "s": "¿Qué se conoce como alternancia?",
+     "o": [
+      "Que gobierne un partido distinto al que estaba",
+      "Que no haya elecciones",
+      "Que gobierne siempre el mismo partido"
+     ],
+     "y": "En México ocurrió en la presidencia en el año 2000.",
+     "p": "Alternar es turnarse."
+    }
+   ],
+   "v": [
+    {
+     "s": "El sismo de 1985 impulsó la organización ciudadana.",
+     "v": true,
+     "y": "Los vecinos formaron brigadas de rescate."
+    },
+    {
+     "s": "El EZLN se levantó en Chiapas en 1968.",
+     "v": false,
+     "y": "Fue en 1994."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué día se recuerda a los estudiantes del movimiento de 1968?",
+     "o": [
+      "2 de octubre",
+      "16 de septiembre",
+      "5 de mayo"
+     ],
+     "y": "Ocurrió en Tlatelolco."
+    },
+    {
+     "s": "¿Qué exigía el EZLN en 1994?",
+     "o": [
+      "Derechos para los pueblos indígenas",
+      "Organizar un Mundial",
+      "Construir un aeropuerto"
+     ],
+     "y": "Se levantó en Chiapas."
+    },
+    {
+     "s": "¿Qué ocurrió en la elección presidencial del año 2000?",
+     "o": [
+      "Hubo alternancia de partido",
+      "No hubo elecciones",
+      "Volvió Porfirio Díaz"
+     ],
+     "y": "Ganó un partido distinto después de más de 70 años."
+    }
+   ]
+  }
+ ]
+});
+T2_MUNDOS.push({
+ "name": "Civismo",
+ "sub": "Formación cívica y ética",
+ "lead": "Democracia, igualdad y transparencia: cómo vivimos juntos y cómo nos organizamos.",
+ "temas": [
+  {
+   "t": "Principios democráticos",
+   "c": "Principios democráticos",
+   "e": [
+    "La <b>democracia</b> es una forma de gobierno en la que el poder viene del pueblo: las personas eligen a sus gobernantes y participan en las decisiones.",
+    "Se basa en <b>principios</b>: la <b>libertad</b> (de expresión, de reunión, de creencias); la <b>igualdad</b> (todas las personas tienen los mismos derechos); la <b>justicia</b>; la <b>legalidad</b> (todos, incluso los gobernantes, deben respetar la ley); el <b>pluralismo</b> (se respetan las distintas ideas) y la <b>participación</b>.",
+    "En México el voto es <b>universal, libre, secreto y directo</b>, y el poder se divide en tres: <b>Ejecutivo</b>, <b>Legislativo</b> y <b>Judicial</b>, para que ninguno tenga todo el poder."
+   ],
+   "x": [
+    "Cuando tu grupo vota para elegir al jefe de grupo y todos respetan el resultado, practican la democracia.",
+    "En una asamblea, todos pueden opinar aunque piensen distinto: eso es pluralismo."
+   ],
+   "k": "Libertad, igualdad, justicia, legalidad, pluralismo y participación. Voto universal, libre, secreto y directo.",
+   "q": [
+    {
+     "s": "¿Qué significa democracia?",
+     "o": [
+      "El poder viene del pueblo",
+      "El poder es de una sola persona",
+      "No hay leyes"
+     ],
+     "y": "Demos significa pueblo.",
+     "p": "Demos = pueblo."
+    },
+    {
+     "s": "El principio de que todos deben respetar la ley se llama:",
+     "o": [
+      "Legalidad",
+      "Pluralismo",
+      "Libertad"
+     ],
+     "y": "Incluye a los gobernantes.",
+     "p": "Viene de la palabra ley."
+    },
+    {
+     "s": "¿Cómo es el voto en México?",
+     "o": [
+      "Universal, libre, secreto y directo",
+      "Obligatorio y público",
+      "Solo para algunos"
+     ],
+     "y": "Nadie debe saber por quién votaste.",
+     "p": "Una de sus características es que nadie ve tu voto."
+    },
+    {
+     "s": "¿Cuáles son los tres poderes?",
+     "o": [
+      "Ejecutivo, Legislativo y Judicial",
+      "Militar, Escolar y Familiar",
+      "Norte, Centro y Sur"
+     ],
+     "y": "Se dividen para que ninguno abuse.",
+     "p": "Uno gobierna, otro hace leyes, otro juzga."
+    }
+   ],
+   "v": [
+    {
+     "s": "El pluralismo significa respetar las ideas diferentes.",
+     "v": true,
+     "y": "Es base de la convivencia democrática."
+    },
+    {
+     "s": "En una democracia, los gobernantes no tienen que respetar la ley.",
+     "v": false,
+     "y": "Todos deben respetarla."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Elegir al jefe de grupo por votación y respetar el resultado es un ejemplo de:",
+     "o": [
+      "Democracia",
+      "Dictadura",
+      "Monarquía"
+     ],
+     "y": "Decide la mayoría y se respeta."
+    },
+    {
+     "s": "¿Para qué se divide el poder en tres?",
+     "o": [
+      "Para que ninguno tenga todo el poder",
+      "Para que haya más fiestas",
+      "Para que no haya leyes"
+     ],
+     "y": "Cada poder vigila a los otros."
+    },
+    {
+     "s": "«Todas las personas tienen los mismos derechos» describe el principio de:",
+     "o": [
+      "Igualdad",
+      "Legalidad",
+      "Pluralismo"
+     ],
+     "y": "Sin discriminación."
+    }
+   ]
+  },
+  {
+   "t": "Violencia de género en el mundo",
+   "c": "Violencia de género",
+   "e": [
+    "La <b>violencia de género</b> es cualquier daño que se hace a una persona por ser mujer, hombre o por su identidad. La sufren sobre todo niñas y mujeres en todo el mundo, y es una violación a los derechos humanos.",
+    "Puede ser <b>física</b> (golpes, empujones), <b>psicológica</b> (insultos, burlas, amenazas, humillaciones), <b>económica</b> (controlar el dinero de alguien) o <b>digital</b> (acoso o difusión de fotos en internet). También empieza con ideas como «las niñas no pueden jugar futbol» o «los niños no lloran».",
+    "Para prevenirla: trata a todas las personas con respeto, no te rías de chistes que humillan, y si tú o alguien que conoces vive violencia, <b>díselo a un adulto de confianza</b>. En una emergencia se puede llamar al <b>911</b>."
+   ],
+   "x": [
+    "Si un compañero se burla de una niña porque «eso no es de niñas», está reproduciendo una idea que discrimina.",
+    "Muchos países tienen leyes para proteger a las mujeres; en México existe la Ley General de Acceso de las Mujeres a una Vida Libre de Violencia."
+   ],
+   "k": "Nadie merece violencia. Respeta a todos y, si algo pasa, avisa a un adulto de confianza o llama al 911.",
+   "q": [
+    {
+     "s": "Un insulto o una humillación constante es violencia:",
+     "o": [
+      "Psicológica",
+      "Física",
+      "Económica"
+     ],
+     "y": "Daña las emociones y la autoestima.",
+     "p": "Afecta la mente y las emociones."
+    },
+    {
+     "s": "¿Qué debes hacer si alguien vive violencia?",
+     "o": [
+      "Contárselo a un adulto de confianza",
+      "Guardar el secreto",
+      "Reírte"
+     ],
+     "y": "Pedir ayuda es lo correcto.",
+     "p": "No te quedes callado."
+    },
+    {
+     "s": "Difundir fotos de alguien sin permiso por internet es violencia:",
+     "o": [
+      "Digital",
+      "Económica",
+      "Física"
+     ],
+     "y": "Ocurre en medios electrónicos.",
+     "p": "Pasa en internet."
+    },
+    {
+     "s": "¿Cuál frase reproduce estereotipos de género?",
+     "o": [
+      "«Los niños no lloran»",
+      "«Todos podemos expresar lo que sentimos»",
+      "«Cualquiera puede jugar futbol»"
+     ],
+     "y": "Limita a las personas por su género.",
+     "p": "Busca la que pone reglas por ser niño o niña."
+    }
+   ],
+   "v": [
+    {
+     "s": "La violencia de género viola los derechos humanos.",
+     "v": true,
+     "y": "Todas las personas tienen derecho a vivir sin violencia."
+    },
+    {
+     "s": "Las burlas no son una forma de violencia.",
+     "v": false,
+     "y": "Son violencia psicológica."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Controlar el dinero de otra persona para dominarla es violencia:",
+     "o": [
+      "Económica",
+      "Física",
+      "Digital"
+     ],
+     "y": "Limita su libertad."
+    },
+    {
+     "s": "¿A qué número se llama en una emergencia en México?",
+     "o": [
+      "911",
+      "066",
+      "123"
+     ],
+     "y": "Es el número único de emergencias."
+    },
+    {
+     "s": "¿Qué acción ayuda a prevenir la violencia de género?",
+     "o": [
+      "Tratar a todas las personas con respeto",
+      "Reírse de chistes que humillan",
+      "Decir que hay juegos solo para niños"
+     ],
+     "y": "El respeto es la base."
+    }
+   ]
+  },
+  {
+   "t": "Rendición de cuentas y transparencia",
+   "c": "Transparencia",
+   "e": [
+    "Los gobernantes y servidores públicos manejan el dinero de todos, que viene de los <b>impuestos</b>. Por eso tienen la obligación de informar qué hacen y cómo lo gastan.",
+    "La <b>transparencia</b> significa que la información del gobierno sea pública y fácil de consultar. La <b>rendición de cuentas</b> es que los gobernantes expliquen y justifiquen sus decisiones y respondan si hicieron algo mal.",
+    "Las personas tienen <b>derecho de acceso a la información pública</b>: cualquiera puede pedir datos al gobierno, como cuánto costó una obra. Esto ayuda a prevenir la <b>corrupción</b>, que es usar un cargo público para beneficio propio."
+   ],
+   "x": [
+    "Un municipio publica en su página cuánto gastó en arreglar el parque: eso es transparencia.",
+    "Si en tu grupo juntan dinero para una excursión, el tesorero debe mostrar en qué se gastó: eso es rendir cuentas."
+   ],
+   "k": "Transparencia: la información es pública. Rendición de cuentas: explicar y responder por lo que se hace.",
+   "q": [
+    {
+     "s": "¿Qué es la transparencia?",
+     "o": [
+      "Que la información del gobierno sea pública",
+      "Que los gobernantes oculten datos",
+      "Que no haya gobierno"
+     ],
+     "y": "Cualquiera puede consultarla.",
+     "p": "Transparente es lo que se puede ver."
+    },
+    {
+     "s": "¿De dónde viene el dinero que maneja el gobierno?",
+     "o": [
+      "De los impuestos",
+      "De los videojuegos",
+      "De la lotería solamente"
+     ],
+     "y": "Por eso debe informar cómo lo usa.",
+     "p": "Lo pagan las personas."
+    },
+    {
+     "s": "Usar un cargo público para beneficio propio es:",
+     "o": [
+      "Corrupción",
+      "Transparencia",
+      "Democracia"
+     ],
+     "y": "Daña a toda la sociedad.",
+     "p": "Es lo contrario de la honestidad."
+    },
+    {
+     "s": "El tesorero del grupo muestra en qué gastó el dinero. Eso es:",
+     "o": [
+      "Rendir cuentas",
+      "Ocultar información",
+      "Corrupción"
+     ],
+     "y": "Explica y justifica.",
+     "p": "Cuenta en qué se usó."
+    }
+   ],
+   "v": [
+    {
+     "s": "Cualquier persona puede pedir información pública al gobierno.",
+     "v": true,
+     "y": "Es un derecho."
+    },
+    {
+     "s": "La transparencia ayuda a que haya más corrupción.",
+     "v": false,
+     "y": "Ayuda a prevenirla."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Un municipio publica cuánto gastó en una obra. Eso es:",
+     "o": [
+      "Transparencia",
+      "Corrupción",
+      "Censura"
+     ],
+     "y": "La información es pública."
+    },
+    {
+     "s": "¿Por qué los gobernantes deben rendir cuentas?",
+     "o": [
+      "Porque manejan dinero y decisiones de todos",
+      "Porque es un juego",
+      "Porque no tienen nada que hacer"
+     ],
+     "y": "Deben responder ante la población."
+    },
+    {
+     "s": "¿Qué derecho permite saber cuánto costó una obra pública?",
+     "o": [
+      "El acceso a la información pública",
+      "El derecho al voto",
+      "La libertad de tránsito"
+     ],
+     "y": "Cualquiera puede solicitarla."
+    }
+   ]
+  }
+ ]
+});

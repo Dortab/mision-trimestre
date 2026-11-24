@@ -93,7 +93,7 @@ function renderMundos(){
   $('mundos').replaceChildren(...WORLDS.map((w,i)=>{
     const ts=temasDe(i),dom=ts.filter(t=>S.tem[t.id]).length,rd=w.retos.filter(r=>S.done[r.id]).length,g=S.examenes[exKey(i)];
     const barra=(v,n)=>h('span',{cls:'mini'},h('i',{style:`width:${n?v/n*100:0}%`}));
-    return h('article',{cls:'bit-mundo','data-w':i},
+    return h('article',{cls:'bit-mundo','data-w':colorW(i)},
       h('h3',{},w.name),
       h('p',{},`Temas dominados: ${dom} de ${ts.length}`),barra(dom,ts.length),
       h('p',{},`Retos superados: ${rd} de ${w.retos.length}`),barra(rd,w.retos.length),
@@ -106,7 +106,7 @@ function renderExamenes(){
   const filas=ev.map(e=>{
     const p=previo(e),f=new Date(e.t);
     const cambio=p?(e.nota>p.nota?h('span',{cls:'sube-n'},`▲ ${Math.round((e.nota-p.nota)*10)/10}`):e.nota<p.nota?h('span',{cls:'baja-n'},`▼ ${Math.round((p.nota-e.nota)*10)/10}`):h('span',{cls:'intro'},'igual')):h('span',{cls:'intro'},'primero');
-    return h('tr',{'data-w':e.w},h('td',{},`${f.getDate()} ${MESES[f.getMonth()].slice(0,3)}`),h('td',{},mundo(e.w,e.tr)),h('td',{cls:'cal-nota'},String(e.nota)),h('td',{},`${e.ok} de ${e.n}`),h('td',{},cambio),h('td',{cls:'bit-fallas'},e.temas?(fallados(e)||'Ninguno'):'—'));
+    return h('tr',{'data-w':colorW(e.w,e.tr)},h('td',{},`${f.getDate()} ${MESES[f.getMonth()].slice(0,3)}`),h('td',{},mundo(e.w,e.tr)),h('td',{cls:'cal-nota'},String(e.nota)),h('td',{},`${e.ok} de ${e.n}`),h('td',{},cambio),h('td',{cls:'bit-fallas'},e.temas?(fallados(e)||'Ninguno'):'—'));
   });
   /* Exámenes presentados antes de que existiera la bitácora: solo se conoce el resumen. */
   const antes=WORLDS.map((w,i)=>({w:i,tr:TRIM,g:S.examenes[exKey(i)],n:ev.filter(e=>e.w===i&&deEste(e)).length})).filter(x=>x.g&&x.g.intentos>x.n);

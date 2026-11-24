@@ -1,5 +1,4 @@
 /* Estado y utilidades que comparten la página de inicio y la guía. */
-const KEY='mision-trimestre-v1';
 /* Cofres de constancia: uno cada 5 chispas (una chispa por misión terminada). Al acabar la lista, vuelve a empezar. */
 const CADA_CHISPAS=5;
 const PREMIOS_CHISPA=['Elegir la música del carro','15 minutos extra de juego','Elegir el postre','Escoger la cena del viernes','Una salida al parque','Noche de juego de mesa'];
@@ -33,6 +32,9 @@ const temaId=(w,i)=>TRIM===1?`tema-${w}-${i}`:`tema-t${TRIM}-${w}-${i}`;
 const exKey=w=>TRIM===1?w:`t${TRIM}-${w}`;
 const temasDe=w=>TEMAS[w].map((t,i)=>({...t,id:temaId(w,i)})).filter(t=>!t.nota);
 const TOTAL_TEMAS=WORLDS.reduce((n,_,w)=>n+temasDe(w).length,0);
+/* Cada materia tiene siempre el mismo color, en cualquier grado y trimestre. */
+const COLOR_MATERIA={'Ciencias':0,'Lenguajes':1,'Matemáticas':2,'Geografía':3,'Historia':4,'Civismo':5,'Conocimiento del medio':3};
+const colorW=(w,tr)=>{const n=mundoDe(w,tr||TRIM);return n in COLOR_MATERIA?COLOR_MATERIA[n]:w};
 let stop=()=>{};
 /* Botones para cambiar de trimestre desde cualquier página. Guardan la elección y recargan. */
 const selectorTrim=()=>h('div',{cls:'trims',role:'group','aria-label':'Trimestre'},Object.keys(TRIMESTRES).map(Number).map(n=>

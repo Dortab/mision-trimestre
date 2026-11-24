@@ -1,6 +1,6 @@
-/* Reporte de práctica en casa para maestros y papás.
+/* Reporte de práctica en casa para docentes, mamás, papás y tutores.
    Sin XP, cofres ni chispas: solo constancia, avance, exámenes y temas por reforzar. */
-const ALUMNO='Jacob',GRADO='6.º de primaria';
+const ALUMNO=tieneNombre()?PERFIL.nombre.trim():'Tripulante',NOMBRE_GRADO=GRADOS[GRADO].nombre;
 const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const B=bit(),HOY=diaClave();
 const aFecha=k=>{const [a,m,d]=k.split('-').map(Number);return new Date(a,m-1,d)};
@@ -63,7 +63,7 @@ function render(){
   poner($('reporte'),
     h('header',{cls:'rep-head'},
       h('p',{cls:'eyebrow'},`Reporte de práctica en casa · ${NOMBRE_TRIM[TRIM]}`),
-      h('h1',{},`${ALUMNO} · ${GRADO}`),
+      h('h1',{},`${ALUMNO} · ${NOMBRE_GRADO}`),
       h('p',{},h('b',{},'Periodo: '),periodo),
       h('p',{cls:'intro'},`Generado el ${larga(HOY)}`)),
 
@@ -102,7 +102,7 @@ function render(){
 
     h('footer',{cls:'rep-pie'},
       h('p',{},h('b',{},'Cómo leer este reporte. '),'«Demostrado»: sacó 4 o 5 de 5 en la misión del tema. «Por reforzar»: menos de 4 de 5 en su misión, o errores en ese tema en un examen de práctica (cada tema tiene 1 o 2 preguntas por examen, así que es una alerta, no un diagnóstico). «Solo autoevaluación»: marcó que lo entiende, pero todavía no lo demuestra en una misión. El tiempo cuenta solo mientras la página está en uso.'),
-      h('p',{},'Práctica en casa con Misión Trimestre. No sustituye la evaluación de la escuela.')));
+      h('p',{},'Práctica en casa con Universo SPARK. No sustituye la evaluación de la escuela.')));
   return {d,periodo,sug};
 }
 function resumen(){
@@ -110,13 +110,13 @@ function resumen(){
   const tot=k=>d.avance.reduce((n,a)=>n+(k==='total'?a.total:a[k].length),0);
   const ex=d.exPeriodo.map(e=>`${materia(e.w)} ${e.nota} (${corta(e.dia)})`).join(', ');
   return [
-    `Reporte de práctica en casa · ${ALUMNO} · ${GRADO} · ${NOMBRE_TRIM[TRIM]}`,
+    `Reporte de práctica en casa · ${ALUMNO} · ${NOMBRE_GRADO} · ${NOMBRE_TRIM[TRIM]}`,
     `Periodo: ${periodo}`,
     `Trabajó ${d.dias} ${d.dias===1?'día':'días'} (${tiempo(d.seg)} en total) y terminó ${d.misiones} ${d.misiones===1?'misión':'misiones'}.`,
     `Temas demostrados: ${tot('dem')} de ${tot('total')}. Por reforzar: ${tot('ref')}.`,
     ex?`Exámenes de práctica: ${ex}.`:'Sin exámenes en el periodo.',
     sug.length?`Para la próxima semana: ${sug.map(x=>`${x.titulo} (${materia(x.w)})`).join('; ')}.`:'',
-    'Práctica en casa con Misión Trimestre; no sustituye la evaluación de la escuela.'
+    'Práctica en casa con Universo SPARK; no sustituye la evaluación de la escuela.'
   ].filter(Boolean).join('\n');
 }
 $('periodo').onchange=render;

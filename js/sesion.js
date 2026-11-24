@@ -48,7 +48,7 @@ function acierto(r,p,n,q,v){
   sumarXP(()=>{S.ganadas[k]=1;S.sesPts[q.reto]=(S.sesPts[q.reto]||0)+Math.round(20*v)});
 }
 function pintar(...nodos){
-  $('mision').replaceChildren(h('div',{cls:'sesion','data-w':sesion.t.w},nodos));
+  $('mision').replaceChildren(h('div',{cls:'sesion','data-w':colorW(sesion.t.w)},nodos));
   window.scrollTo(0,0);
 }
 function nuevaSesion(elegido){
@@ -72,7 +72,7 @@ function mapaTemas(){
     h('div',{cls:'mapa-ley','aria-hidden':'true'},h('span',{},h('i',{cls:'e-hecha'}),'Terminada'),h('span',{},h('i',{cls:'e-empezada'}),'Sin terminar'),h('span',{},h('i',{cls:'e-pendiente'}),'Pendiente'),h('span',{},h('b',{cls:'refuerzo'},'por reforzar'),'menos de 4 aciertos o errores en el examen')),
     WORLDS.map((w,i)=>{
       const lista=todos.filter(t=>t.w===i),hechas=lista.filter(t=>estado(t)==='hecha').length;
-      const d=h('details',{cls:'mapa-mundo','data-w':i},
+      const d=h('details',{cls:'mapa-mundo','data-w':colorW(i)},
         h('summary',{},h('span',{},w.name),h('span',{cls:'mapa-cuenta'},`${hechas} de ${lista.length} terminadas`)),
         h('div',{cls:'mapa-temas'},lista.map(t=>{const e=estado(t),r=reforzar(t);
           return h('button',{cls:`mapa-tema e-${e}`,'aria-current':t.id===sesion.t.id?'true':'false',
@@ -127,13 +127,13 @@ function cerrar(n){
   registrar('mision',{w:t.w,i:t.i,titulo:t.t,ok:sesion.aciertos,n,xp:gano,domino});
   pintar(h('article',{cls:'tarjeta cierre'},
     h('div',{cls:'chispa','aria-hidden':'true'}),
-    h('h2',{},'¡Misión cumplida!'),
+    h('h2',{},tieneNombre()?`¡Misión cumplida, ${nombreTripulante()}!`:'¡Misión cumplida!'),
     h('p',{},`SPARK te dio una chispa. Ya llevas ${S.chispas}.`),
     h('p',{cls:'intro'},S.chispas%CADA_CHISPAS===0?'¡Juntaste 5 chispas y abriste un cofre de constancia!':`Te ${faltan===1?'falta 1 chispa':`faltan ${faltan} chispas`} para tu próximo cofre de constancia.`),
     h('p',{},`Acertaste ${sesion.aciertos} de ${n}${gano?` y ganaste ${gano} XP`:''}.`),
     h('p',{},salio?'¡Listo! Este tema ya no está por reforzar.':domino?'Este tema ya quedó como dominado.':'Quedó como «por reforzar». Puedes repasarlo cuando quieras desde el mapa de temas.'),
     h('p',{cls:'intro'},'Buen trabajo por hoy. Si quieres otra misión, primero levántate y toma agua.'),
-    h('div',{cls:'row centro'},h('a',{cls:'btn main grande',href:'index.html'},'Terminar por hoy'),h('a',{cls:'btn',href:'bitacora.html'},'Ver mi bitácora'),h('button',{cls:'btn',onclick:()=>nuevaSesion()},'Otra misión'))));
+    h('div',{cls:'row centro'},h('a',{cls:'btn main grande',href:'base.html'},'Terminar por hoy'),h('a',{cls:'btn',href:'bitacora.html'},'Ver mi bitácora'),h('button',{cls:'btn',onclick:()=>nuevaSesion()},'Otra misión'))));
   if(S.chispas%CADA_CHISPAS===0)setTimeout(()=>abrirCofre(S.chispas/CADA_CHISPAS,'constancia'),700);
 }
 /* Si llega con un tema en la dirección (por ejemplo, desde el examen), abre esa misión. */

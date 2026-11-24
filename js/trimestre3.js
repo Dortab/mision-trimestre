@@ -695,132 +695,897 @@ v:[{s:'Ahorrar $10 cada semana forma una sucesión geométrica.',v:false,y:'Es a
 ex:[{s:'¿Qué número sigue en 3, 9, 27…?',o:['81','36','30'],y:'Se multiplica por 3.'},
 {s:'¿Qué tipo de sucesión es 5, 10, 15, 20?',o:['Aritmética','Geométrica','Aleatoria'],y:'Se suma 5.'}]}
 ]});
-T3_MUNDOS.push({name:'Sociedad',sub:'Ética, naturaleza y sociedades',lead:'Tus datos, los acuerdos entre países, los pueblos del mundo, las luchas sociales, el México posrevolucionario y la migración.',temas:[
-{t:'Derecho a la protección de datos personales',c:'Datos personales',e:[
-'Tus <b>datos personales</b> son la información que te identifica: tu nombre, tu dirección, tu teléfono, tu escuela, tu fecha de nacimiento, tus fotos o tu ubicación. Algunos son <b>sensibles</b>, como tu salud o tus creencias.',
-'En México tienes <b>derecho a la protección de tus datos personales</b>: las instituciones y empresas que los piden deben cuidarlos y usarlos solo para lo que dijeron. Puedes ejercer los derechos <b>ARCO</b>: <b>A</b>cceso (saber qué datos tienen), <b>R</b>ectificación (corregirlos), <b>C</b>ancelación (pedir que los borren) y <b>O</b>posición (negarte a que los usen para algo).',
-'En internet, cuídalos: no compartas tu dirección, escuela o contraseñas; configura tus perfiles como privados; no publiques fotos con tu uniforme o tu ubicación; y si algo te incomoda, avisa a un adulto de confianza.'],
-x:['Un juego en línea que te pide tu dirección para «darte un premio» puede ser un engaño.','Si una tienda tiene mal escrito tu nombre en su registro, puedes pedir que lo corrijan: es el derecho de rectificación.'],
-k:'Tus datos te identifican y tienes derecho a protegerlos (ARCO). En internet, compártelos lo menos posible.',
-q:[{s:'¿Cuál es un dato personal?',o:['Tu dirección','El color del cielo','La capital de Francia'],y:'Te identifica a ti.',p:'Algo que dice quién eres o dónde vives.'},
-{s:'¿Qué significa la R de los derechos ARCO?',o:['Rectificación: corregir tus datos','Robar datos','Repetir datos'],y:'Puedes pedir que corrijan datos equivocados.',p:'Corregir.'},
-{s:'¿Qué conviene hacer con tus perfiles de redes sociales?',o:['Configurarlos como privados','Publicar tu dirección','Compartir tu contraseña'],y:'Así solo te ven personas que conoces.',p:'Que no cualquiera los vea.'},
-{s:'Un juego te pide tu dirección para darte un premio. ¿Qué haces?',o:['No la doy y aviso a un adulto','La doy de inmediato','Doy también mi contraseña'],y:'Puede ser un engaño.',p:'Desconfía.'}],
-v:[{s:'Tu contraseña no se debe compartir con desconocidos.',v:true,y:'Ni con amigos en internet.'},
-{s:'Las empresas pueden usar tus datos para lo que quieran.',v:false,y:'Solo para lo que te informaron.'}],
-ex:[{s:'¿Qué derecho ARCO usas si pides que borren tus datos?',o:['Cancelación','Acceso','Rectificación'],y:'Es la C de ARCO.'},
-{s:'¿Cuál es un ejemplo de dato personal sensible?',o:['Información sobre tu salud','Tu color favorito','El nombre de tu mascota'],y:'Requiere todavía más cuidado.'},
-{s:'¿Qué NO conviene publicar en redes sociales?',o:['Fotos con tu uniforme y tu ubicación','Un dibujo que hiciste','Una receta'],y:'Permiten saber dónde estás.'}]},
-
-{t:'Tratados internacionales',c:'Tratados internacionales',e:[
-'Un <b>tratado internacional</b> es un acuerdo por escrito entre dos o más países (o entre países y organismos internacionales) en el que se comprometen a cumplir ciertas reglas.',
-'Hay tratados sobre muchos temas: <b>derechos humanos</b> (como la <b>Convención sobre los Derechos del Niño</b>, aprobada por la ONU en 1989), <b>medio ambiente</b> (como el <b>Acuerdo de París</b> de 2015 sobre cambio climático), <b>comercio</b> (como el <b>T-MEC</b> entre México, Estados Unidos y Canadá) y <b>paz</b>.',
-'En México, el presidente o la presidenta firma los tratados y el <b>Senado</b> los aprueba. Los tratados de derechos humanos tienen el mismo rango que la Constitución.'],
-x:['Gracias a la Convención sobre los Derechos del Niño, los países se comprometen a proteger tu derecho a la educación, la salud y el juego.','El T-MEC establece reglas para comprar y vender productos entre México, Estados Unidos y Canadá.'],
-k:'Un tratado es un acuerdo escrito entre países. En México los aprueba el Senado.',
-q:[{s:'¿Qué es un tratado internacional?',o:['Un acuerdo por escrito entre países','Un juego de mesa','Una ley de un solo municipio'],y:'Los países se comprometen a cumplirlo.',p:'Un acuerdo entre países.'},
-{s:'¿Qué tratado protege los derechos de niñas y niños?',o:['La Convención sobre los Derechos del Niño','El T-MEC','El Acuerdo de París'],y:'Lo aprobó la ONU en 1989.',p:'Su nombre lo dice.'},
-{s:'¿De qué trata el Acuerdo de París?',o:['Del cambio climático','Del futbol','De la comida francesa'],y:'Se firmó en 2015.',p:'Medio ambiente.'},
-{s:'En México, ¿quién aprueba los tratados internacionales?',o:['El Senado','La escuela','Los periódicos'],y:'Después de que los firma el Ejecutivo.',p:'Es una cámara del Congreso.'}],
-v:[{s:'El T-MEC es un tratado comercial entre México, Estados Unidos y Canadá.',v:true,y:'Regula el comercio entre los tres.'},
-{s:'Los tratados internacionales no obligan a nada.',v:false,y:'Los países se comprometen a cumplirlos.'}],
-ex:[{s:'Un tratado sobre la compra y venta de productos entre países es de tipo:',o:['Comercial','Ambiental','Deportivo'],y:'Como el T-MEC.'},
-{s:'¿Qué organismo aprobó la Convención sobre los Derechos del Niño en 1989?',o:['La ONU','La FIFA','El Banco de México'],y:'La Organización de las Naciones Unidas.'},
-{s:'¿Qué tema trata el Acuerdo de París?',o:['El cambio climático','Los derechos laborales','Los Juegos Olímpicos'],y:'Busca reducir el calentamiento global.'}]},
-
-{t:'Pueblos originarios del Continente Americano',c:'Pueblos originarios de América',e:[
-'Los <b>pueblos originarios</b> o indígenas son los descendientes de quienes habitaban el continente antes de la llegada de los europeos. Conservan sus lenguas, sus formas de organizarse, sus fiestas y su relación con la naturaleza.',
-'En México viven muchos pueblos, como los <b>nahuas</b>, <b>mayas</b>, <b>zapotecos</b>, <b>mixtecos</b>, <b>otomíes</b>, <b>tsotsiles</b> y <b>rarámuris</b>. En el resto de América están, por ejemplo, los <b>quechuas</b> y <b>aymaras</b> en los Andes (Perú, Bolivia, Ecuador), los <b>mapuches</b> en Chile y Argentina, los <b>guaraníes</b> en Paraguay (donde el guaraní es idioma oficial), los <b>navajos</b> en Estados Unidos y los <b>inuit</b> en el norte de Canadá.',
-'Muchos han enfrentado discriminación y despojo de sus tierras. Hoy se reconocen sus <b>derechos</b>, como hablar su lengua y decidir sobre su territorio. El <b>9 de agosto</b> es el Día Internacional de los Pueblos Indígenas.'],
-x:['Los rarámuris de Chihuahua son famosos por correr distancias larguísimas en la sierra.','El quechua fue la lengua del imperio inca y todavía la hablan millones de personas.'],
-k:'Los pueblos originarios conservan lenguas y culturas propias en todo el continente y tienen derechos que se deben respetar.',
-q:[{s:'¿Quiénes son los pueblos originarios?',o:['Los descendientes de quienes habitaban América antes de los europeos','Personas que llegaron el año pasado','Solo los habitantes de Europa'],y:'Conservan sus lenguas y culturas.',p:'Ya estaban aquí antes.'},
-{s:'¿Dónde viven principalmente los quechuas?',o:['En los Andes','En el desierto del Sahara','En Japón'],y:'Perú, Bolivia y Ecuador.',p:'Una gran cordillera de Sudamérica.'},
-{s:'¿En qué país el guaraní es idioma oficial?',o:['Paraguay','México','Canadá'],y:'Junto con el español.',p:'Un país de Sudamérica.'},
-{s:'¿Cuál es un pueblo originario de México?',o:['Los zapotecos','Los vikingos','Los samuráis'],y:'Viven sobre todo en Oaxaca.',p:'Busca el que es de Oaxaca.'}],
-v:[{s:'Los inuit viven en el norte de Canadá.',v:true,y:'Habitan regiones muy frías.'},
-{s:'Los pueblos originarios ya no existen.',v:false,y:'Viven millones de personas indígenas en América.'}],
-ex:[{s:'¿Qué día es el Día Internacional de los Pueblos Indígenas?',o:['9 de agosto','16 de septiembre','25 de diciembre'],y:'Lo estableció la ONU.'},
-{s:'Los mapuches viven en:',o:['Chile y Argentina','México y Guatemala','Estados Unidos'],y:'En el sur de Sudamérica.'},
-{s:'¿Qué derecho tienen los pueblos originarios?',o:['Hablar su propia lengua','Ninguno especial','Solo hablar inglés'],y:'Su lengua es parte de su identidad.'}]},
-
-{t:'Pueblos del mundo',c:'Pueblos del mundo',e:[
-'En el planeta viven miles de pueblos con <b>culturas</b> distintas: lenguas, religiones, vestimentas, comidas, música y formas de ver el mundo. A esto se le llama <b>diversidad cultural</b>.',
-'Algunos pueblos originarios de otros continentes son: los <b>sami</b>, que crían renos en el norte de Noruega, Suecia y Finlandia; los <b>maasái</b>, pastores de Kenia y Tanzania; los <b>aborígenes australianos</b>, con una de las culturas vivas más antiguas del mundo; los <b>ainu</b> en Japón; y los <b>amazigh</b> (bereberes) en el norte de África.',
-'Conocer otras culturas ayuda a <b>respetarlas</b> y a evitar la discriminación. Ninguna cultura es mejor que otra: todas aportan a la humanidad.'],
-x:['Los maasái son conocidos por sus collares de cuentas de colores y su danza de saltos.','Los aborígenes australianos crearon pinturas con puntos que cuentan historias de su territorio.'],
-k:'La diversidad cultural es la riqueza de los pueblos del mundo. Ninguna cultura es superior: todas merecen respeto.',
-q:[{s:'¿Qué es la diversidad cultural?',o:['La variedad de culturas en el mundo','Que todos sean iguales','Un tipo de comida'],y:'Lenguas, costumbres, religiones distintas.',p:'Diversidad es variedad.'},
-{s:'¿Qué pueblo cría renos en el norte de Europa?',o:['Los sami','Los maasái','Los mayas'],y:'Viven en zonas muy frías.',p:'Donde hace mucho frío.'},
-{s:'Los maasái viven en:',o:['Kenia y Tanzania','Australia','Noruega'],y:'Son pastores africanos.',p:'Están en África.'},
-{s:'¿Por qué es importante conocer otras culturas?',o:['Para respetarlas y evitar la discriminación','Para burlarse de ellas','No es importante'],y:'Ninguna cultura es mejor que otra.',p:'Para convivir mejor.'}],
-v:[{s:'Los aborígenes australianos tienen una de las culturas vivas más antiguas del mundo.',v:true,y:'Tienen decenas de miles de años en Australia.'},
-{s:'Hay culturas superiores a otras.',v:false,y:'Todas tienen el mismo valor.'}],
-ex:[{s:'Los ainu son un pueblo originario de:',o:['Japón','México','Brasil'],y:'Viven sobre todo en el norte de Japón.'},
-{s:'¿Qué actitud favorece la convivencia entre culturas?',o:['El respeto','La burla','La discriminación'],y:'Todas las culturas valen.'},
-{s:'Los amazigh, también llamados bereberes, viven en:',o:['El norte de África','Canadá','Argentina'],y:'Desde hace miles de años.'}]},
-
-{t:'Movimientos sociales del siglo XIX',c:'Movimientos del siglo XIX',e:[
-'Un <b>movimiento social</b> es un grupo grande de personas que se organiza para exigir un cambio en la sociedad, como el reconocimiento de un derecho.',
-'En el siglo XIX hubo movimientos muy importantes. El <b>abolicionismo</b> luchó contra la <b>esclavitud</b>: en México, Miguel Hidalgo la abolió en 1810 y Vicente Guerrero la prohibió oficialmente en 1829. El <b>movimiento obrero</b> exigió mejores condiciones: jornadas de 8 horas y salarios justos; el <b>1 de mayo</b> recuerda a los trabajadores de Chicago que lucharon por ello en 1886.',
-'El <b>sufragismo</b> fue la lucha de las mujeres por el derecho a votar. Nueva Zelanda fue el primer país en reconocerlo, en 1893.'],
-x:['Antes de estas luchas, muchos obreros trabajaban 14 horas diarias, incluso niñas y niños.','El Día del Trabajo (1 de mayo) es un día festivo en México y en muchos países.'],
-k:'Siglo XIX: abolicionismo (contra la esclavitud), movimiento obrero (8 horas) y sufragismo (voto de la mujer).',
-q:[{s:'¿Qué buscaba el abolicionismo?',o:['Terminar con la esclavitud','Abolir las escuelas','Aumentar los impuestos'],y:'En México se abolió desde la Independencia.',p:'Abolir es eliminar.'},
-{s:'¿Qué exigía el movimiento obrero?',o:['Jornadas de 8 horas y salarios justos','Trabajar más horas','Cerrar las fábricas'],y:'Mejores condiciones de trabajo.',p:'Piensa en los trabajadores.'},
-{s:'¿Qué buscaba el sufragismo?',o:['El derecho de las mujeres a votar','El fin de los trenes','Más guerras'],y:'Sufragio significa voto.',p:'Sufragio = voto.'},
-{s:'¿Qué recuerda el 1 de mayo?',o:['La lucha de los trabajadores','La Independencia','La llegada de la primavera'],y:'Es el Día del Trabajo.',p:'Día del Trabajo.'}],
-v:[{s:'Nueva Zelanda fue el primer país en reconocer el voto de las mujeres.',v:true,y:'En 1893.'},
-{s:'En el siglo XIX todos los obreros trabajaban 8 horas.',v:false,y:'Trabajaban jornadas mucho más largas.'}],
-ex:[{s:'¿Qué personaje prohibió oficialmente la esclavitud en México en 1829?',o:['Vicente Guerrero','Porfirio Díaz','Lázaro Cárdenas'],y:'Hidalgo ya la había abolido en 1810.'},
-{s:'¿Qué es un movimiento social?',o:['Un grupo organizado que exige un cambio en la sociedad','Un baile popular','Un terremoto'],y:'Busca reconocer derechos.'},
-{s:'La jornada de 8 horas fue una demanda del:',o:['Movimiento obrero','Sufragismo','Abolicionismo'],y:'Por eso se recuerda el 1 de mayo.'}]},
-
-{t:'Movimientos sociales del siglo XX',c:'Movimientos del siglo XX',e:[
-'En el siglo XX, los movimientos sociales lograron grandes cambios. En México, las <b>huelgas de Cananea (1906) y Río Blanco (1907)</b> denunciaron las malas condiciones de los trabajadores y fueron antecedentes de la Revolución. En 1953 las mujeres mexicanas obtuvieron el voto en elecciones federales, y en <b>1968</b> el movimiento estudiantil exigió libertades democráticas.',
-'En el mundo, <b>Mahatma Gandhi</b> encabezó la lucha <b>no violenta</b> que llevó a la independencia de la India en 1947. En Estados Unidos, el <b>movimiento por los derechos civiles</b>, con Rosa Parks y Martin Luther King, luchó contra la discriminación racial. En Sudáfrica, <b>Nelson Mandela</b> encabezó la lucha contra el apartheid y en 1994 fue el primer presidente negro del país.',
-'También surgieron los movimientos <b>ecologista</b>, <b>feminista</b> y de los <b>pueblos indígenas</b>. Muchos derechos que hoy tienes se ganaron gracias a ellos.'],
-x:['En 1955, Rosa Parks se negó a ceder su asiento en un autobús segregado; su gesto inspiró a miles de personas.','Gandhi demostró que se puede luchar por la justicia sin usar la violencia.'],
-k:'Siglo XX: Cananea y Río Blanco, voto femenino (1953), 1968, Gandhi, derechos civiles, Mandela y movimientos ecologistas.',
-q:[{s:'¿Qué personaje encabezó la lucha no violenta por la independencia de la India?',o:['Mahatma Gandhi','Nelson Mandela','Isaac Newton'],y:'La India se independizó en 1947.',p:'Luchó sin violencia.'},
-{s:'¿Qué huelgas mexicanas fueron antecedentes de la Revolución?',o:['Cananea y Río Blanco','Tlatelolco y Chapultepec','Puebla y Celaya'],y:'Ocurrieron en 1906 y 1907.',p:'Una fue en Sonora y otra en Veracruz.'},
-{s:'¿Contra qué luchó Nelson Mandela?',o:['El apartheid, la segregación racial en Sudáfrica','La esclavitud en México','El cambio climático'],y:'Fue presidente en 1994.',p:'Sudáfrica.'},
-{s:'¿Qué hizo Rosa Parks en 1955?',o:['Se negó a ceder su asiento en un autobús segregado','Escribió un tratado comercial','Fundó un partido político en México'],y:'Inspiró al movimiento por los derechos civiles.',p:'Fue en un autobús.'}],
-v:[{s:'En 1953 las mujeres mexicanas obtuvieron el voto en elecciones federales.',v:true,y:'Votaron por primera vez en una elección federal en 1955.'},
-{s:'Los derechos que hoy tenemos siempre existieron.',v:false,y:'Muchos se ganaron con luchas sociales.'}],
-ex:[{s:'¿Qué movimiento luchó contra la discriminación racial en Estados Unidos?',o:['El movimiento por los derechos civiles','El sufragismo del siglo XIX','El abolicionismo mexicano'],y:'Con líderes como Martin Luther King.'},
-{s:'¿En qué año ocurrió el movimiento estudiantil en México?',o:['1968','1910','1985'],y:'Exigía libertades democráticas.'},
-{s:'¿Qué país se independizó en 1947 gracias a una lucha no violenta?',o:['India','Sudáfrica','Canadá'],y:'La encabezó Gandhi.'}]},
-
-{t:'México posrevolucionario (1917–1940)',c:'México posrevolucionario',e:[
-'Después de la Revolución, el país tenía que reconstruirse. En 1917 se promulgó la <b>Constitución</b> durante el gobierno de Venustiano Carranza. Con el presidente <b>Álvaro Obregón</b> se creó la <b>Secretaría de Educación Pública</b> (1921), dirigida por <b>José Vasconcelos</b>, que impulsó escuelas rurales, bibliotecas, campañas para enseñar a leer y los murales.',
-'Con <b>Plutarco Elías Calles</b> hubo un conflicto entre el gobierno y la Iglesia católica: la <b>Guerra Cristera</b> (1926–1929). En 1929 se fundó el Partido Nacional Revolucionario (PNR). A los años en que Calles siguió influyendo en el gobierno se les llama el <b>Maximato</b> (1928–1934).',
-'<b>Lázaro Cárdenas</b> (1934–1940) repartió millones de hectáreas a los campesinos (ejidos), fundó el <b>Instituto Politécnico Nacional</b> (1936) y el <b>18 de marzo de 1938</b> realizó la <b>expropiación petrolera</b>: el petróleo pasó a manos de la nación y se creó Pemex. También recibió a miles de refugiados de la guerra civil española.'],
-x:['Las misiones culturales llevaban maestros, médicos y artistas a los pueblos más alejados.','Cada 18 de marzo se recuerda la expropiación petrolera.'],
-k:'Constitución (1917), SEP con Vasconcelos (1921), Guerra Cristera, PNR (1929), Maximato y Cárdenas: reparto agrario y expropiación petrolera (1938).',
-q:[{s:'¿Quién dirigió la Secretaría de Educación Pública cuando se creó en 1921?',o:['José Vasconcelos','Porfirio Díaz','Miguel Hidalgo'],y:'Impulsó escuelas, bibliotecas y murales.',p:'También fue escritor y filósofo.'},
-{s:'¿Qué ocurrió el 18 de marzo de 1938?',o:['La expropiación petrolera','La Independencia de México','La firma del T-MEC'],y:'El petróleo pasó a la nación.',p:'Tiene que ver con el petróleo.'},
-{s:'¿Qué conflicto enfrentó al gobierno con la Iglesia católica?',o:['La Guerra Cristera','La Guerra de los Pasteles','La Revolución de Independencia'],y:'Ocurrió de 1926 a 1929.',p:'Su nombre viene de «Cristo Rey».'},
-{s:'¿Qué presidente repartió tierras y fundó el IPN?',o:['Lázaro Cárdenas','Álvaro Obregón','Venustiano Carranza'],y:'Gobernó de 1934 a 1940.',p:'También hizo la expropiación petrolera.'}],
-v:[{s:'Pemex se creó después de la expropiación petrolera.',v:true,y:'En 1938.'},
-{s:'El Maximato fue un periodo en el que gobernó Porfirio Díaz.',v:false,y:'Fueron los años de influencia de Calles (1928–1934).'}],
-ex:[{s:'¿En qué año se fundó el Partido Nacional Revolucionario (PNR)?',o:['1929','1810','1968'],y:'Lo impulsó Calles.'},
-{s:'¿Qué fueron las misiones culturales?',o:['Grupos de maestros y especialistas que iban a los pueblos alejados','Viajes al espacio','Fiestas religiosas'],y:'Llevaban educación y salud.'},
-{s:'¿A quiénes recibió México durante el gobierno de Cárdenas?',o:['A refugiados de la guerra civil española','A astronautas','A ningún extranjero'],y:'Muchos se volvieron maestros y científicos en México.'}]},
-
-{t:'Flujos migratorios en el mundo',c:'Migración',e:[
-'La <b>migración</b> es el movimiento de personas de un lugar a otro para vivir. Quien sale de su país <b>emigra</b> (es emigrante) y quien llega a otro país <b>inmigra</b> (es inmigrante). También hay migración <b>interna</b>, dentro del mismo país, como del campo a la ciudad.',
-'Las personas migran por muchas razones: buscar trabajo o mejores ingresos, estudiar, reunirse con su familia, o huir de la violencia, la guerra o un desastre. Quien huye para proteger su vida puede pedir <b>refugio</b>.',
-'México es a la vez país de <b>origen</b> (muchos mexicanos viven en Estados Unidos), de <b>tránsito</b> (personas de Centroamérica y otras regiones lo cruzan), de <b>destino</b> y de <b>retorno</b>. El dinero que los migrantes envían a sus familias se llama <b>remesas</b>. Todas las personas migrantes tienen <b>derechos humanos</b>, sin importar su situación.'],
-x:['Un tío que se fue a trabajar a Estados Unidos es emigrante para México e inmigrante para Estados Unidos.','Una familia que se muda de un pueblo de Oaxaca a Monterrey hace migración interna.'],
-k:'Emigrar es salir, inmigrar es llegar. México es país de origen, tránsito, destino y retorno. Las personas migrantes tienen derechos.',
-q:[{s:'Una persona que sale de su país para vivir en otro es:',o:['Emigrante','Turista','Inmigrante para su propio país'],y:'Emigrar es salir.',p:'Sale.'},
-{s:'¿Qué son las remesas?',o:['El dinero que los migrantes envían a sus familias','Un tipo de comida','Documentos para viajar'],y:'Son importantes para muchas familias.',p:'Dinero que se envía.'},
-{s:'Mudarse de un pueblo de Oaxaca a Monterrey es migración:',o:['Interna','Internacional','De retorno'],y:'Ocurre dentro del mismo país.',p:'No sale de México.'},
-{s:'¿Cuál es una causa de migración?',o:['Buscar trabajo o huir de la violencia','Ir de vacaciones una semana','Ir a la tienda'],y:'Son razones para cambiar de lugar de vida.',p:'Para vivir en otro lugar.'}],
-v:[{s:'México es país de origen, tránsito, destino y retorno de migrantes.',v:true,y:'Vive todas las formas de migración.'},
-{s:'Las personas migrantes pierden sus derechos humanos.',v:false,y:'Todas las personas tienen derechos humanos.'}],
-ex:[{s:'Una persona que llega a vivir a un país distinto al suyo es:',o:['Inmigrante','Emigrante para ese país','Turista'],y:'Inmigrar es llegar.'},
-{s:'¿Qué puede pedir una persona que huye de la guerra para proteger su vida?',o:['Refugio','Una beca deportiva','Remesas'],y:'Es un derecho reconocido internacionalmente.'},
-{s:'Personas de Centroamérica que cruzan México para llegar a otro país hacen de México un país de:',o:['Tránsito','Retorno','Origen'],y:'Lo atraviesan.'}]}
-]});
+T3_MUNDOS.push({
+ "name": "Geografía",
+ "sub": "Ética, naturaleza y sociedades",
+ "lead": "Pueblos de América y del mundo, y las personas que migran: la diversidad del planeta.",
+ "temas": [
+  {
+   "t": "Pueblos originarios del Continente Americano",
+   "c": "Pueblos originarios de América",
+   "e": [
+    "Los <b>pueblos originarios</b> o indígenas son los descendientes de quienes habitaban el continente antes de la llegada de los europeos. Conservan sus lenguas, sus formas de organizarse, sus fiestas y su relación con la naturaleza.",
+    "En México viven muchos pueblos, como los <b>nahuas</b>, <b>mayas</b>, <b>zapotecos</b>, <b>mixtecos</b>, <b>otomíes</b>, <b>tsotsiles</b> y <b>rarámuris</b>. En el resto de América están, por ejemplo, los <b>quechuas</b> y <b>aymaras</b> en los Andes (Perú, Bolivia, Ecuador), los <b>mapuches</b> en Chile y Argentina, los <b>guaraníes</b> en Paraguay (donde el guaraní es idioma oficial), los <b>navajos</b> en Estados Unidos y los <b>inuit</b> en el norte de Canadá.",
+    "Muchos han enfrentado discriminación y despojo de sus tierras. Hoy se reconocen sus <b>derechos</b>, como hablar su lengua y decidir sobre su territorio. El <b>9 de agosto</b> es el Día Internacional de los Pueblos Indígenas."
+   ],
+   "x": [
+    "Los rarámuris de Chihuahua son famosos por correr distancias larguísimas en la sierra.",
+    "El quechua fue la lengua del imperio inca y todavía la hablan millones de personas."
+   ],
+   "k": "Los pueblos originarios conservan lenguas y culturas propias en todo el continente y tienen derechos que se deben respetar.",
+   "q": [
+    {
+     "s": "¿Quiénes son los pueblos originarios?",
+     "o": [
+      "Los descendientes de quienes habitaban América antes de los europeos",
+      "Personas que llegaron el año pasado",
+      "Solo los habitantes de Europa"
+     ],
+     "y": "Conservan sus lenguas y culturas.",
+     "p": "Ya estaban aquí antes."
+    },
+    {
+     "s": "¿Dónde viven principalmente los quechuas?",
+     "o": [
+      "En los Andes",
+      "En el desierto del Sahara",
+      "En Japón"
+     ],
+     "y": "Perú, Bolivia y Ecuador.",
+     "p": "Una gran cordillera de Sudamérica."
+    },
+    {
+     "s": "¿En qué país el guaraní es idioma oficial?",
+     "o": [
+      "Paraguay",
+      "México",
+      "Canadá"
+     ],
+     "y": "Junto con el español.",
+     "p": "Un país de Sudamérica."
+    },
+    {
+     "s": "¿Cuál es un pueblo originario de México?",
+     "o": [
+      "Los zapotecos",
+      "Los vikingos",
+      "Los samuráis"
+     ],
+     "y": "Viven sobre todo en Oaxaca.",
+     "p": "Busca el que es de Oaxaca."
+    }
+   ],
+   "v": [
+    {
+     "s": "Los inuit viven en el norte de Canadá.",
+     "v": true,
+     "y": "Habitan regiones muy frías."
+    },
+    {
+     "s": "Los pueblos originarios ya no existen.",
+     "v": false,
+     "y": "Viven millones de personas indígenas en América."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué día es el Día Internacional de los Pueblos Indígenas?",
+     "o": [
+      "9 de agosto",
+      "16 de septiembre",
+      "25 de diciembre"
+     ],
+     "y": "Lo estableció la ONU."
+    },
+    {
+     "s": "Los mapuches viven en:",
+     "o": [
+      "Chile y Argentina",
+      "México y Guatemala",
+      "Estados Unidos"
+     ],
+     "y": "En el sur de Sudamérica."
+    },
+    {
+     "s": "¿Qué derecho tienen los pueblos originarios?",
+     "o": [
+      "Hablar su propia lengua",
+      "Ninguno especial",
+      "Solo hablar inglés"
+     ],
+     "y": "Su lengua es parte de su identidad."
+    }
+   ]
+  },
+  {
+   "t": "Pueblos del mundo",
+   "c": "Pueblos del mundo",
+   "e": [
+    "En el planeta viven miles de pueblos con <b>culturas</b> distintas: lenguas, religiones, vestimentas, comidas, música y formas de ver el mundo. A esto se le llama <b>diversidad cultural</b>.",
+    "Algunos pueblos originarios de otros continentes son: los <b>sami</b>, que crían renos en el norte de Noruega, Suecia y Finlandia; los <b>maasái</b>, pastores de Kenia y Tanzania; los <b>aborígenes australianos</b>, con una de las culturas vivas más antiguas del mundo; los <b>ainu</b> en Japón; y los <b>amazigh</b> (bereberes) en el norte de África.",
+    "Conocer otras culturas ayuda a <b>respetarlas</b> y a evitar la discriminación. Ninguna cultura es mejor que otra: todas aportan a la humanidad."
+   ],
+   "x": [
+    "Los maasái son conocidos por sus collares de cuentas de colores y su danza de saltos.",
+    "Los aborígenes australianos crearon pinturas con puntos que cuentan historias de su territorio."
+   ],
+   "k": "La diversidad cultural es la riqueza de los pueblos del mundo. Ninguna cultura es superior: todas merecen respeto.",
+   "q": [
+    {
+     "s": "¿Qué es la diversidad cultural?",
+     "o": [
+      "La variedad de culturas en el mundo",
+      "Que todos sean iguales",
+      "Un tipo de comida"
+     ],
+     "y": "Lenguas, costumbres, religiones distintas.",
+     "p": "Diversidad es variedad."
+    },
+    {
+     "s": "¿Qué pueblo cría renos en el norte de Europa?",
+     "o": [
+      "Los sami",
+      "Los maasái",
+      "Los mayas"
+     ],
+     "y": "Viven en zonas muy frías.",
+     "p": "Donde hace mucho frío."
+    },
+    {
+     "s": "Los maasái viven en:",
+     "o": [
+      "Kenia y Tanzania",
+      "Australia",
+      "Noruega"
+     ],
+     "y": "Son pastores africanos.",
+     "p": "Están en África."
+    },
+    {
+     "s": "¿Por qué es importante conocer otras culturas?",
+     "o": [
+      "Para respetarlas y evitar la discriminación",
+      "Para burlarse de ellas",
+      "No es importante"
+     ],
+     "y": "Ninguna cultura es mejor que otra.",
+     "p": "Para convivir mejor."
+    }
+   ],
+   "v": [
+    {
+     "s": "Los aborígenes australianos tienen una de las culturas vivas más antiguas del mundo.",
+     "v": true,
+     "y": "Tienen decenas de miles de años en Australia."
+    },
+    {
+     "s": "Hay culturas superiores a otras.",
+     "v": false,
+     "y": "Todas tienen el mismo valor."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Los ainu son un pueblo originario de:",
+     "o": [
+      "Japón",
+      "México",
+      "Brasil"
+     ],
+     "y": "Viven sobre todo en el norte de Japón."
+    },
+    {
+     "s": "¿Qué actitud favorece la convivencia entre culturas?",
+     "o": [
+      "El respeto",
+      "La burla",
+      "La discriminación"
+     ],
+     "y": "Todas las culturas valen."
+    },
+    {
+     "s": "Los amazigh, también llamados bereberes, viven en:",
+     "o": [
+      "El norte de África",
+      "Canadá",
+      "Argentina"
+     ],
+     "y": "Desde hace miles de años."
+    }
+   ]
+  },
+  {
+   "t": "Flujos migratorios en el mundo",
+   "c": "Migración",
+   "e": [
+    "La <b>migración</b> es el movimiento de personas de un lugar a otro para vivir. Quien sale de su país <b>emigra</b> (es emigrante) y quien llega a otro país <b>inmigra</b> (es inmigrante). También hay migración <b>interna</b>, dentro del mismo país, como del campo a la ciudad.",
+    "Las personas migran por muchas razones: buscar trabajo o mejores ingresos, estudiar, reunirse con su familia, o huir de la violencia, la guerra o un desastre. Quien huye para proteger su vida puede pedir <b>refugio</b>.",
+    "México es a la vez país de <b>origen</b> (muchos mexicanos viven en Estados Unidos), de <b>tránsito</b> (personas de Centroamérica y otras regiones lo cruzan), de <b>destino</b> y de <b>retorno</b>. El dinero que los migrantes envían a sus familias se llama <b>remesas</b>. Todas las personas migrantes tienen <b>derechos humanos</b>, sin importar su situación."
+   ],
+   "x": [
+    "Un tío que se fue a trabajar a Estados Unidos es emigrante para México e inmigrante para Estados Unidos.",
+    "Una familia que se muda de un pueblo de Oaxaca a Monterrey hace migración interna."
+   ],
+   "k": "Emigrar es salir, inmigrar es llegar. México es país de origen, tránsito, destino y retorno. Las personas migrantes tienen derechos.",
+   "q": [
+    {
+     "s": "Una persona que sale de su país para vivir en otro es:",
+     "o": [
+      "Emigrante",
+      "Turista",
+      "Inmigrante para su propio país"
+     ],
+     "y": "Emigrar es salir.",
+     "p": "Sale."
+    },
+    {
+     "s": "¿Qué son las remesas?",
+     "o": [
+      "El dinero que los migrantes envían a sus familias",
+      "Un tipo de comida",
+      "Documentos para viajar"
+     ],
+     "y": "Son importantes para muchas familias.",
+     "p": "Dinero que se envía."
+    },
+    {
+     "s": "Mudarse de un pueblo de Oaxaca a Monterrey es migración:",
+     "o": [
+      "Interna",
+      "Internacional",
+      "De retorno"
+     ],
+     "y": "Ocurre dentro del mismo país.",
+     "p": "No sale de México."
+    },
+    {
+     "s": "¿Cuál es una causa de migración?",
+     "o": [
+      "Buscar trabajo o huir de la violencia",
+      "Ir de vacaciones una semana",
+      "Ir a la tienda"
+     ],
+     "y": "Son razones para cambiar de lugar de vida.",
+     "p": "Para vivir en otro lugar."
+    }
+   ],
+   "v": [
+    {
+     "s": "México es país de origen, tránsito, destino y retorno de migrantes.",
+     "v": true,
+     "y": "Vive todas las formas de migración."
+    },
+    {
+     "s": "Las personas migrantes pierden sus derechos humanos.",
+     "v": false,
+     "y": "Todas las personas tienen derechos humanos."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Una persona que llega a vivir a un país distinto al suyo es:",
+     "o": [
+      "Inmigrante",
+      "Emigrante para ese país",
+      "Turista"
+     ],
+     "y": "Inmigrar es llegar."
+    },
+    {
+     "s": "¿Qué puede pedir una persona que huye de la guerra para proteger su vida?",
+     "o": [
+      "Refugio",
+      "Una beca deportiva",
+      "Remesas"
+     ],
+     "y": "Es un derecho reconocido internacionalmente."
+    },
+    {
+     "s": "Personas de Centroamérica que cruzan México para llegar a otro país hacen de México un país de:",
+     "o": [
+      "Tránsito",
+      "Retorno",
+      "Origen"
+     ],
+     "y": "Lo atraviesan."
+    }
+   ]
+  }
+ ]
+});
+T3_MUNDOS.push({
+ "name": "Historia",
+ "sub": "Luchas sociales y México posrevolucionario",
+ "lead": "Las luchas que ganaron derechos y el México que se reconstruyó después de la Revolución.",
+ "temas": [
+  {
+   "t": "Movimientos sociales del siglo XIX",
+   "c": "Movimientos del siglo XIX",
+   "e": [
+    "Un <b>movimiento social</b> es un grupo grande de personas que se organiza para exigir un cambio en la sociedad, como el reconocimiento de un derecho.",
+    "En el siglo XIX hubo movimientos muy importantes. El <b>abolicionismo</b> luchó contra la <b>esclavitud</b>: en México, Miguel Hidalgo la abolió en 1810 y Vicente Guerrero la prohibió oficialmente en 1829. El <b>movimiento obrero</b> exigió mejores condiciones: jornadas de 8 horas y salarios justos; el <b>1 de mayo</b> recuerda a los trabajadores de Chicago que lucharon por ello en 1886.",
+    "El <b>sufragismo</b> fue la lucha de las mujeres por el derecho a votar. Nueva Zelanda fue el primer país en reconocerlo, en 1893."
+   ],
+   "x": [
+    "Antes de estas luchas, muchos obreros trabajaban 14 horas diarias, incluso niñas y niños.",
+    "El Día del Trabajo (1 de mayo) es un día festivo en México y en muchos países."
+   ],
+   "k": "Siglo XIX: abolicionismo (contra la esclavitud), movimiento obrero (8 horas) y sufragismo (voto de la mujer).",
+   "q": [
+    {
+     "s": "¿Qué buscaba el abolicionismo?",
+     "o": [
+      "Terminar con la esclavitud",
+      "Abolir las escuelas",
+      "Aumentar los impuestos"
+     ],
+     "y": "En México se abolió desde la Independencia.",
+     "p": "Abolir es eliminar."
+    },
+    {
+     "s": "¿Qué exigía el movimiento obrero?",
+     "o": [
+      "Jornadas de 8 horas y salarios justos",
+      "Trabajar más horas",
+      "Cerrar las fábricas"
+     ],
+     "y": "Mejores condiciones de trabajo.",
+     "p": "Piensa en los trabajadores."
+    },
+    {
+     "s": "¿Qué buscaba el sufragismo?",
+     "o": [
+      "El derecho de las mujeres a votar",
+      "El fin de los trenes",
+      "Más guerras"
+     ],
+     "y": "Sufragio significa voto.",
+     "p": "Sufragio = voto."
+    },
+    {
+     "s": "¿Qué recuerda el 1 de mayo?",
+     "o": [
+      "La lucha de los trabajadores",
+      "La Independencia",
+      "La llegada de la primavera"
+     ],
+     "y": "Es el Día del Trabajo.",
+     "p": "Día del Trabajo."
+    }
+   ],
+   "v": [
+    {
+     "s": "Nueva Zelanda fue el primer país en reconocer el voto de las mujeres.",
+     "v": true,
+     "y": "En 1893."
+    },
+    {
+     "s": "En el siglo XIX todos los obreros trabajaban 8 horas.",
+     "v": false,
+     "y": "Trabajaban jornadas mucho más largas."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué personaje prohibió oficialmente la esclavitud en México en 1829?",
+     "o": [
+      "Vicente Guerrero",
+      "Porfirio Díaz",
+      "Lázaro Cárdenas"
+     ],
+     "y": "Hidalgo ya la había abolido en 1810."
+    },
+    {
+     "s": "¿Qué es un movimiento social?",
+     "o": [
+      "Un grupo organizado que exige un cambio en la sociedad",
+      "Un baile popular",
+      "Un terremoto"
+     ],
+     "y": "Busca reconocer derechos."
+    },
+    {
+     "s": "La jornada de 8 horas fue una demanda del:",
+     "o": [
+      "Movimiento obrero",
+      "Sufragismo",
+      "Abolicionismo"
+     ],
+     "y": "Por eso se recuerda el 1 de mayo."
+    }
+   ]
+  },
+  {
+   "t": "México posrevolucionario (1917–1940)",
+   "c": "México posrevolucionario",
+   "e": [
+    "Después de la Revolución, el país tenía que reconstruirse. En 1917 se promulgó la <b>Constitución</b> durante el gobierno de Venustiano Carranza. Con el presidente <b>Álvaro Obregón</b> se creó la <b>Secretaría de Educación Pública</b> (1921), dirigida por <b>José Vasconcelos</b>, que impulsó escuelas rurales, bibliotecas, campañas para enseñar a leer y los murales.",
+    "Con <b>Plutarco Elías Calles</b> hubo un conflicto entre el gobierno y la Iglesia católica: la <b>Guerra Cristera</b> (1926–1929). En 1929 se fundó el Partido Nacional Revolucionario (PNR). A los años en que Calles siguió influyendo en el gobierno se les llama el <b>Maximato</b> (1928–1934).",
+    "<b>Lázaro Cárdenas</b> (1934–1940) repartió millones de hectáreas a los campesinos (ejidos), fundó el <b>Instituto Politécnico Nacional</b> (1936) y el <b>18 de marzo de 1938</b> realizó la <b>expropiación petrolera</b>: el petróleo pasó a manos de la nación y se creó Pemex. También recibió a miles de refugiados de la guerra civil española."
+   ],
+   "x": [
+    "Las misiones culturales llevaban maestros, médicos y artistas a los pueblos más alejados.",
+    "Cada 18 de marzo se recuerda la expropiación petrolera."
+   ],
+   "k": "Constitución (1917), SEP con Vasconcelos (1921), Guerra Cristera, PNR (1929), Maximato y Cárdenas: reparto agrario y expropiación petrolera (1938).",
+   "q": [
+    {
+     "s": "¿Quién dirigió la Secretaría de Educación Pública cuando se creó en 1921?",
+     "o": [
+      "José Vasconcelos",
+      "Porfirio Díaz",
+      "Miguel Hidalgo"
+     ],
+     "y": "Impulsó escuelas, bibliotecas y murales.",
+     "p": "También fue escritor y filósofo."
+    },
+    {
+     "s": "¿Qué ocurrió el 18 de marzo de 1938?",
+     "o": [
+      "La expropiación petrolera",
+      "La Independencia de México",
+      "La firma del T-MEC"
+     ],
+     "y": "El petróleo pasó a la nación.",
+     "p": "Tiene que ver con el petróleo."
+    },
+    {
+     "s": "¿Qué conflicto enfrentó al gobierno con la Iglesia católica?",
+     "o": [
+      "La Guerra Cristera",
+      "La Guerra de los Pasteles",
+      "La Revolución de Independencia"
+     ],
+     "y": "Ocurrió de 1926 a 1929.",
+     "p": "Su nombre viene de «Cristo Rey»."
+    },
+    {
+     "s": "¿Qué presidente repartió tierras y fundó el IPN?",
+     "o": [
+      "Lázaro Cárdenas",
+      "Álvaro Obregón",
+      "Venustiano Carranza"
+     ],
+     "y": "Gobernó de 1934 a 1940.",
+     "p": "También hizo la expropiación petrolera."
+    }
+   ],
+   "v": [
+    {
+     "s": "Pemex se creó después de la expropiación petrolera.",
+     "v": true,
+     "y": "En 1938."
+    },
+    {
+     "s": "El Maximato fue un periodo en el que gobernó Porfirio Díaz.",
+     "v": false,
+     "y": "Fueron los años de influencia de Calles (1928–1934)."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿En qué año se fundó el Partido Nacional Revolucionario (PNR)?",
+     "o": [
+      "1929",
+      "1810",
+      "1968"
+     ],
+     "y": "Lo impulsó Calles."
+    },
+    {
+     "s": "¿Qué fueron las misiones culturales?",
+     "o": [
+      "Grupos de maestros y especialistas que iban a los pueblos alejados",
+      "Viajes al espacio",
+      "Fiestas religiosas"
+     ],
+     "y": "Llevaban educación y salud."
+    },
+    {
+     "s": "¿A quiénes recibió México durante el gobierno de Cárdenas?",
+     "o": [
+      "A refugiados de la guerra civil española",
+      "A astronautas",
+      "A ningún extranjero"
+     ],
+     "y": "Muchos se volvieron maestros y científicos en México."
+    }
+   ]
+  },
+  {
+   "t": "Movimientos sociales del siglo XX",
+   "c": "Movimientos del siglo XX",
+   "e": [
+    "En el siglo XX, los movimientos sociales lograron grandes cambios. En México, las <b>huelgas de Cananea (1906) y Río Blanco (1907)</b> denunciaron las malas condiciones de los trabajadores y fueron antecedentes de la Revolución. En 1953 las mujeres mexicanas obtuvieron el voto en elecciones federales, y en <b>1968</b> el movimiento estudiantil exigió libertades democráticas.",
+    "En el mundo, <b>Mahatma Gandhi</b> encabezó la lucha <b>no violenta</b> que llevó a la independencia de la India en 1947. En Estados Unidos, el <b>movimiento por los derechos civiles</b>, con Rosa Parks y Martin Luther King, luchó contra la discriminación racial. En Sudáfrica, <b>Nelson Mandela</b> encabezó la lucha contra el apartheid y en 1994 fue el primer presidente negro del país.",
+    "También surgieron los movimientos <b>ecologista</b>, <b>feminista</b> y de los <b>pueblos indígenas</b>. Muchos derechos que hoy tienes se ganaron gracias a ellos."
+   ],
+   "x": [
+    "En 1955, Rosa Parks se negó a ceder su asiento en un autobús segregado; su gesto inspiró a miles de personas.",
+    "Gandhi demostró que se puede luchar por la justicia sin usar la violencia."
+   ],
+   "k": "Siglo XX: Cananea y Río Blanco, voto femenino (1953), 1968, Gandhi, derechos civiles, Mandela y movimientos ecologistas.",
+   "q": [
+    {
+     "s": "¿Qué personaje encabezó la lucha no violenta por la independencia de la India?",
+     "o": [
+      "Mahatma Gandhi",
+      "Nelson Mandela",
+      "Isaac Newton"
+     ],
+     "y": "La India se independizó en 1947.",
+     "p": "Luchó sin violencia."
+    },
+    {
+     "s": "¿Qué huelgas mexicanas fueron antecedentes de la Revolución?",
+     "o": [
+      "Cananea y Río Blanco",
+      "Tlatelolco y Chapultepec",
+      "Puebla y Celaya"
+     ],
+     "y": "Ocurrieron en 1906 y 1907.",
+     "p": "Una fue en Sonora y otra en Veracruz."
+    },
+    {
+     "s": "¿Contra qué luchó Nelson Mandela?",
+     "o": [
+      "El apartheid, la segregación racial en Sudáfrica",
+      "La esclavitud en México",
+      "El cambio climático"
+     ],
+     "y": "Fue presidente en 1994.",
+     "p": "Sudáfrica."
+    },
+    {
+     "s": "¿Qué hizo Rosa Parks en 1955?",
+     "o": [
+      "Se negó a ceder su asiento en un autobús segregado",
+      "Escribió un tratado comercial",
+      "Fundó un partido político en México"
+     ],
+     "y": "Inspiró al movimiento por los derechos civiles.",
+     "p": "Fue en un autobús."
+    }
+   ],
+   "v": [
+    {
+     "s": "En 1953 las mujeres mexicanas obtuvieron el voto en elecciones federales.",
+     "v": true,
+     "y": "Votaron por primera vez en una elección federal en 1955."
+    },
+    {
+     "s": "Los derechos que hoy tenemos siempre existieron.",
+     "v": false,
+     "y": "Muchos se ganaron con luchas sociales."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué movimiento luchó contra la discriminación racial en Estados Unidos?",
+     "o": [
+      "El movimiento por los derechos civiles",
+      "El sufragismo del siglo XIX",
+      "El abolicionismo mexicano"
+     ],
+     "y": "Con líderes como Martin Luther King."
+    },
+    {
+     "s": "¿En qué año ocurrió el movimiento estudiantil en México?",
+     "o": [
+      "1968",
+      "1910",
+      "1985"
+     ],
+     "y": "Exigía libertades democráticas."
+    },
+    {
+     "s": "¿Qué país se independizó en 1947 gracias a una lucha no violenta?",
+     "o": [
+      "India",
+      "Sudáfrica",
+      "Canadá"
+     ],
+     "y": "La encabezó Gandhi."
+    }
+   ]
+  }
+ ]
+});
+T3_MUNDOS.push({
+ "name": "Civismo",
+ "sub": "Formación cívica y ética",
+ "lead": "Tus datos, tu seguridad en internet y los acuerdos entre países.",
+ "temas": [
+  {
+   "t": "Derecho a la protección de datos personales",
+   "c": "Datos personales",
+   "e": [
+    "Tus <b>datos personales</b> son la información que te identifica: tu nombre, tu dirección, tu teléfono, tu escuela, tu fecha de nacimiento, tus fotos o tu ubicación. Algunos son <b>sensibles</b>, como tu salud o tus creencias.",
+    "En México tienes <b>derecho a la protección de tus datos personales</b>: las instituciones y empresas que los piden deben cuidarlos y usarlos solo para lo que dijeron. Puedes ejercer los derechos <b>ARCO</b>: <b>A</b>cceso (saber qué datos tienen), <b>R</b>ectificación (corregirlos), <b>C</b>ancelación (pedir que los borren) y <b>O</b>posición (negarte a que los usen para algo).",
+    "En internet, cuídalos: no compartas tu dirección, escuela o contraseñas; configura tus perfiles como privados; no publiques fotos con tu uniforme o tu ubicación; y si algo te incomoda, avisa a un adulto de confianza."
+   ],
+   "x": [
+    "Un juego en línea que te pide tu dirección para «darte un premio» puede ser un engaño.",
+    "Si una tienda tiene mal escrito tu nombre en su registro, puedes pedir que lo corrijan: es el derecho de rectificación."
+   ],
+   "k": "Tus datos te identifican y tienes derecho a protegerlos (ARCO). En internet, compártelos lo menos posible.",
+   "q": [
+    {
+     "s": "¿Cuál es un dato personal?",
+     "o": [
+      "Tu dirección",
+      "El color del cielo",
+      "La capital de Francia"
+     ],
+     "y": "Te identifica a ti.",
+     "p": "Algo que dice quién eres o dónde vives."
+    },
+    {
+     "s": "¿Qué significa la R de los derechos ARCO?",
+     "o": [
+      "Rectificación: corregir tus datos",
+      "Robar datos",
+      "Repetir datos"
+     ],
+     "y": "Puedes pedir que corrijan datos equivocados.",
+     "p": "Corregir."
+    },
+    {
+     "s": "¿Qué conviene hacer con tus perfiles de redes sociales?",
+     "o": [
+      "Configurarlos como privados",
+      "Publicar tu dirección",
+      "Compartir tu contraseña"
+     ],
+     "y": "Así solo te ven personas que conoces.",
+     "p": "Que no cualquiera los vea."
+    },
+    {
+     "s": "Un juego te pide tu dirección para darte un premio. ¿Qué haces?",
+     "o": [
+      "No la doy y aviso a un adulto",
+      "La doy de inmediato",
+      "Doy también mi contraseña"
+     ],
+     "y": "Puede ser un engaño.",
+     "p": "Desconfía."
+    }
+   ],
+   "v": [
+    {
+     "s": "Tu contraseña no se debe compartir con desconocidos.",
+     "v": true,
+     "y": "Ni con amigos en internet."
+    },
+    {
+     "s": "Las empresas pueden usar tus datos para lo que quieran.",
+     "v": false,
+     "y": "Solo para lo que te informaron."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué derecho ARCO usas si pides que borren tus datos?",
+     "o": [
+      "Cancelación",
+      "Acceso",
+      "Rectificación"
+     ],
+     "y": "Es la C de ARCO."
+    },
+    {
+     "s": "¿Cuál es un ejemplo de dato personal sensible?",
+     "o": [
+      "Información sobre tu salud",
+      "Tu color favorito",
+      "El nombre de tu mascota"
+     ],
+     "y": "Requiere todavía más cuidado."
+    },
+    {
+     "s": "¿Qué NO conviene publicar en redes sociales?",
+     "o": [
+      "Fotos con tu uniforme y tu ubicación",
+      "Un dibujo que hiciste",
+      "Una receta"
+     ],
+     "y": "Permiten saber dónde estás."
+    }
+   ]
+  },
+  {
+   "t": "Seguridad y convivencia en internet",
+   "c": "Seguridad en internet",
+   "e": [
+    "Internet sirve para aprender, jugar y comunicarse, pero hay que usarlo con cuidado, igual que cuando sales a la calle.",
+    "Reglas de oro: usa <b>contraseñas seguras</b> (largas, con letras, números y símbolos) y no las compartas; no aceptes solicitudes de <b>desconocidos</b>; nunca vayas a ver en persona a alguien que conociste en línea; y antes de dar clic en un enlace o descargar algo, pregúntate si es confiable.",
+    "El <b>ciberacoso</b> es molestar, burlarse o amenazar a alguien por internet; no lo hagas, no lo compartas y, si lo vives o lo ves, <b>guarda pruebas</b> (capturas de pantalla), <b>bloquea</b> y <b>avisa a un adulto de confianza</b>. También existen las <b>noticias falsas</b>: antes de compartir algo, revisa quién lo publicó y si otras fuentes serias dicen lo mismo."
+   ],
+   "x": [
+    "Una contraseña como «Sp4rk!Luna27» es mucho más segura que «123456».",
+    "Un mensaje que dice «¡Ganaste un celular, da clic aquí!» probablemente es un engaño."
+   ],
+   "k": "Contraseñas seguras, nada de desconocidos, piensa antes de dar clic, no al ciberacoso y verifica antes de compartir.",
+   "q": [
+    {
+     "s": "¿Cuál es una contraseña segura?",
+     "o": [
+      "Sp4rk!Luna27",
+      "123456",
+      "tu nombre"
+     ],
+     "y": "Combina letras, números y símbolos.",
+     "p": "Larga y difícil de adivinar."
+    },
+    {
+     "s": "¿Qué es el ciberacoso?",
+     "o": [
+      "Molestar o amenazar a alguien por internet",
+      "Un videojuego",
+      "Una red wifi"
+     ],
+     "y": "Hace mucho daño.",
+     "p": "Acoso en línea."
+    },
+    {
+     "s": "Si alguien te acosa en línea, ¿qué haces?",
+     "o": [
+      "Guardo pruebas, bloqueo y aviso a un adulto",
+      "Le contesto con insultos",
+      "No le digo a nadie"
+     ],
+     "y": "Pedir ayuda es lo correcto.",
+     "p": "Tres pasos: guardar, bloquear, avisar."
+    },
+    {
+     "s": "Antes de compartir una noticia, conviene:",
+     "o": [
+      "Revisar quién la publicó y si otras fuentes lo confirman",
+      "Compartirla rápido",
+      "Cambiarle el título"
+     ],
+     "y": "Así evitas difundir noticias falsas.",
+     "p": "Verifica."
+    }
+   ],
+   "v": [
+    {
+     "s": "Está bien ir a ver en persona a alguien que conociste en un juego en línea.",
+     "v": false,
+     "y": "Nunca: puede no ser quien dice."
+    },
+    {
+     "s": "Un mensaje que dice que ganaste un premio sin participar puede ser un engaño.",
+     "v": true,
+     "y": "Es una trampa común."
+    }
+   ],
+   "ex": [
+    {
+     "s": "¿Qué debes hacer con tus contraseñas?",
+     "o": [
+      "No compartirlas",
+      "Publicarlas",
+      "Usar la misma para todo y decírsela a tus amigos"
+     ],
+     "y": "Son la llave de tus cuentas."
+    },
+    {
+     "s": "Ves que se burlan de un compañero en un chat. ¿Qué haces?",
+     "o": [
+      "No lo comparto y aviso a un adulto",
+      "Comparto la burla",
+      "Me río"
+     ],
+     "y": "Así no participas en el ciberacoso."
+    },
+    {
+     "s": "¿Qué es una noticia falsa?",
+     "o": [
+      "Información engañosa presentada como verdadera",
+      "Un periódico impreso",
+      "Una noticia vieja"
+     ],
+     "y": "Hay que verificar antes de compartir."
+    }
+   ]
+  },
+  {
+   "t": "Tratados internacionales",
+   "c": "Tratados internacionales",
+   "e": [
+    "Un <b>tratado internacional</b> es un acuerdo por escrito entre dos o más países (o entre países y organismos internacionales) en el que se comprometen a cumplir ciertas reglas.",
+    "Hay tratados sobre muchos temas: <b>derechos humanos</b> (como la <b>Convención sobre los Derechos del Niño</b>, aprobada por la ONU en 1989), <b>medio ambiente</b> (como el <b>Acuerdo de París</b> de 2015 sobre cambio climático), <b>comercio</b> (como el <b>T-MEC</b> entre México, Estados Unidos y Canadá) y <b>paz</b>.",
+    "En México, el presidente o la presidenta firma los tratados y el <b>Senado</b> los aprueba. Los tratados de derechos humanos tienen el mismo rango que la Constitución."
+   ],
+   "x": [
+    "Gracias a la Convención sobre los Derechos del Niño, los países se comprometen a proteger tu derecho a la educación, la salud y el juego.",
+    "El T-MEC establece reglas para comprar y vender productos entre México, Estados Unidos y Canadá."
+   ],
+   "k": "Un tratado es un acuerdo escrito entre países. En México los aprueba el Senado.",
+   "q": [
+    {
+     "s": "¿Qué es un tratado internacional?",
+     "o": [
+      "Un acuerdo por escrito entre países",
+      "Un juego de mesa",
+      "Una ley de un solo municipio"
+     ],
+     "y": "Los países se comprometen a cumplirlo.",
+     "p": "Un acuerdo entre países."
+    },
+    {
+     "s": "¿Qué tratado protege los derechos de niñas y niños?",
+     "o": [
+      "La Convención sobre los Derechos del Niño",
+      "El T-MEC",
+      "El Acuerdo de París"
+     ],
+     "y": "Lo aprobó la ONU en 1989.",
+     "p": "Su nombre lo dice."
+    },
+    {
+     "s": "¿De qué trata el Acuerdo de París?",
+     "o": [
+      "Del cambio climático",
+      "Del futbol",
+      "De la comida francesa"
+     ],
+     "y": "Se firmó en 2015.",
+     "p": "Medio ambiente."
+    },
+    {
+     "s": "En México, ¿quién aprueba los tratados internacionales?",
+     "o": [
+      "El Senado",
+      "La escuela",
+      "Los periódicos"
+     ],
+     "y": "Después de que los firma el Ejecutivo.",
+     "p": "Es una cámara del Congreso."
+    }
+   ],
+   "v": [
+    {
+     "s": "El T-MEC es un tratado comercial entre México, Estados Unidos y Canadá.",
+     "v": true,
+     "y": "Regula el comercio entre los tres."
+    },
+    {
+     "s": "Los tratados internacionales no obligan a nada.",
+     "v": false,
+     "y": "Los países se comprometen a cumplirlos."
+    }
+   ],
+   "ex": [
+    {
+     "s": "Un tratado sobre la compra y venta de productos entre países es de tipo:",
+     "o": [
+      "Comercial",
+      "Ambiental",
+      "Deportivo"
+     ],
+     "y": "Como el T-MEC."
+    },
+    {
+     "s": "¿Qué organismo aprobó la Convención sobre los Derechos del Niño en 1989?",
+     "o": [
+      "La ONU",
+      "La FIFA",
+      "El Banco de México"
+     ],
+     "y": "La Organización de las Naciones Unidas."
+    },
+    {
+     "s": "¿Qué tema trata el Acuerdo de París?",
+     "o": [
+      "El cambio climático",
+      "Los derechos laborales",
+      "Los Juegos Olímpicos"
+     ],
+     "y": "Busca reducir el calentamiento global."
+    }
+   ]
+  }
+ ]
+});
