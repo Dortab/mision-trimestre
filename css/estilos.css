@@ -524,3 +524,30 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:520px){.barra-in{gap:8px}.barra-in .btn.small{padding:4px 8px}}
 a.btn{text-decoration:none}
 a.btn:not(.main):not(.plain){color:var(--ink)}
+/* Respaldo: opciones explicadas y resultado claro */
+.resp-elige{color:var(--muted)}
+.resp-opciones{display:grid;gap:12px}
+.resp-opcion{display:grid;gap:6px;justify-items:start}
+.resp-opcion p{margin:0;font-size:14px;color:var(--muted);max-width:38rem}
+.resp-opcion .resp-codigo{justify-self:stretch}
+.resp-resultado{display:grid;gap:8px;border:2.5px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:3px 3px 0 var(--line)}
+.resp-resultado[hidden]{display:none}
+.resp-resultado.ok{background:var(--okbg);border-color:var(--ok)}
+.resp-resultado.neutro{background:var(--soft)}
+.resp-resultado p{margin:0}
+.resp-res-titulo{font:400 22px var(--display)}
+.resp-resultado b{overflow-wrap:anywhere}
+.resp-resultado,.resp-resultado p{color:var(--ink);font-weight:400}
+.resp-resultado.ok .resp-res-titulo{color:var(--ok)}
+.resp-resultado b{font-weight:700}
+/* Instalación: confirmación y bienvenida */
+.aviso-app.ok{background:var(--okbg);border-color:var(--ok)}
+.aviso-app.ok b{color:var(--ok)}
+.aviso-app.neutro{background:var(--soft)}
+.app-bienvenida{position:fixed;left:12px;right:12px;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:100;display:flex;gap:12px;align-items:center;max-width:30rem;margin-inline:auto;background:var(--okbg);border:2.5px solid var(--ok);border-radius:14px;padding:12px 14px;box-shadow:3px 3px 0 var(--line);animation:entra .35s ease-out}
+.app-bienvenida img{border-radius:10px;flex:none}
+.app-bienvenida div{flex:1}
+.app-bienvenida p{margin:2px 0 0;font-size:14px}
+@keyframes entra{from{transform:translateY(-20px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.app-bienvenida{animation:none}}
+.aviso-app.ok p,.aviso-app.neutro p{color:var(--ink);font-weight:400}
