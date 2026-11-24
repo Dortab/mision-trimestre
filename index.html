@@ -11,6 +11,12 @@
 <!-- Las tipografías cargan sin detener la página: mientras llegan se usa la letra del sistema. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap"></noscript>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17203A">
+<link rel="icon" href="imagenes/icono-192.png" type="image/png">
+<link rel="apple-touch-icon" href="imagenes/icono-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SPARK">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -22,6 +28,7 @@
       <h1>Universo SPARK</h1>
       <p class="rules">¡Hola, tripulante! Soy <b>SPARK</b>. Te acompaño a estudiar un ratito cada día: un tema, unas tarjetas y 5 preguntas.</p>
       <div class="continuar" id="continuar" hidden></div>
+      <div class="aviso-app" id="instalar" hidden></div>
     </div>
   </div>
 </header>
@@ -42,10 +49,16 @@
   </section>
 
   <section class="seccion">
+    <h2>¿Ya tenías avance?</h2>
+    <p>Si ya usabas SPARK en otro celular o computadora, puedes traer tu avance con el archivo o el código de respaldo.</p>
+    <div class="row acciones"><a class="cta cta-alt" href="respaldo.html#recuperar">📂 Recuperar mi avance</a></div>
+  </section>
+
+  <section class="seccion">
     <h2>Para mamás, papás, tutores y docentes</h2>
     <div class="adultos legal">
       <p><b>Qué es.</b> Universo SPARK ayuda a formar el hábito de estudiar 10 minutos al día. Cada misión repasa un tema con tarjetas cortas y 5 preguntas, y cada mundo tiene un examen de práctica. Los temas siguen el plan de estudios de primaria.</p>
-      <p><b>Privacidad.</b> No pedimos correo ni cuenta. El nombre y el avance se guardan solo en este dispositivo y no se envían a ningún servidor. Si borran los datos del navegador, el avance se pierde.</p>
+      <p><b>Privacidad.</b> No pedimos correo ni cuenta. El nombre y el avance se guardan solo en este dispositivo y no se envían a ningún servidor. Si borran los datos del navegador, el avance se pierde; por eso en «Respaldo de avance» (el botón 💾) pueden guardar una copia en un archivo o un código y recuperarla en otro dispositivo.</p>
       <p><b>Para docentes.</b> Pueden recomendarla como repaso en casa. Desde la bitácora, cada familia puede imprimir o enviar un reporte con los temas trabajados, las misiones y las calificaciones de los exámenes de práctica.</p>
       <p><b>Aviso.</b> Es un apoyo independiente para practicar en casa. No es material oficial de la SEP ni sustituye la evaluación de la escuela.</p>
     </div>
@@ -59,5 +72,6 @@
 
 <script src="js/grados.js"></script>
 <script src="js/entrada.js"></script>
+<script src="js/instalar.js"></script>
 </body>
 </html>

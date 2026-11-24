@@ -487,3 +487,40 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .peques .check input{width:24px;height:24px}
 .peques .voz-btn{font-size:20px;min-width:48px;min-height:48px}
 @media (max-width:520px){.dibujo{font-size:42px;letter-spacing:3px}}
+
+/* Instalar como app */
+.aviso-app{display:flex;gap:12px;align-items:center;margin-top:16px;padding:12px 14px;background:var(--panel);border:2px solid var(--line);border-radius:12px;box-shadow:3px 3px 0 var(--line);max-width:34rem}
+.aviso-app[hidden]{display:none}
+.aviso-app img{border-radius:12px;flex:none}
+.aviso-app p{margin:4px 0 8px;font-size:15px;color:var(--muted)}
+/* Respaldo del avance */
+.respaldo{display:grid;gap:10px;max-width:42rem}
+.respaldo p{margin:0}
+.resp-aviso{font-weight:600}
+.resp-aviso.urgente{color:var(--bad,#b3261e)}
+.resp-botones{gap:10px;flex-wrap:wrap}
+.resp-codigo{width:100%;box-sizing:border-box;font:13px/1.4 ui-monospace,monospace;padding:10px;border:2px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);word-break:break-all}
+.resp-archivo{display:none}
+.resp-recuperar{border:2px dashed var(--line);border-radius:12px;padding:10px 14px}
+.resp-recuperar[open]{display:grid;gap:10px}
+.resp-recuperar summary{cursor:pointer;font-weight:600}
+.resp-confirmar{display:grid;gap:10px}
+.resp-confirmar[hidden]{display:none}
+.resp-ojo{color:var(--bad,#b3261e);font-weight:600}
+.resp-estado:empty{display:none}
+.resp-estado.ok{color:var(--ok,#1b7f3b);font-weight:600}
+.resp-estado.mal{color:var(--bad,#b3261e);font-weight:600}
+/* Acceso a Respaldo de avance y recordatorio */
+.resp-ir{flex:none;white-space:nowrap;text-decoration:none;color:var(--ink);position:relative}
+.resp-ir.pendiente::after{content:'';position:absolute;top:-4px;right:-4px;width:12px;height:12px;border-radius:50%;background:var(--bad);border:2px solid var(--panel)}
+.barra-titulo{font:400 20px var(--display)}
+.respaldo-pagina .seccion h2{margin-bottom:10px}
+.resp-recordar{display:grid;gap:8px;justify-items:center;text-align:center;background:var(--soft);border-radius:12px;padding:12px 14px;margin:6px 0}
+.resp-recordar p{margin:0}
+.hud .xp-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hud .xp-row .xp-num{margin-right:auto}
+.volver{white-space:nowrap;flex:none}
+.barra-in .resp-ir,.barra-in .voz-auto{flex:none}
+@media (max-width:520px){.barra-in{gap:8px}.barra-in .btn.small{padding:4px 8px}}
+a.btn{text-decoration:none}
+a.btn:not(.main):not(.plain){color:var(--ink)}

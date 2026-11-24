@@ -53,6 +53,32 @@ function cargar(...pagina){
   lista.forEach(src=>{const s=document.createElement('script');s.src=src;s.async=false;document.body.append(s)});
 }
 
+/* Respaldo de avance (respaldo.html). Aquí vive la regla de «ya toca respaldar», que usan la barra, la misión y la página. */
+const MARCA_RESPALDO='universo-spark-respaldo',DIAS_RESPALDO=7;
+const ultimoRespaldo=()=>{try{return localStorage.getItem(MARCA_RESPALDO)}catch(e){return null}};
+function hayAvance(){
+  try{for(let g=1;g<=6;g++){const s=JSON.parse(localStorage.getItem(claveGrado(g))||'{}');if(Object.keys(s.sesiones||{}).length||Object.keys(s.examenes||{}).length)return true}}catch(e){}
+  return false;
+}
+/* Toca respaldar si hay avance y nunca se ha guardado una copia, o la última tiene 7 días o más. */
+function necesitaRespaldo(){
+  if(!hayAvance())return false;
+  const u=ultimoRespaldo();
+  return !u||(Date.now()-new Date(u))/864e5>=DIAS_RESPALDO;
+}
+/* Acceso 💾 siempre visible en la barra de arriba (en «Mi base», junto al XP). Con un punto rojo cuando toca respaldar. */
+(function(){
+  if(/respaldo\.html$/.test(location.pathname))return;
+  const lugar=document.querySelector('.barra-in')||document.querySelector('.hud .xp-row');
+  if(!lugar)return;
+  const a=document.createElement('a');
+  a.className='btn small resp-ir'+(necesitaRespaldo()?' pendiente':'');a.href='respaldo.html';
+  a.setAttribute('aria-label',necesitaRespaldo()?'Respaldo de avance: ya toca guardar una copia':'Respaldo de avance');
+  a.innerHTML='💾<span class="sonido-txt"> Respaldo</span>';
+  lugar.append(a);
+})();
+/* El navegador avisa muy pronto que SPARK se puede instalar; lo guardamos para que js/instalar.js muestre el botón aunque cargue después. */
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();window.avisoInstalar=e;dispatchEvent(new Event('spark-instalable'))});
 /* Guarda una copia de la app en el celular para que abra rápido y funcione sin señal (ver sw.js). */
 if('serviceWorker' in navigator&&location.protocol==='https:')
   addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
@@ -60,7 +86,7 @@ if('serviceWorker' in navigator&&location.protocol==='https:')
 /* Diagnóstico de velocidad: abre cualquier página con ?diag al final de la dirección.
    Aparece aunque la página no termine de cargar y se actualiza solo durante 30 s.
    Queda activo en todas las páginas hasta cerrar la pestaña; ?nodiag lo apaga. */
-const VERSION_APP='2.0.2';
+const VERSION_APP='2.2.0';
 (function(){
   try{
     if(/[?&]nodiag/.test(location.search))sessionStorage.removeItem('spark-diag');

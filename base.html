@@ -10,6 +10,12 @@
 <!-- Las tipografías cargan sin detener la página: mientras llegan se usa la letra del sistema. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Lilita+One&display=swap"></noscript>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#17203A">
+<link rel="icon" href="imagenes/icono-192.png" type="image/png">
+<link rel="apple-touch-icon" href="imagenes/icono-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SPARK">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -24,6 +30,7 @@
         <a class="cta" href="mision.html">Mi misión de hoy</a>
         <a class="cta cta-alt" href="bitacora.html">Mi bitácora</a>
       </div>
+      <div class="aviso-app" id="instalar" hidden></div>
     </div>
   </div>
   <section class="hud" aria-label="Tu progreso">
@@ -73,6 +80,6 @@
 </footer>
 
 <script src="js/grados.js"></script>
-<script>cargar('inicio','voz')</script>
+<script>cargar('inicio','voz','instalar')</script>
 </body>
 </html>

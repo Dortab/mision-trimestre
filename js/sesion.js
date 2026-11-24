@@ -134,6 +134,7 @@ function cerrar(n){
     h('p',{},`Acertaste ${sesion.aciertos} de ${n}${gano?` y ganaste ${gano} XP`:''}.`),
     h('p',{},salio?'¡Listo! Este tema ya no está por reforzar.':domino?'Este tema ya quedó como dominado.':'Quedó como «por reforzar». Puedes repasarlo cuando quieras desde el mapa de temas.'),
     h('p',{cls:'intro'},'Buen trabajo por hoy. Si quieres otra misión, primero levántate y toma agua.'),
+    necesitaRespaldo()?h('div',{cls:'resp-recordar'},h('p',{},h('b',{},'💾 ¿Guardamos tu avance?'),' Pídele a mamá, papá o a quien te cuida que guarde una copia. Así no se pierde lo que llevas.'),h('a',{cls:'btn',href:'respaldo.html'},'Ir a Respaldo de avance')):null,
     h('div',{cls:'row centro'},h('a',{cls:'btn main grande',href:'base.html'},'Terminar por hoy'),h('a',{cls:'btn',href:'bitacora.html'},'Ver mi bitácora'),h('button',{cls:'btn',onclick:()=>nuevaSesion()},'Otra misión'))));
   if(S.chispas%CADA_CHISPAS===0)setTimeout(()=>abrirCofre(S.chispas/CADA_CHISPAS,'constancia'),700);
 }
