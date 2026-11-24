@@ -551,3 +551,16 @@ a.btn:not(.main):not(.plain){color:var(--ink)}
 @keyframes entra{from{transform:translateY(-20px);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.app-bienvenida{animation:none}}
 .aviso-app.ok p,.aviso-app.neutro p{color:var(--ink);font-weight:400}
+/* Guía para instalar en iPhone */
+.guia-fondo{position:fixed;inset:0;z-index:200;background:#0008;display:flex;align-items:flex-end;justify-content:center;padding:12px}
+@media (min-width:600px){.guia-fondo{align-items:center}}
+.guia-ios{background:var(--panel);color:var(--ink);border:2.5px solid var(--line);border-radius:18px;padding:18px;max-width:28rem;width:100%;display:grid;gap:12px;box-shadow:4px 4px 0 var(--line);max-height:90vh;overflow:auto}
+.guia-cabeza{display:flex;gap:12px;align-items:center}
+.guia-cabeza img{border-radius:12px;flex:none}
+.guia-cabeza h2{font-size:22px;margin:0}
+.guia-cabeza p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.guia-pasos{margin:0;padding-left:1.4em;display:grid;gap:10px;font-size:17px;line-height:1.5}
+.guia-pasos li::marker{font-weight:700}
+.guia-icono{display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--soft);color:#0a66d8;margin:0 2px}
+.guia-nota{font-size:14px;color:var(--muted);margin:0}
+.guia-ios .btn.main{justify-self:stretch;padding:12px;font-size:18px}
